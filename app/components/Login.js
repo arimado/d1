@@ -3,14 +3,16 @@ import {
   StyleSheet,
   Text,
   TextInput,
+  TouchableHighlight,
+  TouchableOpacity,
   View
 } from 'react-native';
 
 import Styles from './Styles';
 
 class Login extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             text: ''
         }
@@ -20,6 +22,16 @@ class Login extends Component {
     _handleTextChange(text) {
         console.log(text);
         this.setState({text: text})
+    }
+
+    _signUpPress() {
+        console.log('sign up pressed');
+
+        console.log(this.props);
+
+        // this.props.navigator.push({
+        //   url: "Signup"
+        // })
     }
 
 
@@ -45,7 +57,9 @@ class Login extends Component {
                 />
                 <View style={Styles.buttons}>
                     <Text style={Styles.button}>Login</Text>
-                    <Text style={Styles.button}>Sign up</Text>
+                    <TouchableOpacity onPress={this._signUpPress}>
+                        <Text style={Styles.button}>Sign up</Text>
+                    </TouchableOpacity>
                 </View>
 
             </View>

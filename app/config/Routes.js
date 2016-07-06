@@ -10,24 +10,26 @@ import Signup from '../components/Signup';
 
 class Routes extends Component {
     _renderScene(route, navigator) {
-        switch(route.ident) {
+
+        // Not sure how this line works
+        var globalNavigatorProps = { navigator }
+
+        switch(route.url) {
             case "Login":
                 return (
-                    <Login />
+                    <Login {...globalNavigatorProps}/>
                 )
             case "Signup":
                 return (
-                    <Signup />
+                    <Signup {...globalNavigatorProps}/>
                 )
         }
     }
 
     render() {
         return (<Navigator
-            initialRoute={{ident: "Signup"}}
-            renderScene={this._renderScene} />)
-
-        // return (<Login />)
+            initialRoute={{url: "Login"}}
+            renderScene={this._renderScene} />);
     }
 }
 
