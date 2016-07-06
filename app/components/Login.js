@@ -26,22 +26,27 @@ class Login extends Component {
         return (
             <View>
                 <Text style={styles.welcome}>
-                Very cool react native
+                Login
                 </Text>
                 <Text>
                     {this.state.text}
                 </Text>
                 <Text style={styles.instructions}>
-                Press Cmd+R to reload,{'\n'}
-                What's going on?
+
+                This page should be replaced with Facebook authentication
+
                 </Text>
                 <TextInput
                     style={styles.input}
                     onChangeText={this._handleTextChange}
                     value={this.state.text}
+                    placeholder="email"
                 />
                 <TextInput
-                    style={styles.input} />
+                    style={styles.input}
+                    placeholder="password"
+                    secureTextEntry={true}
+                />
 
                 <Text style={styles.instructions} onSubmitEditing={this._}>
                 Lol city mate
@@ -65,7 +70,8 @@ const styles = StyleSheet.create({
   input: {
     fontSize: 20,
     borderWidth: 1,
-    height: 40
+    height: 40,
+    padding: 10
   }
 });
 
