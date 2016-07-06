@@ -22,9 +22,7 @@ class d1 extends Component {
     }
     render() {
         return (
-            <View>
                 <Login />
-            </View>
         );
     }
 }

@@ -42,6 +42,11 @@ class Login extends Component {
                     placeholder="password"
                     secureTextEntry={true}
                 />
+                <View style={styles.buttons}>
+                    =<Text style={styles.button}>Login</Text>
+                    <Text style={styles.button}>Sign up</Text>
+                </View>
+
             </View>
         )
     }
@@ -49,28 +54,34 @@ class Login extends Component {
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: '#F5FCFF',
-      padding: 10
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 10,
-  },
-  input: {
-    fontSize: 20,
-    borderWidth: 1,
-    height: 40,
-    padding: 10
-  }
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#F5FCFF',
+        padding: 10
+    },
+    welcome: {
+        fontSize: 20,
+        textAlign: 'center',
+        margin: 10,
+    },
+    instructions: {
+        textAlign: 'center',
+        color: '#333333',
+        marginBottom: 10,
+    },
+    input: {
+        fontSize: 20,
+        borderWidth: 1,
+        height: 40,
+        padding: 10
+    },
+    buttons: {
+        flexDirection: 'row'
+    },
+    button: {
+        padding: 20
+    }
 });
 
 export default Login;
