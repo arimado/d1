@@ -24,16 +24,16 @@ class d1 extends Component {
         this._handleTextChange = this._handleTextChange.bind(this);
     }
 
-    _handleTextChange(event) {
-        console.log(event)
-        this.setState({text: 'you typed'})
+    _handleTextChange(text) {
+        console.log(text);
+        this.setState({text: text})
     }
 
     render() {
         return (
             <View style={styles.container}>
                 <Text style={styles.welcome}>
-                Hey bro what up
+                Very cool react native
                 </Text>
                 <Text>
                     {this.state.text}
@@ -42,8 +42,11 @@ class d1 extends Component {
                 Press Cmd+R to reload,{'\n'}
                 What's going on?
                 </Text>
-                <TextInput style={styles.input} onChange={this._handleTextChange}/>
-                <TextInput style={styles.input}/>
+                <TextInput style={styles.input} onChangeText={this._handleTextChange}
+                value={this.state.text}/>
+                <TextInput
+                    style={styles.input} />
+
                 <Text style={styles.instructions} onSubmitEditing={this._}>
                 Lol city mate
                 </Text>
