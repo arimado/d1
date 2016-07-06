@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   View
 } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import Styles from './Styles';
 
@@ -43,7 +44,9 @@ class Login extends Component {
                     <Text style={Styles.welcome}>
                     Login
                     </Text>
+                    <Icon name="rocket" size={30} color="#900" />
                     <Text style={Styles.instructions}>
+
                         This page should be replaced with Facebook authentication
                     </Text>
                     <TextInput
