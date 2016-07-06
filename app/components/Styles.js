@@ -4,6 +4,14 @@ const Styles = StyleSheet.create({
     container: {
         flex: 1
     },
+    statusBarBg: {
+        height: 20,
+        marginBottom: 30,
+        backgroundColor: "red"
+    },
+    navBar: {
+        height: 30
+    },
     containerCenter: {
         flex: 1,
         justifyContent: 'center',

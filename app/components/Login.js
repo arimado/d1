@@ -8,8 +8,9 @@ import {
   View
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-
 import Styles from './Styles';
+import StatusBarBg from './StatusBarBg';
+import NavBar from './NavBar';
 
 class Login extends Component {
     constructor(props) {
@@ -40,6 +41,8 @@ class Login extends Component {
     render() {
         return (
             <View style={Styles.container}>
+                <StatusBarBg />
+                <NavBar />
                 <View style={Styles.containerCenter}>
                     <Text style={Styles.welcome}>
                     Login
