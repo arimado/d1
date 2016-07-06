@@ -24,17 +24,12 @@ class Login extends Component {
 
     render() {
         return (
-            <View>
+            <View style={styles.container}>
                 <Text style={styles.welcome}>
                 Login
                 </Text>
-                <Text>
-                    {this.state.text}
-                </Text>
                 <Text style={styles.instructions}>
-
-                This page should be replaced with Facebook authentication
-
+                    This page should be replaced with Facebook authentication
                 </Text>
                 <TextInput
                     style={styles.input}
@@ -47,16 +42,19 @@ class Login extends Component {
                     placeholder="password"
                     secureTextEntry={true}
                 />
-
-                <Text style={styles.instructions} onSubmitEditing={this._}>
-                Lol city mate
-                </Text>
             </View>
         )
     }
 }
 
 const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: '#F5FCFF',
+      padding: 10
+  },
   welcome: {
     fontSize: 20,
     textAlign: 'center',
@@ -65,7 +63,7 @@ const styles = StyleSheet.create({
   instructions: {
     textAlign: 'center',
     color: '#333333',
-    marginBottom: 5,
+    marginBottom: 10,
   },
   input: {
     fontSize: 20,

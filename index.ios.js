@@ -22,7 +22,7 @@ class d1 extends Component {
     }
     render() {
         return (
-            <View style={styles.container}>
+            <View>
                 <Login />
             </View>
         );
@@ -30,12 +30,6 @@ class d1 extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  }
 });
 
 AppRegistry.registerComponent('d1', () => d1);
