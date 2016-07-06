@@ -5,31 +5,8 @@
  */
 
 import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  TextInput,
-  View
-} from 'react-native';
-
+import { AppRegistry } from 'react-native';
 
 import Routes from './app/config/Routes'
-
-// class d1 extends Component {
-//
-//     constructor() {
-//         super()
-//     }
-//
-//     render() {
-//         return (
-//                 <Login />
-//         );
-//     }
-// }
-
-const styles = StyleSheet.create({
-});
 
 AppRegistry.registerComponent('d1', () => Routes);

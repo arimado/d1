@@ -6,23 +6,28 @@ import {
 } from 'react-native';
 
 import Login from '../components/Login';
+import Signup from '../components/Signup';
 
 class Routes extends Component {
     _renderScene(route, navigator) {
         switch(route.ident) {
             case "Login":
                 return (
-                    <PeopleIndexScreen />
+                    <Login />
+                )
+            case "Signup":
+                return (
+                    <Signup />
                 )
         }
     }
 
     render() {
-        // return (<Navigator
-        //     initialRoute={{ident: "PeopleIndex"}}
-        //     renderScene={this._renderScene} />)
+        return (<Navigator
+            initialRoute={{ident: "Signup"}}
+            renderScene={this._renderScene} />)
 
-        return (<Login />)
+        // return (<Login />)
     }
 }
 
