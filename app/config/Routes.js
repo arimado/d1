@@ -10,14 +10,15 @@ import Signup from '../components/Signup';
 
 class Routes extends Component {
     _renderScene(route, navigator) {
-
-        // Not sure how this line works
         var globalNavigatorProps = { navigator }
 
         switch(route.url) {
             case "Login":
+                // return (
+                //     <Login {...globalNavigatorProps}/>
+                // )
                 return (
-                    <Login {...globalNavigatorProps}/>
+                    <Login navigator={navigator}/>
                 )
             case "Signup":
                 return (

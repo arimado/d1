@@ -17,6 +17,7 @@ class Login extends Component {
             text: ''
         }
         this._handleTextChange = this._handleTextChange.bind(this);
+        this._signUpPress = this._signUpPress.bind(this);
     }
 
     _handleTextChange(text) {
@@ -29,9 +30,9 @@ class Login extends Component {
 
         console.log(this.props);
 
-        // this.props.navigator.push({
-        //   url: "Signup"
-        // })
+        this.props.navigator.push({
+          url: "Signup"
+        })
     }
 
 
