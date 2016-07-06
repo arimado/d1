@@ -39,30 +39,31 @@ class Login extends Component {
     render() {
         return (
             <View style={Styles.container}>
-                <Text style={Styles.welcome}>
-                Login
-                </Text>
-                <Text style={Styles.instructions}>
-                    This page should be replaced with Facebook authentication
-                </Text>
-                <TextInput
-                    style={Styles.input}
-                    onChangeText={this._handleTextChange}
-                    value={this.state.text}
-                    placeholder="email"
-                />
-                <TextInput
-                    style={Styles.input}
-                    placeholder="password"
-                    secureTextEntry={true}
-                />
-                <View style={Styles.buttons}>
-                    <Text style={Styles.button}>Login</Text>
-                    <TouchableOpacity onPress={this._signUpPress}>
-                        <Text style={Styles.button}>Sign up</Text>
-                    </TouchableOpacity>
+                <View style={Styles.containerCenter}>
+                    <Text style={Styles.welcome}>
+                    Login
+                    </Text>
+                    <Text style={Styles.instructions}>
+                        This page should be replaced with Facebook authentication
+                    </Text>
+                    <TextInput
+                        style={Styles.input}
+                        onChangeText={this._handleTextChange}
+                        value={this.state.text}
+                        placeholder="email"
+                    />
+                    <TextInput
+                        style={Styles.input}
+                        placeholder="password"
+                        secureTextEntry={true}
+                    />
+                    <View style={Styles.buttons}>
+                        <Text style={Styles.button}>Login</Text>
+                        <TouchableOpacity onPress={this._signUpPress}>
+                            <Text style={Styles.button}>Sign up</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
-
             </View>
         )
     }
