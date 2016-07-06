@@ -43,7 +43,7 @@ class Login extends Component {
                     secureTextEntry={true}
                 />
                 <View style={styles.buttons}>
-                    =<Text style={styles.button}>Login</Text>
+                    <Text style={styles.button}>Login</Text>
                     <Text style={styles.button}>Sign up</Text>
                 </View>
 

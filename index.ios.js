@@ -13,21 +13,23 @@ import {
   View
 } from 'react-native';
 
-import Login from './app/components/Login';
 
-class d1 extends Component {
+import Routes from './app/config/Routes'
 
-    constructor() {
-        super()
-    }
-    render() {
-        return (
-                <Login />
-        );
-    }
-}
+// class d1 extends Component {
+//
+//     constructor() {
+//         super()
+//     }
+//
+//     render() {
+//         return (
+//                 <Login />
+//         );
+//     }
+// }
 
 const styles = StyleSheet.create({
 });
 
-AppRegistry.registerComponent('d1', () => d1);
+AppRegistry.registerComponent('d1', () => Routes);
