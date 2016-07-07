@@ -5,9 +5,13 @@ import {
   View
 } from 'react-native';
 
+import DB from '../Fixture';
+
 import Login from '../components/Login';
 import Signup from '../components/Signup';
 import Decks from '../components/Decks';
+
+
 
 class Routes extends Component {
     _renderScene(route, navigator) {
@@ -26,15 +30,17 @@ class Routes extends Component {
                 )
             case "Decks":
                 return (
-                    <Decks />
+                    <Decks db={DB}/>
                 )
         }
     }
 
     render() {
-        return (<Navigator
+        return (
+            <Navigator
             initialRoute={{url: "Login"}}
-            renderScene={this._renderScene} />);
+            renderScene={this._renderScene} />
+        );
     }
 }
 

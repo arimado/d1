@@ -16,7 +16,15 @@ const Fixture = {
                     "Jon Snow",
                     "Rob Stark"
                  ]
-              }
+             },
+             {
+                question: 'Political Party',
+                answers: [
+                   "Greens",
+                   "Labor",
+                   "Liberal"
+                ]
+             }
           ],
         }
     ],
@@ -27,3 +35,5 @@ const Fixture = {
         {}
     ]
 }
+
+export default Fixture

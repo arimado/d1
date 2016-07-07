@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   View
 } from 'react-native';
+
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Styles from './Styles';
 import StatusBarBg from './StatusBarBg';
@@ -19,14 +20,37 @@ class Decks extends Component {
     }
 
     componentWillMount() {
-        console.log('hello')
     }
 
     render() {
 
+
+
+        let decks = this.props.db.decks.map((deck) => {
+
+            let questions = deck.questions.map((question, index)=> {
+                return (
+                    <View key={index}>
+                        <Text >
+                            {question.question}
+                        </Text>
+                    </View>
+                )
+            })
+
+            return (
+                <View>
+                    {questions}
+                </View>
+            )
+        })
+
+        console.log(decks);
+
         return (
             <View>
-                <Text>Decks</Text>
+                <StatusBarBg />
+                {decks}
             </View>
         )
     }
