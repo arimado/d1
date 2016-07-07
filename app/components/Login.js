@@ -42,7 +42,7 @@ class Login extends Component {
         return (
             <View style={Styles.container}>
                 <StatusBarBg />
-                <NavBar />
+                <NavBar navigator={this.props.navigator} />
                 <View style={Styles.containerCenter}>
                     <Text style={Styles.welcome}>
                     Login
