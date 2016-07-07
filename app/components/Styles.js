@@ -2,22 +2,20 @@ import { StyleSheet } from 'react-native';
 
 const Styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+        padding: 15,
+        backgroundColor: '#F5FCFF',
     },
     statusBarBg: {
         height: 20,
-        marginBottom: 30,
-        backgroundColor: "red"
     },
     navBar: {
-        height: 30
+
     },
     containerCenter: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#F5FCFF',
-        padding: 10
     },
     welcome: {
         fontSize: 20,

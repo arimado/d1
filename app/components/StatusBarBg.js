@@ -1,7 +1,8 @@
 
 import React, { Component } from 'react';
 import {
-  View
+  View,
+  Text,
 } from 'react-native';
 import Styles from './Styles';
 
@@ -9,7 +10,7 @@ import Styles from './Styles';
 class StatusBarBg extends Component {
     render() {
         return (
-            <View style={Styles.statusBarBackground}>
+            <View style={Styles.statusBarBg}>
             </View>
         )
     }

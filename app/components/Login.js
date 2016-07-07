@@ -49,7 +49,6 @@ class Login extends Component {
                     </Text>
                     <Icon name="rocket" size={30} color="#900" />
                     <Text style={Styles.instructions}>
-
                         This page should be replaced with Facebook authentication
                     </Text>
                     <TextInput
