@@ -24,7 +24,7 @@ class Signup extends Component {
                 <NavBar navigator={this.props.navigator} />
                 <View style={Styles.containerCenter}>
                     <Text style={Styles.welcome}>
-                    Signup
+                        Signup
                     </Text>
                     <TextInput
                         style={Styles.input}

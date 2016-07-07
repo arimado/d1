@@ -7,11 +7,11 @@ import {
 
 import Login from '../components/Login';
 import Signup from '../components/Signup';
+import Decks from '../components/Decks';
 
 class Routes extends Component {
     _renderScene(route, navigator) {
         var globalNavigatorProps = { navigator }
-
         switch(route.url) {
             case "Login":
                 // return (
@@ -23,6 +23,10 @@ class Routes extends Component {
             case "Signup":
                 return (
                     <Signup {...globalNavigatorProps}/>
+                )
+            case "Decks":
+                return (
+                    <Decks />
                 )
         }
     }

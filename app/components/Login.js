@@ -20,6 +20,7 @@ class Login extends Component {
         }
         this._handleTextChange = this._handleTextChange.bind(this);
         this._signUpPress = this._signUpPress.bind(this);
+        this._loginPress = this._loginPress.bind(this);
     }
 
     _handleTextChange(text) {
@@ -27,11 +28,16 @@ class Login extends Component {
         this.setState({text: text})
     }
 
+    _loginPress() {
+        console.log('login pressed')
+        this.props.navigator.push({
+          url: "Decks"
+        })
+    }
+
     _signUpPress() {
         console.log('sign up pressed');
-
         console.log(this.props);
-
         this.props.navigator.push({
           url: "Signup"
         })
@@ -63,7 +69,9 @@ class Login extends Component {
                         secureTextEntry={true}
                     />
                     <View style={Styles.buttons}>
-                        <Text style={Styles.button}>Login</Text>
+                        <TouchableOpacity onPress={this._loginPress}>
+                            <Text style={Styles.button}>Login</Text>
+                        </TouchableOpacity>
                         <TouchableOpacity onPress={this._signUpPress}>
                             <Text style={Styles.button}>Sign up</Text>
                         </TouchableOpacity>
