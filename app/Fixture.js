@@ -28,6 +28,27 @@ const Fixture = {
           ],
         }
     ],
+    questions: [
+        {
+           deckID: '#123',
+           question: 'Political Party',
+           type: 'text',
+           answers: [
+              "Greens",
+              "Labor",
+              "Liberal"
+           ]
+       },
+       {
+          question: 'Jon Snow or Rob Stark',
+          question: 'Political Party',
+          type: 'text',
+          answers: [
+             "Jon Snow",
+             "Rob Stark"
+          ]
+      }
+    ],
     chats: [
         {}
     ],

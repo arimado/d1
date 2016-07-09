@@ -12,7 +12,6 @@ import Signup from '../components/Signup';
 import Decks from '../components/Decks';
 
 
-
 class Routes extends Component {
     _renderScene(route, navigator) {
         var globalNavigatorProps = { navigator }
@@ -30,7 +29,7 @@ class Routes extends Component {
                 )
             case "Decks":
                 return (
-                    <Decks db={DB}/>
+                    <Decks db={DB} navigator={navigator}/>
                 )
         }
     }

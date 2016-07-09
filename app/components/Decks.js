@@ -12,6 +12,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import Styles from './Styles';
 import StatusBarBg from './StatusBarBg';
 import NavBar from './NavBar';
+import _ from 'lodash';
 
 class Decks extends Component {
 
@@ -25,22 +26,26 @@ class Decks extends Component {
     render() {
 
 
-
         let decks = this.props.db.decks.map((deck) => {
-
             let questions = deck.questions.map((question, index)=> {
+
+
+                // QUESTIONS OUTPUT HERE
                 return (
                     <View key={index}>
-                        <Text >
+                        <Text>
                             {question.question}
                         </Text>
                     </View>
                 )
-            })
+            });
 
+            // DECKS OUTPUT HERE
             return (
                 <View>
+                    <View>
                     {questions}
+                    </View>
                 </View>
             )
         })
@@ -50,6 +55,7 @@ class Decks extends Component {
         return (
             <View>
                 <StatusBarBg />
+                <NavBar navigator={this.props.navigator}/>
                 {decks}
             </View>
         )
