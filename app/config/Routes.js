@@ -18,35 +18,65 @@ import Login from '../components/Login';
 import Signup from '../components/Signup';
 import Decks from '../components/Decks';
 
+// class Routes extends Component {
+//
+//     constructor(props) {
+//         super(props)
+//     }
+//
+//     _renderScene(route, navigator) {
+//         var globalNavigatorProps = { navigator }
+//         switch(route.url) {
+//             case "Login":
+//                 return (
+//                     <Login navigator={navigator}/>
+//                 )
+//             case "Signup":
+//                 return (
+//                     <Signup {...globalNavigatorProps}/>
+//                 )
+//             case "Decks":
+//                 return (
+//                     <Decks db={DB} navigator={navigator}/>
+//                 )
+//         }
+//     }
+//
+//     render() {
+//         return (
+//                 <Navigator
+//                     initialRoute={{url: "Login"}}
+//                     renderScene={this._renderScene} />
+//         );
+//     }
+// }
+
+
 class Routes extends Component {
 
     constructor(props) {
         super(props)
     }
 
-    _renderScene(route, navigator) {
-        var globalNavigatorProps = { navigator }
-        switch(route.url) {
-            case "Login":
-                return (
-                    <Login navigator={navigator}/>
-                )
-            case "Signup":
-                return (
-                    <Signup {...globalNavigatorProps}/>
-                )
-            case "Decks":
-                return (
-                    <Decks db={DB} navigator={navigator}/>
-                )
+    _renderScene(props) {
+
+        const prefix = 'scene_'
+        const { scene } = props
+        if (scene.key === prefix + 'login') {
+            return  <Login />
         }
+        if (scene.key === prefix + 'about') {
+            return <Signup />
+        }
+
     }
 
     render() {
         return (
-                <Navigator
-                    initialRoute={{url: "Login"}}
-                    renderScene={this._renderScene} />
+            <NavigationCardStack
+                  navigationState={this.props.navigation}
+                  onNavigate={this._handleNavigate.bind(this)}
+                  renderScene={this._renderScene} />
         );
     }
 }
