@@ -29,7 +29,6 @@ const deck = (state, action) => {
 };
 
 const decks = (state = [], action) => {
-    console.log(state);
     switch (action.type) {
         case 'ADD_DECK':
             return [
@@ -40,6 +39,45 @@ const decks = (state = [], action) => {
             return state;
     }
 };
+
+
+// const login_field = (state, action) => {
+//     switch (action.type) {
+//         case 'CHANGE_LOGIN_FIELD_EMAIL':
+//             return {
+//                 id: action.id,
+//                 text: action.text
+//             }
+//             break;
+//         case 'CHANGE_LOGIN_FIELD_PASSWORD':
+//             return {
+//                 id: action.id,
+//                 text: action.text
+//             }
+//         default:
+//             return state;
+//     }
+// }
+
+const loginReducer = (
+    state = { username: 'username', password: 'password' },
+    action
+) => {
+    switch (action.type) {
+        case 'CHANGE_LOGIN_FIELD_USERNAME':
+            return Object.assign({}, todo, {
+                username: action.text
+            });
+            break;
+        default:
+            return state;
+    }
+}
+
+const d1App = combineReducers({
+    decks: decks,
+    login_field: loginReducer
+});
 
 
 class Routes extends Component {
@@ -63,7 +101,7 @@ class Routes extends Component {
 
     render() {
         return (
-            <Provider store={createStore(decks)}>
+            <Provider store={createStore(d1App)}>
                 <Navigator
                     initialRoute={{url: "Login"}}
                     renderScene={this._renderScene} />
