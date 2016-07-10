@@ -100,22 +100,17 @@ const mapStateToProps = ( state ) => {
 };
 const mapDispatchToProps = ( dispatch ) => {
   return {
-    onTodoClick: (id) => {
+    onDeckClick: (id) => {
       dispatch({
-        type: 'TOGGLE_TODO',
-        id
+        type: 'ADD_TODO',
+        id: id,
+        text: 'this is a test'
       });
     }
   };
 };
 
-// const VisibleTodoList = connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(TodoList);
-
-
-const Login = () => {
+const Login = ({decks, onDeckClick}) => {
     return (
         <View style={Styles.container}>
             <StatusBarBg />
@@ -138,7 +133,10 @@ const Login = () => {
                 />
                 <View style={Styles.buttons}>
                     <TouchableOpacity>
-                        <Text style={Styles.button}>Login</Text>
+                        <Text style={Styles.button}
+                              onPress={
+                                  onDeckClick(Math.floor(Math.random() * 20))
+                              }>Login</Text>
                     </TouchableOpacity>
                     <TouchableOpacity>
                         <Text style={Styles.button}>Sign up</Text>
@@ -150,6 +148,11 @@ const Login = () => {
 }
 
 
+const LoginContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Login);
 
 
-export default Login;
+
+export default LoginContainer;
