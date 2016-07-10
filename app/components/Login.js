@@ -86,30 +86,6 @@ import { connect, Provider } from 'react-redux'
 // }
 
 
-const getVisibleTodos = ( todos, filter ) => {
-
-}
-
-const mapStateToProps = ( state ) => {
-  return {
-    todos: getVisibleTodos(
-      state.todos,
-      state.visibilityFilter
-    )
-  };
-};
-const mapDispatchToProps = ( dispatch ) => {
-  return {
-    onDeckClick: (id) => {
-      dispatch({
-        type: 'ADD_TODO',
-        id: id,
-        text: 'this is a test'
-      });
-    }
-  };
-};
-
 const Login = ({decks, onDeckClick}) => {
     return (
         <View style={Styles.container}>
@@ -135,7 +111,12 @@ const Login = ({decks, onDeckClick}) => {
                     <TouchableOpacity>
                         <Text style={Styles.button}
                               onPress={
-                                  onDeckClick(Math.floor(Math.random() * 20))
+                                  ()=>{
+                                      onDeckClick(Math.floor(Math.random() * 20), () => {
+                                          console.log('pressed login')
+                                         console.log(decks);
+                                      })
+                                  }
                               }>Login</Text>
                     </TouchableOpacity>
                     <TouchableOpacity>
@@ -147,6 +128,25 @@ const Login = ({decks, onDeckClick}) => {
     )
 }
 
+
+const mapStateToProps = ( state ) => {
+  return {
+    decks: state.decks
+  };
+};
+
+const mapDispatchToProps = ( dispatch ) => {
+  return {
+    onDeckClick: (id, done) => {
+      dispatch({
+        type: 'ADD_DECK',
+        id: id,
+        text: 'this is a test'
+      });
+      done();
+    }
+  };
+};
 
 const LoginContainer = connect(
   mapStateToProps,

@@ -28,22 +28,19 @@ const deck = (state, action) => {
   }
 };
 
-
 const decks = (state = [], action) => {
-  switch (action.type) {
-    case 'ADD_DECK':
-      return [
-        ...state,
-        deck(undefined, action)
-      ];
-    default:
-      return state;
-  }
+    console.log(state);
+    switch (action.type) {
+        case 'ADD_DECK':
+            return [
+                ...state,
+                deck(undefined, action)
+            ];
+        default:
+            return state;
+    }
 };
 
-{/*<Provider store={createStore(todoApp)}>
-  <TodoApp />
-</Provider>*/}
 
 class Routes extends Component {
     _renderScene(route, navigator) {
