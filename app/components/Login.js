@@ -131,7 +131,7 @@ const Login = ({decks, onDeckClick}) => {
 
 const mapStateToProps = ( state ) => {
   return {
-    decks: state.decks
+    decks: state
   };
 };
 
@@ -148,10 +148,7 @@ const mapDispatchToProps = ( dispatch ) => {
   };
 };
 
-const LoginContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Login);
+const LoginContainer = connect(mapStateToProps,mapDispatchToProps)(Login);
 
 
 
