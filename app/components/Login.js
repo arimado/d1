@@ -15,7 +15,9 @@ import NavBar from './NavBar';
 import { createStore, combineReducers } from 'redux';
 import { connect, Provider } from 'react-redux'
 
-const Login = ({login_field, onDeckClick, onUserFieldChange}) => {
+const Login = ({login_field, onDeckClick, onUserFieldChange}, props) => {
+    let args = arguments;
+
     return (
         <View style={Styles.container}>
             <StatusBarBg />
@@ -31,8 +33,9 @@ const Login = ({login_field, onDeckClick, onUserFieldChange}) => {
                     style={Styles.input}
                     placeholder="email"
                     onChangeText={(value) => {
+                        console.log(args)
+                        console.log(props);
                         onUserFieldChange(value)
-                        console.log(login_field);
                     }}
                 />
                 <TextInput
@@ -61,7 +64,6 @@ const Login = ({login_field, onDeckClick, onUserFieldChange}) => {
     )
 }
 
-
 const mapStateToProps = ( state ) => {
   return {
     login_field: state.login_field
@@ -84,7 +86,6 @@ const mapDispatchToProps = ( dispatch ) => {
             text: value
         })
     }
-
   };
 };
 
