@@ -65,7 +65,7 @@ const loginReducer = (
 ) => {
     switch (action.type) {
         case 'CHANGE_LOGIN_FIELD_USERNAME':
-            return Object.assign({}, todo, {
+            return Object.assign({}, state, {
                 username: action.text
             });
             break;

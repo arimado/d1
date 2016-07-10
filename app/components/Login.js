@@ -15,7 +15,7 @@ import NavBar from './NavBar';
 import { createStore, combineReducers } from 'redux';
 import { connect, Provider } from 'react-redux'
 
-const Login = ({decks, onDeckClick}) => {
+const Login = ({login_field, onDeckClick, onUserFieldChange}) => {
     return (
         <View style={Styles.container}>
             <StatusBarBg />
@@ -30,6 +30,10 @@ const Login = ({decks, onDeckClick}) => {
                 <TextInput
                     style={Styles.input}
                     placeholder="email"
+                    onChangeText={(value) => {
+                        onUserFieldChange(value)
+                        console.log(login_field);
+                    }}
                 />
                 <TextInput
                     style={Styles.input}
@@ -43,7 +47,7 @@ const Login = ({decks, onDeckClick}) => {
                                   ()=>{
                                       onDeckClick(Math.floor(Math.random() * 20), () => {
                                           console.log('pressed login')
-                                         console.log(decks);
+                                         console.log(login_field);
                                       })
                                   }
                               }>Login</Text>
@@ -60,7 +64,7 @@ const Login = ({decks, onDeckClick}) => {
 
 const mapStateToProps = ( state ) => {
   return {
-    decks: state
+    login_field: state.login_field
   };
 };
 
@@ -73,7 +77,14 @@ const mapDispatchToProps = ( dispatch ) => {
         text: 'this is a test'
       });
       done();
+    },
+    onUserFieldChange: (value) => {
+        dispatch({
+            type: 'CHANGE_LOGIN_FIELD_USERNAME',
+            text: value
+        })
     }
+
   };
 };
 
