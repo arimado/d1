@@ -17,9 +17,6 @@ class Routes extends Component {
         var globalNavigatorProps = { navigator }
         switch(route.url) {
             case "Login":
-                // return (
-                //     <Login {...globalNavigatorProps}/>
-                // )
                 return (
                     <Login navigator={navigator}/>
                 )

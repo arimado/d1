@@ -25,11 +25,8 @@ class Decks extends Component {
 
     render() {
 
-
         let decks = this.props.db.decks.map((deck) => {
             let questions = deck.questions.map((question, index)=> {
-
-
                 // QUESTIONS OUTPUT HERE
                 return (
                     <View key={index}>
