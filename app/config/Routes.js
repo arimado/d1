@@ -20,6 +20,10 @@ import Decks from '../components/Decks';
 
 class Routes extends Component {
 
+    constructor(props) {
+        super(props)
+    }
+
     _renderScene(route, navigator) {
         var globalNavigatorProps = { navigator }
         switch(route.url) {
