@@ -13,11 +13,9 @@ function mapStateToProps (state) {
 
 function mapDispatchToProps (dispatch) {
   return {
-    submitDeck: (route) => dispatch(submitDeck())
+    submitDeck: (deck) => dispatch(submitDeck(deck))
   }
 }
-
-
 
 export default connect(
   mapStateToProps,
