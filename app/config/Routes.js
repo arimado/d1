@@ -17,6 +17,9 @@ const {
 
 import Login from '../components/Login';
 import Signup from '../components/Signup';
+import DecksContainer from '../containers/DecksContainer'
+
+
 import Decks from '../components/Decks';
 
 // class Routes extends Component {
@@ -88,6 +91,9 @@ class Routes extends Component {
         }
         if (scene.key === prefix + 'sign_up') {
             return <Signup _handleNavigate={this._handleNavigate.bind(this)} />
+        }
+        if (scene.key === prefix + 'decks') {
+            return <DecksContainer _handleNavigate={this._handleNavigate.bind(this)} />
         }
     }
 

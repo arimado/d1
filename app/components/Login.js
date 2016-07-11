@@ -24,6 +24,15 @@ const SIGN_UP_ROUTE = {
 }
 
 
+const DECKS_ROUTE = {
+  type: 'push',
+  route: {
+    key: 'decks',
+    title: 'Decks'
+  }
+}
+
+
 const Login = ({login_field, onDeckClick, onUserFieldChange, _handleNavigate}) => {
 
     let args = arguments;
@@ -45,8 +54,6 @@ const Login = ({login_field, onDeckClick, onUserFieldChange, _handleNavigate}) =
                     style={Styles.input}
                     placeholder="email"
                     onChangeText={(value) => {
-                        console.log(args)
-                        console.log(props);
                         onUserFieldChange(value)
                     }}
                 />
@@ -60,10 +67,7 @@ const Login = ({login_field, onDeckClick, onUserFieldChange, _handleNavigate}) =
                         <Text style={Styles.button}
                               onPress={
                                   ()=>{
-                                      onDeckClick(Math.floor(Math.random() * 20), () => {
-                                          console.log('pressed login')
-                                         console.log(login_field);
-                                      })
+                                     _handleNavigate(DECKS_ROUTE);
                                   }
                               }>Login</Text>
                     </TouchableOpacity>

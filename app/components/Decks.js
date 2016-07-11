@@ -24,36 +24,34 @@ class Decks extends Component {
     }
 
     render() {
-
-        let decks = this.props.db.decks.map((deck) => {
-            let questions = deck.questions.map((question, index)=> {
-                // QUESTIONS OUTPUT HERE
-                return (
-                    <View key={index}>
-                        <Text>
-                            {question.question}
-                        </Text>
-                    </View>
-                )
-            });
-
-            // DECKS OUTPUT HERE
-            return (
-                <View>
-                    <View>
-                    {questions}
-                    </View>
-                </View>
-            )
-        })
-
-        console.log(decks);
+        //
+        // let decks = this.props.db.decks.map((deck) => {
+        //     let questions = deck.questions.map((question, index)=> {
+        //         // QUESTIONS OUTPUT HERE
+        //         return (
+        //             <View key={index}>
+        //                 <Text>
+        //                     {question.question}
+        //                 </Text>
+        //             </View>
+        //         )
+        //     });
+        //
+        //     // DECKS OUTPUT HERE
+        //     return (
+        //         <View>
+        //             <View>
+        //             {questions}
+        //             </View>
+        //         </View>
+        //     )
+        // })
 
         return (
             <View>
                 <StatusBarBg />
                 <NavBar navigator={this.props.navigator}/>
-                {decks}
+                <Text>Decks View</Text>
             </View>
         )
     }
