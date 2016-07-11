@@ -75,6 +75,19 @@ export const addQuestion = ( question ) => {
 }
 
 
+export const UPDATE_ANSWER = 'UPDATE_ANSWER';
+
+export const updateAnswer = ( answer ) => {
+    return { type: UPDATE_ANSWER,
+        answer: {
+                id: answer.id,
+           content: answer.content
+        }
+    }
+}
+
+
+
 
 
 // export const REQUEST_DECKS = 'REQUEST_DECKS'

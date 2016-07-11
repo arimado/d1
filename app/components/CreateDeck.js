@@ -41,11 +41,15 @@ class CreateDeck extends Component {
             let answersElement = answers.map((answer) => {
                 return (
                     <TextInput
-                        key={randomNumber()}
+                        key={answer.id}
                         style={Styles.input}
                         placeholder="Answer"
                         value={answer.content}
                         onChangeText={(value) => {
+                            this.props.updateAnswer({
+                                id: answer.id,
+                                content: value
+                            })
                         }}
                     />
                 )
@@ -61,6 +65,7 @@ class CreateDeck extends Component {
                         placeholder="Question"
                         value={question.content}
                         onChangeText={(value) => {
+
                         }}/>
                     <Text style={Styles.label}>Answers</Text>
 
