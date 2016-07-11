@@ -54,8 +54,10 @@ import Decks from '../components/Decks';
 
 class Routes extends Component {
 
-    constructor(props) {
-        super(props)
+    constructor(props, context) {
+        super(props, context)
+        console.log(props);
+        console.log(context);
     }
 
     _renderScene(props) {
@@ -71,6 +73,10 @@ class Routes extends Component {
 
     }
 
+    _handleNavigate() {
+
+    }
+
     render() {
         return (
             <NavigationCardStack
@@ -80,5 +86,9 @@ class Routes extends Component {
         );
     }
 }
+
+Routes.contextTypes = {
+  store: React.PropTypes.object
+};
 
 export default Routes
