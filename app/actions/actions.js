@@ -33,6 +33,19 @@ export const submitDeck = (deck) => {
 
 }
 
+
+export const ADD_DECK = 'ADD_DECK';
+
+export const addDeck = ( deck ) => {
+    return {
+        type: ADD_DECK,
+        deck: {
+            deckID: deck.id,
+            userID: deck.userID
+        }
+    }
+}
+
 export const ADD_QUESTION = 'ADD_QUESTION';
 
 export const addQuestion = ( question ) => {

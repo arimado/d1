@@ -35,29 +35,20 @@ const deck = (state, action) => {
 
 const decks = (state = {
         decks: [
-            { id: 1 }
         ],
         questions: [
-            {
-              id: 1,
-              deckID: 1,
-              content: 'asd'
-            }
         ],
         answers: [
-            {
-                id: 1,
-                questionID: 1,
-                content: 'lol city'
-            }
         ],
 }, action) => {
     switch (action.type) {
         case 'ADD_DECK':
-            return [
-                ...state,
-                deck(undefined, action)
-            ];
+            return Object.assign({}, state, {
+                decks: [
+                    ...state.decks,
+                    action.deck
+                ]
+            })
         case 'ADD_QUESTION':
             // find the question that belongs to the correct deck
             let questions = state.questions;

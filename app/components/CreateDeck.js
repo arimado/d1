@@ -13,6 +13,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import Styles from './Styles';
 import StatusBarBg from './StatusBarBg';
 import NavBar from './NavBar';
+import NavBarContainer from '../containers/NavBarContainer'
 import _ from 'lodash';
 
 class CreateDeck extends Component {
@@ -62,6 +63,18 @@ class CreateDeck extends Component {
                     <Text style={Styles.label}>Answers</Text>
 
                     {answersElement}
+
+                    <TouchableOpacity
+                        onPress={() => {this.props.addQuestion(question)}}
+                        style={Styles.input}>
+                        <Text> + Question </Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity
+                        onPress={() => {this.props.submitDeck({content: 'hi there'})}}
+                        style={Styles.button}>
+                        <Text> {submitText} </Text>
+                    </TouchableOpacity>
                 </View>
 
             )
@@ -71,20 +84,12 @@ class CreateDeck extends Component {
         return (
             <View style={Styles.container}>
                 <StatusBarBg />
-                <NavBar _handleNavigate={this.props._handleNavigate}/>
+
+                <NavBarContainer _handleNavigate={this.props._handleNavigate}/>
 
                 {questionsElement}
 
-                <TouchableOpacity
-                    onPress={() => {this.props.addQuestion(question)}}
-                    style={Styles.input}>
-                    <Text> + Question </Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    onPress={() => {this.props.submitDeck({content: 'hi there'})}}
-                    style={Styles.button}>
-                    <Text> {submitText} </Text>
-                </TouchableOpacity>
+
                 </View>
         )
     }
