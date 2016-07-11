@@ -57,7 +57,22 @@ class Routes extends Component {
 
     constructor(props, context) {
         super(props, context)
+        this._renderScene = this._renderScene.bind(this)
     }
+
+    _handleNavigate(action) {
+        switch (action && action.type) {
+            case 'push':
+                this.props.pushRoute(action.route)
+                return true
+            case 'back':
+            case 'pop':
+                return this._handleBackAction()
+            default:
+                return false
+        }
+    }
+
     _renderScene(props) {
 
         console.log(props);
@@ -65,15 +80,11 @@ class Routes extends Component {
         const prefix = 'scene_'
         const { scene } = props
         if (scene.key === prefix + 'login') {
-            return  <Login />
+            return  <Login _handleNavigate={this._handleNavigate.bind(this)}/>
         }
-        if (scene.key === prefix + 'about') {
+        if (scene.key === prefix + 'sign_up') {
             return <Signup />
         }
-    }
-
-    _handleNavigate() {
-
     }
 
     render() {

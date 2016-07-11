@@ -15,8 +15,20 @@ import NavBar from './NavBar';
 import { createStore, combineReducers } from 'redux';
 import { connect, Provider } from 'react-redux'
 
-const Login = ({login_field, onDeckClick, onUserFieldChange}, props) => {
+const SIGN_UP_ROUTE = {
+  type: 'push',
+  route: {
+    key: 'sign_up',
+    title: 'sign_up'
+  }
+}
+
+
+const Login = ({login_field, onDeckClick, onUserFieldChange, _handleNavigate}) => {
+
     let args = arguments;
+
+    console.log(_handleNavigate);
 
     return (
         <View style={Styles.container}>
@@ -56,7 +68,13 @@ const Login = ({login_field, onDeckClick, onUserFieldChange}, props) => {
                               }>Login</Text>
                     </TouchableOpacity>
                     <TouchableOpacity>
-                        <Text style={Styles.button}>Sign up</Text>
+                        <Text
+                            style={Styles.button}
+                            onPress={
+                            ()=> {
+                                _handleNavigate(SIGN_UP_ROUTE);
+                            }}
+                            >Sign up</Text>
                     </TouchableOpacity>
                 </View>
             </View>

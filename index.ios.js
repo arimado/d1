@@ -5,11 +5,17 @@
  */
 
 import React, { Component } from 'react';
-import { AppRegistry, Text } from 'react-native';
+import { AppRegistry, Text, NavigationExperimental } from 'react-native';
 import { createStore, combineReducers } from 'redux';
 import { connect, Provider } from 'react-redux'
 
 import RoutesContainer from './app/containers/RoutesContainer'
+
+const {
+  CardStack: NavigationCardStack,
+  StateUtils: NavigationStateUtils
+} = NavigationExperimental
+
 
 const deck = (state, action) => {
   switch (action.type) {
