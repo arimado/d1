@@ -76,7 +76,10 @@ class CreateDeck extends Component {
                         <Text> + Answer </Text>
                     </TouchableOpacity>
                     <TouchableOpacity
-                        onPress={() => {this.props.addQuestion(question)}}
+                        onPress={() => {this.props.addQuestion({
+                            id: randomNumber(),
+                        deckID: newDeckID
+                        })}}
                         style={Styles.input}>
                         <Text> + Question </Text>
                     </TouchableOpacity>

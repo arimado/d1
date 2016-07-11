@@ -54,14 +54,10 @@ const decks = (state = {
                 ]
             })
         case 'ADD_QUESTION':
-            // find the question that belongs to the correct deck
-            let questions = state.questions;
-            let index = _.findIndex(state.questions, { deckID: action.deckID })
             return Object.assign({}, state, {
                 questions: [
-                    ...questions.slice(0, index),
-                    Object.assign({}, questions[index], {content: action.value}),
-                    ...questions.slice(questions.length - index)
+                    ...state.questions,
+                    action.question
                   ]
             })
         case 'ADD_ANSWER':

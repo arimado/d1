@@ -21,14 +21,12 @@ export const submitDeck = (deck) => {
     return (dispatch) => {
         // activate spinner
         dispatch(postDeck(deck))
-
         return axios.post('http://localhost:3005/api/decks', deck)
                     .then(res => {
                         console.log('axios recieved something')
                         dispatch(postDeckSuccess(deck))
                     })
                     .catch(error => console.log('error: ', error))
-
     }
 
 }
@@ -64,14 +62,15 @@ export const addAnswer = ( answer ) => {
 }
 
 
-
-
 export const ADD_QUESTION = 'ADD_QUESTION';
 
 export const addQuestion = ( question ) => {
     return {
         type: ADD_QUESTION,
-        question: question
+        question: {
+                    id: question.id,
+                deckID: question.deckID
+        }
     }
 }
 
