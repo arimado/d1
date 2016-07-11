@@ -35,6 +35,7 @@ class NavBar extends Component {
     let deckTemplate = {
         id: randomNumber(),
         userID: randomNumber(),
+        questionID: randomNumber(),
     }
 
 

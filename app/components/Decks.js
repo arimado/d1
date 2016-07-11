@@ -11,7 +11,7 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Styles from './Styles';
 import StatusBarBg from './StatusBarBg';
-import NavBar from './NavBar';
+import NavBarContainer from '../containers/NavBarContainer';
 import _ from 'lodash';
 
 class Decks extends Component {
@@ -50,7 +50,7 @@ class Decks extends Component {
         return (
             <View style={Styles.container}>
                 <StatusBarBg />
-                <NavBar _handleNavigate={this.props._handleNavigate}/>
+                <NavBarContainer _handleNavigate={this.props._handleNavigate}/>
                 <Text>Decks View</Text>
             </View>
         )

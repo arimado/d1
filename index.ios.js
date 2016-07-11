@@ -47,6 +47,10 @@ const decks = (state = {
                 decks: [
                     ...state.decks,
                     action.deck
+                ],
+                questions: [
+                    ...state.questions,
+                    action.question
                 ]
             })
         case 'ADD_QUESTION':
@@ -114,8 +118,11 @@ const initialState = {
     key: 'root',
     routes: [
         {
-            key: 'create_deck',
-            title: 'Create Deck'
+            // key: 'create_deck',
+            // title: 'Create Deck'
+            key: 'login',
+            title: 'Welcome'
+
         }
     ]
 }

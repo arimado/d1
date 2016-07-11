@@ -40,8 +40,12 @@ export const addDeck = ( deck ) => {
     return {
         type: ADD_DECK,
         deck: {
-            deckID: deck.id,
+            id: deck.id,
             userID: deck.userID
+        },
+        question: {
+            id: deck.questionID,
+            deckID: deck.id,
         }
     }
 }
