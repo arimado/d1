@@ -7,7 +7,7 @@
 import React, { Component } from 'react';
 import { AppRegistry, Text, NavigationExperimental } from 'react-native';
 import { createStore, combineReducers } from 'redux';
-import { connect, Provider } from 'react-redux'
+import { connect, Provider } from 'react-redux';
 
 import RoutesContainer from './app/containers/RoutesContainer'
 
@@ -62,8 +62,8 @@ const initialState = {
     key: 'root',
     routes: [
         {
-            key: 'login',
-            title: 'Welcome Home'
+            key: 'create_deck',
+            title: 'Create Deck'
         }
     ]
 }

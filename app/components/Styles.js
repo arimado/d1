@@ -43,7 +43,7 @@ const Styles = StyleSheet.create({
     label: {
         marginBottom: 10
     },
-    
+
     instructions: {
         textAlign: 'center',
         color: '#333333',
@@ -60,7 +60,10 @@ const Styles = StyleSheet.create({
         flexDirection: 'row'
     },
     button: {
-        padding: 20
+        padding: 20,
+        backgroundColor: '#CCCCCC',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
 
 

@@ -8,6 +8,7 @@ import {
   View
 } from 'react-native';
 
+import axios from 'axios';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Styles from './Styles';
 import StatusBarBg from './StatusBarBg';
@@ -30,7 +31,6 @@ class CreateDeck extends Component {
                     style={Styles.input}
                     placeholder="Question"
                     onChangeText={(value) => {
-
                     }}
                 />
                 <Text style={Styles.label}>Answers</Text>
@@ -54,7 +54,20 @@ class CreateDeck extends Component {
 
                     }}
                 />
-            </View>
+                <TouchableOpacity
+                    onPress={() => {
+                        axios.get('http://localhost:3005/api/hello')
+                              .then(function (response) {
+                                console.log(response);
+                              })
+                              .catch(function (error) {
+                                console.log(error);
+                              });
+                    }}
+                    style={Styles.button}>
+                    <Text> CREATE </Text>
+                </TouchableOpacity>
+                </View>
         )
     }
 
