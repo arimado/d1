@@ -56,7 +56,7 @@ class CreateDeck extends Component {
             })
 
             return (
-                <View key={randomNumber()}>
+                <View key={1}>
                     <Text
                         style={Styles.label}>Question</Text>
                     <TextInput
@@ -75,7 +75,8 @@ class CreateDeck extends Component {
                         onPress={() => {
                             this.props.addAnswer({
                                 id: randomNumber(),
-                                questionID: question.id
+                                questionID: question.id,
+                                content: ''
                             })
                         }}
                         style={Styles.input}>

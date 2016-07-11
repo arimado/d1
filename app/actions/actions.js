@@ -56,7 +56,8 @@ export const addAnswer = ( answer ) => {
         type: ADD_ANSWER,
         answer: {
                     id: answer.id,
-            questionID: answer.questionID
+            questionID: answer.questionID,
+               content: answer.content
         }
     }
 }
