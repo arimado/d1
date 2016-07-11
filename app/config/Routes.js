@@ -3,7 +3,8 @@ import {
   AppRegistry,
   Navigator,
   NavigationExperimental,
-  View
+  View,
+  Text
 } from 'react-native';
 
 import { createStore, combineReducers } from 'redux';
@@ -75,7 +76,6 @@ class Routes extends Component {
     }
 
     render() {
-
         return (
             <NavigationCardStack
                   navigationState={this.props.navigation}
@@ -84,9 +84,5 @@ class Routes extends Component {
         );
     }
 }
-
-Routes.contextTypes = {
-  store: React.PropTypes.object
-};
 
 export default Routes
