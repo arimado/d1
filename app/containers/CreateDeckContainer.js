@@ -5,13 +5,13 @@ import Decks from '../components/Decks'
 import CreateDeck from '../components/CreateDeck'
 import { submitDeck } from '../actions/actions'
 
-function mapStateToProps (state) {
+const mapStateToProps = (state) => {
   return {
-    decks: state.decks
+    ownDeck: state.ownDeck
   }
 }
 
-function mapDispatchToProps (dispatch) {
+const mapDispatchToProps = (dispatch) => {
   return {
     submitDeck: (deck) => dispatch(submitDeck(deck))
   }

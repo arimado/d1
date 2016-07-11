@@ -22,6 +22,10 @@ class CreateDeck extends Component {
     componentWillMount() {
     }
     render() {
+
+
+        let submitText = this.props.ownDeck.isPosting ? "..." : "Submit";
+
         return (
             <View style={Styles.container}>
                 <StatusBarBg />
@@ -57,7 +61,7 @@ class CreateDeck extends Component {
                 <TouchableOpacity
                     onPress={() => {this.props.submitDeck({content: 'hi there'})}}
                     style={Styles.button}>
-                    <Text> CREATE </Text>
+                    <Text> {submitText} </Text>
                 </TouchableOpacity>
                 </View>
         )
