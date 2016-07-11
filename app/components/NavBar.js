@@ -13,6 +13,14 @@ const BACK_ROUTE = {
   type: 'back'
 }
 
+const CREATE_DECK = {
+  type: 'push',
+  route: {
+    key: 'create_deck',
+    title: 'Create A Deck'
+  }
+}
+
 class NavBar extends Component {
 
     constructor(props) {
@@ -27,7 +35,9 @@ class NavBar extends Component {
             <TouchableOpacity onPress={()=>{this.props._handleNavigate(BACK_ROUTE)}}>
                 <Icon name="chevron-left" size={30} color="#900" />
             </TouchableOpacity>
-            <TouchableOpacity style={Styles.createDeckButton}>
+            <TouchableOpacity
+                onPress={()=>{this.props._handleNavigate(CREATE_DECK)}}
+                style={Styles.createDeckButton}>
                 <Text >Create Deck</Text>
             </TouchableOpacity>
         </View>

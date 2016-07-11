@@ -17,44 +17,11 @@ const {
 
 import Login from '../components/Login';
 import Signup from '../components/Signup';
-import DecksContainer from '../containers/DecksContainer'
+import DecksContainer from '../containers/DecksContainer';
+import CreateDeckContainer from '../containers/CreateDeckContainer';
 
 
 import Decks from '../components/Decks';
-
-// class Routes extends Component {
-//
-//     constructor(props) {
-//         super(props)
-//     }
-//
-//     _renderScene(route, navigator) {
-//         var globalNavigatorProps = { navigator }
-//         switch(route.url) {
-//             case "Login":
-//                 return (
-//                     <Login navigator={navigator}/>
-//                 )
-//             case "Signup":
-//                 return (
-//                     <Signup {...globalNavigatorProps}/>
-//                 )
-//             case "Decks":
-//                 return (
-//                     <Decks db={DB} navigator={navigator}/>
-//                 )
-//         }
-//     }
-//
-//     render() {
-//         return (
-//                 <Navigator
-//                     initialRoute={{url: "Login"}}
-//                     renderScene={this._renderScene} />
-//         );
-//     }
-// }
-
 
 class Routes extends Component {
 
@@ -94,6 +61,9 @@ class Routes extends Component {
         }
         if (scene.key === prefix + 'decks') {
             return <DecksContainer _handleNavigate={this._handleNavigate.bind(this)} />
+        }
+        if (scene.key === prefix + 'create_deck') {
+            return <CreateDeckContainer _handleNavigate={this._handleNavigate.bind(this)} />
         }
     }
 
