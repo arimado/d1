@@ -50,6 +50,22 @@ export const addDeck = ( deck ) => {
     }
 }
 
+
+export const ADD_ANSWER = 'ADD_ANSWER';
+
+export const addAnswer = ( answer ) => {
+    return {
+        type: ADD_ANSWER,
+        answer: {
+                    id: answer.id,
+            questionID: answer.questionID
+        }
+    }
+}
+
+
+
+
 export const ADD_QUESTION = 'ADD_QUESTION';
 
 export const addQuestion = ( question ) => {

@@ -64,6 +64,18 @@ const decks = (state = {
                     ...questions.slice(questions.length - index)
                   ]
             })
+        case 'ADD_ANSWER':
+            // we will recieve
+                // questionID
+                // string
+            return Object.assign({}, state, {
+                answers: [
+                    ...state.answers,
+                    action.answer
+                ]
+            })
+
+
         default:
             return state;
     }

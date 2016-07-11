@@ -13,7 +13,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addDeck: (deck) => dispatch(addDeck(deck)),
+    addDeck: (deck) => dispatch(addDeck(deck))
   }
 }
 

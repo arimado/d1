@@ -35,7 +35,7 @@ class CreateDeck extends Component {
 
         let questionsElement = questions.map((question) => {
 
-            let answers = _.filter(allAnswers, {questionID: 1})
+            let answers = _.filter(allAnswers, {questionID: question.id})
 
             let answersElement = answers.map((answer) => {
                 return (
@@ -55,6 +55,7 @@ class CreateDeck extends Component {
                     <Text
                         style={Styles.label}>Question</Text>
                     <TextInput
+                        key={question.id}
                         style={Styles.input}
                         placeholder="Question"
                         value={question.content}
@@ -65,16 +66,21 @@ class CreateDeck extends Component {
                     {answersElement}
 
                     <TouchableOpacity
+                        onPress={() => {
+                            this.props.addAnswer({
+                                id: randomNumber(),
+                                questionID: question.id
+                            })
+                        }}
+                        style={Styles.input}>
+                        <Text> + Answer </Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
                         onPress={() => {this.props.addQuestion(question)}}
                         style={Styles.input}>
                         <Text> + Question </Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity
-                        onPress={() => {this.props.submitDeck({content: 'hi there'})}}
-                        style={Styles.button}>
-                        <Text> {submitText} </Text>
-                    </TouchableOpacity>
                 </View>
 
             )
@@ -89,6 +95,11 @@ class CreateDeck extends Component {
 
                 {questionsElement}
 
+                <TouchableOpacity
+                    onPress={() => {this.props.submitDeck({content: 'hi there'})}}
+                    style={Styles.button}>
+                    <Text> {submitText} </Text>
+                </TouchableOpacity>
 
                 </View>
         )
