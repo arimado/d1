@@ -8,21 +8,22 @@ import {
 import Styles from './Styles'
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+const BACK_ROUTE = {
+  type: 'back'
+}
+
 class NavBar extends Component {
 
     constructor(props) {
         super(props)
-        this._backButtonPress = this._backButtonPress.bind(this)
+        console.log(this.props._handleNavigate);
     }
 
-    _backButtonPress() {
-        this.props.navigator.pop();
-    }
 
     render() {
     return (
         <View style={Styles.navBar}>
-            <TouchableOpacity onPress={this._backButtonPress}>
+            <TouchableOpacity onPress={()=>{this.props._handleNavigate(BACK_ROUTE)}}>
                 <Icon name="chevron-left" size={30} color="#900" />
             </TouchableOpacity>
         </View>

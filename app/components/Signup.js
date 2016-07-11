@@ -21,7 +21,7 @@ class Signup extends Component {
         return (
             <View style={Styles.container}>
                 <StatusBarBg />
-                <NavBar navigator={this.props.navigator} />
+                <NavBar _handleNavigate={this.props._handleNavigate}/>
                 <View style={Styles.containerCenter}>
                     <Text style={Styles.welcome}>
                         Signup

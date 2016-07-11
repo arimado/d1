@@ -67,7 +67,11 @@ class Routes extends Component {
                 return true
             case 'back':
             case 'pop':
-                return this._handleBackAction()
+                if (this.props.navigation.index === 0) {
+                  return false
+                }
+                this.props.popRoute()
+                return true
             default:
                 return false
         }
@@ -80,10 +84,10 @@ class Routes extends Component {
         const prefix = 'scene_'
         const { scene } = props
         if (scene.key === prefix + 'login') {
-            return  <Login _handleNavigate={this._handleNavigate.bind(this)}/>
+            return  <Login _handleNavigate={this._handleNavigate.bind(this)} />
         }
         if (scene.key === prefix + 'sign_up') {
-            return <Signup />
+            return <Signup _handleNavigate={this._handleNavigate.bind(this)} />
         }
     }
 
