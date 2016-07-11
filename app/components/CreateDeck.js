@@ -25,7 +25,35 @@ class CreateDeck extends Component {
             <View style={Styles.container}>
                 <StatusBarBg />
                 <NavBar _handleNavigate={this.props._handleNavigate}/>
-                <Text>CreateDeck View</Text>
+                <Text style={Styles.label}>Question</Text>
+                <TextInput
+                    style={Styles.input}
+                    placeholder="Question"
+                    onChangeText={(value) => {
+
+                    }}
+                />
+                <Text style={Styles.label}>Answers</Text>
+                <TextInput
+                    style={Styles.input}
+                    placeholder="Answer"
+                    onChangeText={(value) => {
+                    }}
+                />
+                <TextInput
+                    style={Styles.input}
+                    placeholder="Answer"
+                    onChangeText={(value) => {
+
+                    }}
+                />
+                <TextInput
+                    style={Styles.input}
+                    placeholder="Answer"
+                    onChangeText={(value) => {
+
+                    }}
+                />
             </View>
         )
     }

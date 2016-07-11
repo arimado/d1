@@ -6,11 +6,22 @@ const Styles = StyleSheet.create({
         padding: 15,
         backgroundColor: '#F5FCFF',
     },
+    containerCenter: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+
     statusBarBg: {
         height: 20,
+
     },
+
+    // NAV BAR STYLES -------------------------------------
+
     navBar: {
-        flexDirection: 'row'
+        flexDirection: 'row',
+        marginBottom: 20
     },
     createDeckButton: {
         flex: 1,
@@ -19,16 +30,20 @@ const Styles = StyleSheet.create({
         alignItems: 'center',
         marginLeft: 20
     },
-    containerCenter: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
+
+    // LOGIN PAGE ----------------------------------------
+
     welcome: {
         fontSize: 20,
         textAlign: 'center',
         margin: 10,
     },
+
+    // FORMS --------------------------------------
+    label: {
+        marginBottom: 10
+    },
+    
     instructions: {
         textAlign: 'center',
         color: '#333333',
@@ -36,7 +51,7 @@ const Styles = StyleSheet.create({
     },
     input: {
         fontSize: 20,
-        borderWidth: 1,
+        backgroundColor: "#dfdfdf",
         height: 40,
         padding: 10,
         marginBottom: 10
@@ -46,7 +61,9 @@ const Styles = StyleSheet.create({
     },
     button: {
         padding: 20
-    }
+    },
+
+
 });
 
 export default Styles;
