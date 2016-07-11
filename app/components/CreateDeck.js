@@ -55,15 +55,7 @@ class CreateDeck extends Component {
                     }}
                 />
                 <TouchableOpacity
-                    onPress={() => {
-                        axios.get('http://localhost:3005/api/hello')
-                              .then(function (response) {
-                                console.log(response);
-                              })
-                              .catch(function (error) {
-                                console.log(error);
-                              });
-                    }}
+                    onPress={() => {this.props.submitDeck({content: 'hi there'})}}
                     style={Styles.button}>
                     <Text> CREATE </Text>
                 </TouchableOpacity>

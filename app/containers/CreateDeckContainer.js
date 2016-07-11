@@ -3,6 +3,7 @@
 import { connect } from 'react-redux'
 import Decks from '../components/Decks'
 import CreateDeck from '../components/CreateDeck'
+import { submitDeck } from '../actions/actions'
 
 function mapStateToProps (state) {
   return {
@@ -12,13 +13,11 @@ function mapStateToProps (state) {
 
 function mapDispatchToProps (dispatch) {
   return {
-    addDeck: (route) => dispatch({
-        type: 'ADD_DECK',
-        id: 'some cool ID',
-        text: 'some text'
-    })
+    submitDeck: (route) => dispatch(submitDeck())
   }
 }
+
+
 
 export default connect(
   mapStateToProps,

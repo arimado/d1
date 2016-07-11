@@ -6,8 +6,10 @@
 
 import React, { Component } from 'react';
 import { AppRegistry, Text, NavigationExperimental } from 'react-native';
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { connect, Provider } from 'react-redux';
+import Thunk from 'redux-thunk';
+import Logger from 'redux-logger'
 
 import RoutesContainer from './app/containers/RoutesContainer'
 
@@ -41,6 +43,24 @@ const decks = (state = [], action) => {
             return state;
     }
 };
+
+const ownDeckReducer = (state = {
+    isPosting: false,
+    deck: {}
+}, action) => {
+    switch (action.type) {
+        case 'POST_DECK':
+            return Object.assign({}, state, {
+                isPosting: true
+            })
+        case 'POST_DECK_SUCCESS':
+            return Object.assign({}, state, {
+                isPosting: false
+            })
+        default:
+            return state;
+    }
+}
 
 const loginReducer = (
     state = { username: 'username', password: 'password' },
@@ -98,10 +118,16 @@ const rootReducer = combineReducers({
     decks: decks,
     login_field: loginReducer,
     navigation: navReducer,
+    ownDeck: ownDeckReducer
 });
 
 
-const d1Store = createStore(rootReducer)
+const loggerMiddleware = Logger()
+
+const d1Store = createStore(
+    rootReducer,
+    applyMiddleware( Thunk, loggerMiddleware )
+)
 
 const App = () => {
     return (
