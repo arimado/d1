@@ -5,7 +5,8 @@ import {
   TextInput,
   TouchableHighlight,
   TouchableOpacity,
-  View
+  View,
+  ScrollView
 } from 'react-native';
 
 import axios from 'axios';
@@ -91,7 +92,7 @@ class CreateDeck extends Component {
 
 
         return (
-            <View style={Styles.container}>
+            <ScrollView style={Styles.container}>
                 <StatusBarBg />
 
                 <NavBarContainer _handleNavigate={this.props._handleNavigate}/>
@@ -104,7 +105,7 @@ class CreateDeck extends Component {
                     <Text> {submitText} </Text>
                 </TouchableOpacity>
 
-                </View>
+            </ScrollView>
         )
     }
 
