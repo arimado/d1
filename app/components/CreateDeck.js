@@ -23,41 +23,63 @@ class CreateDeck extends Component {
     }
     render() {
 
+        let randomNumber = () => {  return Math.floor(Math.random() * 200 + (Date.now() / 2)) }
 
         let submitText = this.props.ownDeck.isPosting ? "..." : "Submit";
+
+        let questions = this.props.decks.questions;
+        let allAnswers = this.props.decks.answers;
+
+        let newDeckID = randomNumber();
+
+        let questionsElement = questions.map((question) => {
+
+            let answers = _.filter(allAnswers, {questionID: 1})
+
+            let answersElement = answers.map((answer) => {
+                return (
+                    <TextInput
+                        key={randomNumber()}
+                        style={Styles.input}
+                        placeholder="Answer"
+                        value={answer.content}
+                        onChangeText={(value) => {
+                        }}
+                    />
+                )
+            })
+
+            return (
+                <View key={randomNumber()}>
+                    <Text
+                        style={Styles.label}>Question</Text>
+                    <TextInput
+                        style={Styles.input}
+                        placeholder="Question"
+                        value={question.content}
+                        onChangeText={(value) => {
+                        }}/>
+                    <Text style={Styles.label}>Answers</Text>
+
+                    {answersElement}
+                </View>
+
+            )
+        })
+
 
         return (
             <View style={Styles.container}>
                 <StatusBarBg />
                 <NavBar _handleNavigate={this.props._handleNavigate}/>
-                <Text style={Styles.label}>Question</Text>
-                <TextInput
-                    style={Styles.input}
-                    placeholder="Question"
-                    onChangeText={(value) => {
-                    }}
-                />
-                <Text style={Styles.label}>Answers</Text>
-                <TextInput
-                    style={Styles.input}
-                    placeholder="Answer"
-                    onChangeText={(value) => {
-                    }}
-                />
-                <TextInput
-                    style={Styles.input}
-                    placeholder="Answer"
-                    onChangeText={(value) => {
 
-                    }}
-                />
-                <TextInput
-                    style={Styles.input}
-                    placeholder="Answer"
-                    onChangeText={(value) => {
+                {questionsElement}
 
-                    }}
-                />
+                <TouchableOpacity
+                    onPress={() => {this.props.addQuestion(question)}}
+                    style={Styles.input}>
+                    <Text> + Question </Text>
+                </TouchableOpacity>
                 <TouchableOpacity
                     onPress={() => {this.props.submitDeck({content: 'hi there'})}}
                     style={Styles.button}>

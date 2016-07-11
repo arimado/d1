@@ -50,7 +50,6 @@ const Styles = StyleSheet.create({
         marginBottom: 10,
     },
     input: {
-        fontSize: 20,
         backgroundColor: "#dfdfdf",
         height: 40,
         padding: 10,

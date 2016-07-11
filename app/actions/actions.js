@@ -17,7 +17,6 @@ export const postDeckSuccess = (deck) => {
   }
 }
 
-
 export const submitDeck = (deck) => {
     return (dispatch) => {
         // activate spinner
@@ -32,6 +31,15 @@ export const submitDeck = (deck) => {
 
     }
 
+}
+
+export const ADD_QUESTION = 'ADD_QUESTION';
+
+export const addQuestion = ( question ) => {
+    return {
+        type: ADD_QUESTION,
+        question: question
+    }
 }
 
 

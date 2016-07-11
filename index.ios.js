@@ -10,6 +10,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { connect, Provider } from 'react-redux';
 import Thunk from 'redux-thunk';
 import Logger from 'redux-logger'
+import _ from 'lodash'
 
 import RoutesContainer from './app/containers/RoutesContainer'
 
@@ -32,13 +33,42 @@ const deck = (state, action) => {
   }
 };
 
-const decks = (state = [], action) => {
+const decks = (state = {
+        decks: [
+            { id: 1 }
+        ],
+        questions: [
+            {
+              id: 1,
+              deckID: 1,
+              content: 'asd'
+            }
+        ],
+        answers: [
+            {
+                id: 1,
+                questionID: 1,
+                content: 'lol city'
+            }
+        ],
+}, action) => {
     switch (action.type) {
         case 'ADD_DECK':
             return [
                 ...state,
                 deck(undefined, action)
             ];
+        case 'ADD_QUESTION':
+            // find the question that belongs to the correct deck
+            let questions = state.questions;
+            let index = _.findIndex(state.questions, { deckID: action.deckID })
+            return Object.assign({}, state, {
+                questions: [
+                    ...questions.slice(0, index),
+                    Object.assign({}, questions[index], {content: action.value}),
+                    ...questions.slice(questions.length - index)
+                  ]
+            })
         default:
             return state;
     }
@@ -46,7 +76,9 @@ const decks = (state = [], action) => {
 
 const ownDeckReducer = (state = {
     isPosting: false,
-    deck: {}
+    deck: [
+        { question: '', answers: [] }
+    ]
 }, action) => {
     switch (action.type) {
         case 'POST_DECK':
@@ -57,6 +89,15 @@ const ownDeckReducer = (state = {
             return Object.assign({}, state, {
                 isPosting: false
             })
+        // case 'ADD_QUESTION':
+        //     return Object.assign({}, state, {
+        //         deck: [
+        //             ...state.deck,
+        //             { question: action.question,
+        //               answers: []
+        //             }
+        //         ]
+        //     })
         default:
             return state;
     }
