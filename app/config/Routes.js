@@ -60,6 +60,8 @@ class Routes extends Component {
     }
     _renderScene(props) {
 
+        console.log(props);
+
         const prefix = 'scene_'
         const { scene } = props
         if (scene.key === prefix + 'login') {
@@ -68,7 +70,6 @@ class Routes extends Component {
         if (scene.key === prefix + 'about') {
             return <Signup />
         }
-
     }
 
     _handleNavigate() {
@@ -78,9 +79,9 @@ class Routes extends Component {
     render() {
         return (
             <NavigationCardStack
-                  navigationState={this.props.navigation}
-                  onNavigate={this._handleNavigate.bind(this)}
-                  renderScene={this._renderScene} />
+              navigationState={this.props.navigation}
+              onNavigate={this._handleNavigate.bind(this)}
+              renderScene={this._renderScene} />
         );
     }
 }

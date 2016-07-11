@@ -56,7 +56,7 @@ const initialState = {
     key: 'root',
     routes: [
         {
-            key: 'home',
+            key: 'login',
             title: 'Welcome Home'
         }
     ]
