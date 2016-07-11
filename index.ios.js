@@ -5,12 +5,11 @@
  */
 
 import React, { Component } from 'react';
-import { AppRegistry } from 'react-native';
+import { AppRegistry, Text } from 'react-native';
 import { createStore, combineReducers } from 'redux';
 import { connect, Provider } from 'react-redux'
 
-import Routes from './app/config/Routes'
-
+import RoutesContainer from './app/containers/RoutesContainer'
 
 const deck = (state, action) => {
   switch (action.type) {
@@ -101,7 +100,7 @@ const d1Store = createStore(rootReducer)
 const App = () => {
     return (
         <Provider store={d1Store}>
-            <Routes/>
+            <RoutesContainer/>
         </Provider>
     )
 }

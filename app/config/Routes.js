@@ -56,10 +56,7 @@ class Routes extends Component {
 
     constructor(props, context) {
         super(props, context)
-        console.log(props);
-        console.log(context);
     }
-
     _renderScene(props) {
 
         const prefix = 'scene_'
@@ -78,6 +75,7 @@ class Routes extends Component {
     }
 
     render() {
+
         return (
             <NavigationCardStack
                   navigationState={this.props.navigation}
