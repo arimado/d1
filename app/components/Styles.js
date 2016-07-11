@@ -10,7 +10,14 @@ const Styles = StyleSheet.create({
         height: 20,
     },
     navBar: {
-
+        flexDirection: 'row'
+    },
+    createDeckButton: {
+        flex: 1,
+        backgroundColor: '#CCCCCC',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginLeft: 20
     },
     containerCenter: {
         flex: 1,

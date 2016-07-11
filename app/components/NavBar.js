@@ -3,6 +3,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   TouchableHighlight,
+  Text,
   View
 } from 'react-native';
 import Styles from './Styles'
@@ -25,6 +26,9 @@ class NavBar extends Component {
         <View style={Styles.navBar}>
             <TouchableOpacity onPress={()=>{this.props._handleNavigate(BACK_ROUTE)}}>
                 <Icon name="chevron-left" size={30} color="#900" />
+            </TouchableOpacity>
+            <TouchableOpacity style={Styles.createDeckButton}>
+                <Text >Create Deck</Text>
             </TouchableOpacity>
         </View>
         )
