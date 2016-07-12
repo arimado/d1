@@ -2,7 +2,7 @@
 
 import { connect } from 'react-redux'
 import NavBar from '../components/NavBar'
-import { addDeck } from '../actions/actions'
+import { addDeck, addQuestion, addAnswer } from '../actions/actions'
 
 const mapStateToProps = (state) => {
   return {
@@ -13,7 +13,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addDeck: (deck) => dispatch(addDeck(deck))
+    addDeck: (deck) => dispatch(addDeck(deck)),
+    addQuestion: (question) => dispatch(addQuestion(question)),
+    addAnswer: (question) => dispatch(addAnswer(answer)) 
   }
 }
 

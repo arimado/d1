@@ -32,13 +32,6 @@ class NavBar extends Component {
 
     let randomNumber = () => {  return Math.floor(Math.random() * 200 + (Date.now() / 2)) }
 
-    let deckTemplate = {
-        id: randomNumber(),
-        userID: randomNumber(),
-        questionID: randomNumber(),
-    }
-
-
     return (
         <View style={Styles.navBar}>
             <TouchableOpacity onPress={()=>{this.props._handleNavigate(BACK_ROUTE)}}>
@@ -46,7 +39,23 @@ class NavBar extends Component {
             </TouchableOpacity>
             <TouchableOpacity
                 onPress={()=>{
-                    this.props.addDeck(deckTemplate);
+
+                    let deckID = randomNumber();
+                    let userID = randomNumber();
+
+                    this.props.addDeck({
+                        id: deckID,
+                    userID: userID
+                    });
+
+                    this.props.addQuestion({
+                            id: randomNumber(),
+                        deckID: deckID,
+                       content: 'yolo city'
+                   });
+
+
+
                     this.props._handleNavigate(CREATE_DECK)
                 }}
                 style={Styles.createDeckButton}>

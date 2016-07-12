@@ -40,14 +40,9 @@ export const addDeck = ( deck ) => {
         deck: {
             id: deck.id,
             userID: deck.userID
-        },
-        question: {
-            id: deck.questionID,
-            deckID: deck.id,
         }
     }
 }
-
 
 export const ADD_ANSWER = 'ADD_ANSWER';
 

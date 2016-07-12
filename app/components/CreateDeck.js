@@ -34,6 +34,9 @@ class CreateDeck extends Component {
 
         let newDeckID = randomNumber();
 
+        // let newDeckID = this.props.session.deckID
+        // when someone submits there deck it is cleared
+
         let questionsElement = questions.map((question) => {
 
             let answers = _.filter(allAnswers, {questionID: question.id})
@@ -55,11 +58,10 @@ class CreateDeck extends Component {
             })
 
             return (
-                <View key={1}>
+                <View key={question.id}>
                     <Text
                         style={Styles.label}>Question</Text>
                     <TextInput
-                        key={question.id}
                         style={Styles.input}
                         placeholder="Question"
                         value={question.content}

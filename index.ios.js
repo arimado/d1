@@ -49,10 +49,6 @@ const decks = (state = {
                 decks: [
                     ...state.decks,
                     action.deck
-                ],
-                questions: [
-                    ...state.questions,
-                    action.question
                 ]
             })
         case 'ADD_QUESTION':
@@ -121,20 +117,25 @@ const ownDeckReducer = (state = {
 // LOGIN REDUCER ---------------------------------------
 
 
-const loginReducer = (
-    state = { username: 'username', password: 'password' },
-    action
-) => {
+const sessionReducer = (state = {
+    userID: null,
+    deckID: null
+}, action) => {
     switch (action.type) {
-        case 'CHANGE_LOGIN_FIELD_USERNAME':
+        case 'ADD_DECK':
             return Object.assign({}, state, {
-                username: action.text
-            });
-            break;
+                deckID: action.deck.id,
+                userID: action.deck.userID
+            })
         default:
-            return state;
+            return state
     }
+
 }
+
+
+
+// NAVIGATION REDUCERS ---------------------------------------
 
 const initialState = {
     index: 0,
@@ -149,9 +150,6 @@ const initialState = {
         }
     ]
 }
-
-
-// NAVIGATION REDUCERS ---------------------------------------
 
 
 const isSameRoute = (state, action) => {
@@ -181,9 +179,9 @@ const navReducer = (state = initialState, action) => {
 
 const rootReducer = combineReducers({
     decks: decks,
-    login_field: loginReducer,
     navigation: navReducer,
-    ownDeck: ownDeckReducer
+    ownDeck: ownDeckReducer,
+    session: sessionReducer
 });
 
 
