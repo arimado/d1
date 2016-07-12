@@ -54,15 +54,15 @@ const decks = (state = {
                 isFetching: false,
                 decks: [
                     ...state.decks,
-                    action.data.decks
+                    ...action.data.decks
                 ],
                 questions: [
                     ...state.questions,
-                    action.data.questions
+                    ...action.data.questions
                 ],
                 answers: [
                     ...state.answers,
-                    action.data.answers
+                    ...action.data.answers
                 ]
             })
         case 'ADD_DECK':

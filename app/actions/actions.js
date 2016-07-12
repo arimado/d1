@@ -11,10 +11,10 @@ export const getDecks = (userID) => {
 
 export const GET_DECKS_SUCCESS = 'GET_DECKS_SUCCESS'
 
-export const getDecksSuccess = (decks) => {
+export const getDecksSuccess = (data) => {
     return {
         type: GET_DECKS_SUCCESS,
-        decks: decks
+        data: data
     }
 }
 
@@ -24,9 +24,11 @@ export const fetchDecks = (userID) => {
         return axios.get('http://localhost:3005/api/decks')
                     .then(res => {
                         console.log('axios successfully made a request');
-                        console.log(`here's the response: ${res}`);
-                        dispatch(getDecksSuccess(res))
+                        console.log(`here's the response:`);
+                        console.dir(res);
+                        dispatch(getDecksSuccess(res.data))
                     })
+                    .catch(error => console.log('error: ', error))
     }
 }
 
