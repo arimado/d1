@@ -20,6 +20,8 @@ const {
 } = NavigationExperimental
 
 
+// DECKS REDUCER ---------------------------------------
+
 const deck = (state, action) => {
   switch (action.type) {
     case 'ADD_DECK':
@@ -116,6 +118,9 @@ const ownDeckReducer = (state = {
     }
 }
 
+// LOGIN REDUCER ---------------------------------------
+
+
 const loginReducer = (
     state = { username: 'username', password: 'password' },
     action
@@ -144,6 +149,9 @@ const initialState = {
         }
     ]
 }
+
+
+// NAVIGATION REDUCERS ---------------------------------------
 
 
 const isSameRoute = (state, action) => {

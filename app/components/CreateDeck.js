@@ -37,7 +37,6 @@ class CreateDeck extends Component {
         let questionsElement = questions.map((question) => {
 
             let answers = _.filter(allAnswers, {questionID: question.id})
-
             let answersElement = answers.map((answer) => {
                 return (
                     <TextInput
