@@ -101,7 +101,9 @@ const decks = (state = {
     }
 };
 
-const ownDeckReducer = (state = {
+
+
+const postDeckReducer = (state = {
     isPosting: false,
     deck: [
         { question: '', answers: [] }
@@ -116,15 +118,6 @@ const ownDeckReducer = (state = {
             return Object.assign({}, state, {
                 isPosting: false
             })
-        // case 'ADD_QUESTION':
-        //     return Object.assign({}, state, {
-        //         deck: [
-        //             ...state.deck,
-        //             { question: action.question,
-        //               answers: []
-        //             }
-        //         ]
-        //     })
         default:
             return state;
     }
@@ -196,7 +189,7 @@ const navReducer = (state = initialState, action) => {
 const rootReducer = combineReducers({
     decks: decks,
     navigation: navReducer,
-    ownDeck: ownDeckReducer,
+    postDeck: postDeckReducer,
     session: sessionReducer
 });
 

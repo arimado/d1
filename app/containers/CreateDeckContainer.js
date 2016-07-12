@@ -7,7 +7,7 @@ import { submitDeck, addQuestion, addAnswer, updateAnswer, updateQuestion} from 
 
 const mapStateToProps = (state) => {
   return {
-    ownDeck: state.ownDeck,
+    postDeck: state.postDeck,
     decks: state.decks,
     session: state.session
   }

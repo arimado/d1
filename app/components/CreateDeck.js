@@ -27,7 +27,7 @@ class CreateDeck extends Component {
 
         let randomNumber = () => {  return Math.floor(Math.random() * 200 + (Date.now() / 2)) }
 
-        let submitText = this.props.ownDeck.isPosting ? "..." : "Submit";
+        let submitText = this.props.postDeck.isPosting ? "..." : "Submit";
 
         let questions = this.props.decks.questions;
         let allAnswers = this.props.decks.answers;
@@ -67,7 +67,7 @@ class CreateDeck extends Component {
                                 id: question.id,
                                 content: value
                             })
-                        }}/> 
+                        }}/>
                     <Text style={Styles.label}>Answers</Text>
 
                     {answersElement}
@@ -107,7 +107,24 @@ class CreateDeck extends Component {
                 {questionsElement}
 
                 <TouchableOpacity
-                    onPress={() => {this.props.submitDeck({content: 'hi there'})}}
+                    onPress={() => {
+                        // submit the stuff to a database
+                        // i'm going to send the whole thing as JSON text
+
+                        let state = this.props.decks;
+
+                        let currentDeck = _.find(state.decks, {id: currentDeckID})
+                        let currentQuestions = _.find(state.questions, {deckID: currentDeckID})
+                        let currentAnswers = _.find(state.answers, {deckID: currentDeckID})
+
+                        this.props.submitDeck({
+                            decks: currentDeck,
+                            questions: currentQuestions,
+                            answers: currentAnswers
+                        })
+
+                        // clear the sessions deckID
+                    }}
                     style={Styles.button}>
                     <Text> {submitText} </Text>
                 </TouchableOpacity>
