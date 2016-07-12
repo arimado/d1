@@ -86,7 +86,7 @@ class Decks extends Component {
                 <NavBarContainer _handleNavigate={this.props._handleNavigate}/>
                 <Text>Decks View</Text>
                 <SwipeCards
-                   cards={Cards}
+                   cards={decksInState}
                    renderCard={(cardData) => <Deck {...cardData} />}
                    renderNoMoreCards={() => <Text> NO MORE CARDS LEFT ß</Text>}
                    showYup={false}

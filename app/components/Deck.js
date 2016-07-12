@@ -1,30 +1,42 @@
 import React, { Component } from 'react';
 import {
   Text,
-  View,
-  StyleSheet,
+  View
 } from 'react-native';
 
+import Styles from './Styles'
+import _ from 'lodash';
 
 
-const Deck = ({text, backgroundColor}) => {
+
+const Deck = ({id, userID, questions}) => {
+
+
+    let currentQuestions = (
+        _.map(questions, (question, index) => {
+            // let currentAnswers = (
+            //     _.map(question.answers, (answer) => {
+            //         return (
+            //             <Text key={answer.id}>{answer.content}</Text>
+            //         )
+            //     })
+            // )
+
+            return (
+                <View  key={question.id}>
+                    <Text style={Styles.deckText}>{index + 1}. {question.content}</Text>
+                    {/*{currentAnswers}*/}
+                </View>
+
+            )
+    }))
+
     return (
-        <View style={[styles.card, {backgroundColor: backgroundColor}]}>
-          <Text>{text}</Text>
+        <View style={Styles.deck}>
+            {currentQuestions}
         </View>
     )
 }
-
-
-const styles = StyleSheet.create({
-  card: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: 400,
-    width: 300,
-  }
-})
 
 
 export default Deck;

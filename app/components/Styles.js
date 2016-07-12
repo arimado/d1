@@ -39,7 +39,23 @@ const Styles = StyleSheet.create({
         margin: 10,
     },
 
+    // INDEX PAGE ----------------------------------------
+
+    deck: {
+      flex: 1,
+      padding: 20,
+      height: 400,
+      width: 300,
+      backgroundColor: '#CCCCCC',
+    },
+
+    deckText: {
+        fontSize: 25,
+        marginBottom: 10
+    },
+
     // FORMS --------------------------------------
+
     label: {
         marginBottom: 10
     },
