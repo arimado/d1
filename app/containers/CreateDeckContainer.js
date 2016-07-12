@@ -8,7 +8,8 @@ import { submitDeck, addQuestion, addAnswer, updateAnswer} from '../actions/acti
 const mapStateToProps = (state) => {
   return {
     ownDeck: state.ownDeck,
-    decks: state.decks
+    decks: state.decks,
+    session: state.session
   }
 }
 

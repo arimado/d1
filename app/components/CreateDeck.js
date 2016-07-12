@@ -32,10 +32,7 @@ class CreateDeck extends Component {
         let questions = this.props.decks.questions;
         let allAnswers = this.props.decks.answers;
 
-        let newDeckID = randomNumber();
-
-        // let newDeckID = this.props.session.deckID
-        // when someone submits there deck it is cleared
+        let currentDeckID = this.props.session.deckID
 
         let questionsElement = questions.map((question) => {
 
@@ -86,7 +83,7 @@ class CreateDeck extends Component {
                     <TouchableOpacity
                         onPress={() => {this.props.addQuestion({
                             id: randomNumber(),
-                        deckID: newDeckID
+                        deckID: currentDeckID
                         })}}
                         style={Styles.input}>
                         <Text> + Question </Text>
