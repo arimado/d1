@@ -112,10 +112,14 @@ class CreateDeck extends Component {
                         // i'm going to send the whole thing as JSON text
 
                         let state = this.props.decks;
+                        let allAnswers = state.answers;
 
-                        let currentDeck = _.find(state.decks, {id: currentDeckID})
-                        let currentQuestions = _.find(state.questions, {deckID: currentDeckID})
-                        let currentAnswers = _.find(state.answers, {deckID: currentDeckID})
+                        let currentDeck = _.filter(state.decks, {id: currentDeckID})
+                        let currentQuestions = _.filter(state.questions, {deckID: currentDeckID})
+                        let currentAnswers = _.chain(currentQuestions)
+                                              .map(question => {
+                                                  return _.filter(allAnswers, {questionID: question.id})
+                                              }).flatten();
 
                         this.props.submitDeck({
                             decks: currentDeck,
