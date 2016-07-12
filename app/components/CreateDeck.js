@@ -27,7 +27,7 @@ class CreateDeck extends Component {
 
         let randomNumber = () => {  return Math.floor(Math.random() * 200 + (Date.now() / 2)) }
 
-        let submitText = this.props.postDeck.isPosting ? "..." : "Submit";
+        let submitText = this.props.requests.isPosting ? "..." : "Submit";
 
         let questions = this.props.decks.questions;
         let allAnswers = this.props.decks.answers;

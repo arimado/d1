@@ -36,6 +36,7 @@ const deck = (state, action) => {
 };
 
 const decks = (state = {
+        isFetching: false,
         decks: [
         ],
         questions: [
@@ -44,6 +45,26 @@ const decks = (state = {
         ],
 }, action) => {
     switch (action.type) {
+        case 'GET_DECKS':
+            return Object.assign({}, state, {
+                isFetching: true
+            })
+        case 'GET_DECKS_SUCCESS':
+            return Object.assign({}, state, {
+                isFetching: false,
+                decks: [
+                    ...state.decks,
+                    action.data.decks
+                ],
+                questions: [
+                    ...state.questions,
+                    action.data.questions
+                ],
+                answers: [
+                    ...state.answers,
+                    action.data.answers
+                ]
+            })
         case 'ADD_DECK':
             return Object.assign({}, state, {
                 decks: [
@@ -103,7 +124,8 @@ const decks = (state = {
 
 
 
-const postDeckReducer = (state = {
+const requestsReducer = (state = {
+    isFetching: false,
     isPosting: false,
     deck: [
         { question: '', answers: [] }
@@ -154,8 +176,7 @@ const initialState = {
             // key: 'create_deck',
             // title: 'Create Deck'
             key: 'login',
-            title: 'Welcome'
-
+            title: 'Welcome',
         }
     ]
 }
@@ -189,7 +210,7 @@ const navReducer = (state = initialState, action) => {
 const rootReducer = combineReducers({
     decks: decks,
     navigation: navReducer,
-    postDeck: postDeckReducer,
+    requests: requestsReducer,
     session: sessionReducer
 });
 

@@ -1,5 +1,35 @@
 import axios from 'axios';
 
+
+export const GET_DECKS = 'GET_DECKS'
+
+export const getDecks = (userID) => {
+    return {
+        type: GET_DECKS,
+    }
+}
+
+export const GET_DECKS_SUCCESS = 'GET_DECKS_SUCCESS'
+
+export const getDecksSuccess = (decks) => {
+    return {
+        type: GET_DECKS_SUCCESS,
+        decks: decks
+    }
+}
+
+export const fetchDecks = (userID) => {
+    return (dispatch) => {
+        dispatch(getDecks(userID))
+        return axios.get('http://localhost:3005/api/decks')
+                    .then(res => {
+                        console.log('axios successfully made a request');
+                        console.log(`here's the response: ${res}`);
+                        dispatch(getDecksSuccess(res))
+                    })
+    }
+}
+
 export const POST_DECK = 'POST_DECK'
 
 export const postDeck = (deck) => {

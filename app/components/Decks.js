@@ -13,20 +13,12 @@ import SwipeCards from 'react-native-swipe-cards';
 
 import Styles from './Styles';
 import StatusBarBg from './StatusBarBg';
+import Deck from './Deck'
+
 import NavBarContainer from '../containers/NavBarContainer';
 
 import _ from 'lodash';
 
-
-let Card = React.createClass({
-  render() {
-    return (
-      <View style={[styles.card, {backgroundColor: this.props.backgroundColor}]}>
-        <Text>{this.props.text}</Text>
-      </View>
-    )
-  }
-})
 
 const Cards = [
   {text: 'Tomato', backgroundColor: 'red'},
@@ -53,6 +45,15 @@ class Decks extends Component {
                 <StatusBarBg />
                 <NavBarContainer _handleNavigate={this.props._handleNavigate}/>
                 <Text>Decks View</Text>
+                <SwipeCards
+                   cards={Cards}
+                   renderCard={(cardData) => <Deck {...cardData} />}
+                   renderNoMoreCards={() => <Text> NO MORE CARDS LEFT ß</Text>}
+                   showYup={false}
+                   showNope={false}
+                   handleYup={() => {}}
+                   handleNope={() => {}}
+                 />
             </View>
         )
     }
@@ -60,3 +61,13 @@ class Decks extends Component {
 }
 
 export default Decks
+
+const styles = StyleSheet.create({
+  card: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 400,
+    width: 300,
+  }
+})

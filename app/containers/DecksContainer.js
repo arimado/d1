@@ -2,6 +2,7 @@
 
 import { connect } from 'react-redux'
 import Decks from '../components/Decks'
+import { fetchDecks } from '../actions/actions'
 
 function mapStateToProps (state) {
   return {
@@ -11,11 +12,7 @@ function mapStateToProps (state) {
 
 function mapDispatchToProps (dispatch) {
   return {
-    addDeck: (route) => dispatch({
-        type: 'ADD_DECK',
-        id: 'some cool ID',
-        text: 'some text'
-    })
+    fetchDecks: (userID) => {  dispatch(fetchDecks(userID)) }
   }
 }
 

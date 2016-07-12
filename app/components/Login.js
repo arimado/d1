@@ -33,7 +33,7 @@ const DECKS_ROUTE = {
 }
 
 
-const Login = ({login_field, onDeckClick, onUserFieldChange, _handleNavigate}) => {
+const Login = ({login_field, onDeckClick, onUserFieldChange, _handleNavigate, fetchDecks}) => {
 
     let args = arguments;
 
@@ -68,6 +68,8 @@ const Login = ({login_field, onDeckClick, onUserFieldChange, _handleNavigate}) =
                               onPress={
                                   ()=>{
                                      _handleNavigate(DECKS_ROUTE);
+                                     console.log(fetchDecks);
+                                     fetchDecks('placeholder_id');
                                   }
                               }>Login</Text>
                     </TouchableOpacity>
@@ -77,6 +79,7 @@ const Login = ({login_field, onDeckClick, onUserFieldChange, _handleNavigate}) =
                             onPress={
                             ()=> {
                                 _handleNavigate(SIGN_UP_ROUTE);
+
                             }}
                             >Sign up</Text>
                     </TouchableOpacity>

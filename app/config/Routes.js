@@ -19,6 +19,7 @@ import Login from '../components/Login';
 import Signup from '../components/Signup';
 import DecksContainer from '../containers/DecksContainer';
 import CreateDeckContainer from '../containers/CreateDeckContainer';
+import LoginContainer from '../containers/LoginContainer';
 
 
 import Decks from '../components/Decks';
@@ -54,7 +55,7 @@ class Routes extends Component {
         const prefix = 'scene_'
         const { scene } = props
         if (scene.key === prefix + 'login') {
-            return  <Login _handleNavigate={this._handleNavigate.bind(this)} />
+            return  <LoginContainer _handleNavigate={this._handleNavigate.bind(this)} />
         }
         if (scene.key === prefix + 'sign_up') {
             return <Signup _handleNavigate={this._handleNavigate.bind(this)} />
