@@ -29,10 +29,12 @@ class CreateDeck extends Component {
 
         let submitText = this.props.requests.isPosting ? "..." : "Submit";
 
-        let questions = this.props.decks.questions;
-        let allAnswers = this.props.decks.answers;
-
         let currentDeckID = this.props.session.deckID
+
+
+        let questions = _.filter(this.props.decks.questions, {deckID: currentDeckID})
+
+        let allAnswers = this.props.decks.answers;
 
         let questionsElement = questions.map((question) => {
 

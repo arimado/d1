@@ -29,6 +29,19 @@ const Cards = [
   {text: 'orange', backgroundColor: 'orange'},
 ]
 
+
+// id:
+// userID:
+// questions: [
+//     {
+//         question: { question }
+//         answers: [
+//             { },
+//             { }
+//         ]
+//     }
+// ]
+
 class Decks extends Component {
 
     constructor(props) {
@@ -39,6 +52,33 @@ class Decks extends Component {
     }
 
     render() {
+
+        let state = this.props.decks
+
+        let decksInState = _.map(state.decks, (deck) => {
+
+            let currentQuesions = (
+                _.filter(state.questions, {deckID: deck.id})
+                    .map((question) => {
+                        let currentAnswers = _.filter(state.answers, {questionID: question.id})
+                        return {
+                            ...question,
+                            answers: currentAnswers
+                        }
+                    })
+             )
+
+            return {
+                id: deck.id,
+                userID: deck.userID,
+                questions: currentQuesions
+            }
+        })
+
+        console.log('decksInState')
+        console.dir(decksInState);
+
+
 
         return (
             <View style={Styles.container}>
