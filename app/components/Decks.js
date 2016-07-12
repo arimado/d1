@@ -9,10 +9,33 @@ import {
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
+import SwipeCards from 'react-native-swipe-cards';
+
 import Styles from './Styles';
 import StatusBarBg from './StatusBarBg';
 import NavBarContainer from '../containers/NavBarContainer';
+
 import _ from 'lodash';
+
+
+let Card = React.createClass({
+  render() {
+    return (
+      <View style={[styles.card, {backgroundColor: this.props.backgroundColor}]}>
+        <Text>{this.props.text}</Text>
+      </View>
+    )
+  }
+})
+
+const Cards = [
+  {text: 'Tomato', backgroundColor: 'red'},
+  {text: 'Aubergine', backgroundColor: 'purple'},
+  {text: 'Courgette', backgroundColor: 'green'},
+  {text: 'Blueberry', backgroundColor: 'blue'},
+  {text: 'Umm...', backgroundColor: 'cyan'},
+  {text: 'orange', backgroundColor: 'orange'},
+]
 
 class Decks extends Component {
 
@@ -24,28 +47,6 @@ class Decks extends Component {
     }
 
     render() {
-
-        // let decks = this.props.db.decks.map((deck) => {
-        //     let questions = deck.questions.map((question, index)=> {
-        //         // QUESTIONS OUTPUT HERE
-        //         return (
-        //             <View key={index}>
-        //                 <Text>
-        //                     {question.question}
-        //                 </Text>
-        //             </View>
-        //         )
-        //     });
-        //
-        //     // DECKS OUTPUT HERE
-        //     return (
-        //         <View>
-        //             <View>
-        //             {questions}
-        //             </View>
-        //         </View>
-        //     )
-        // })
 
         return (
             <View style={Styles.container}>
