@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import {
   Text,
-  View
+  View,
+  TouchableHighlight,
+  TouchableOpacity,
 } from 'react-native';
 
 import Styles from './Styles'
@@ -21,20 +23,26 @@ const Deck = ({id, userID, questions}) => {
             //         )
             //     })
             // )
-
             return (
-                <View  key={question.id}>
-                    <Text style={Styles.deckText}>{index + 1}. {question.content}</Text>
-                    {/*{currentAnswers}*/}
-                </View>
 
+                    <View   key={question.id}>
+                        <Text style={Styles.deckText}>{index + 1}. {question.content}</Text>
+                        {/*{currentAnswers}*/}
+                    </View>
             )
     }))
 
     return (
-        <View style={Styles.deck}>
-            {currentQuestions}
-        </View>
+
+        <TouchableOpacity
+            onPress={() => {
+                console.log('you pressed the deck brah')
+            }}>
+            <View style={Styles.deck}>
+                {currentQuestions}
+            </View>
+        </TouchableOpacity>
+
     )
 }
 
