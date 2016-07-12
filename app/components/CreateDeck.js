@@ -63,8 +63,11 @@ class CreateDeck extends Component {
                         placeholder="Question"
                         value={question.content}
                         onChangeText={(value) => {
-
-                        }}/>
+                            this.props.updateQuestion({
+                                id: question.id,
+                                content: value
+                            })
+                        }}/> 
                     <Text style={Styles.label}>Answers</Text>
 
                     {answersElement}

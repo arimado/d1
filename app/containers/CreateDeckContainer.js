@@ -3,7 +3,7 @@
 import { connect } from 'react-redux'
 import Decks from '../components/Decks'
 import CreateDeck from '../components/CreateDeck'
-import { submitDeck, addQuestion, addAnswer, updateAnswer} from '../actions/actions'
+import { submitDeck, addQuestion, addAnswer, updateAnswer, updateQuestion} from '../actions/actions'
 
 const mapStateToProps = (state) => {
   return {
@@ -18,7 +18,8 @@ const mapDispatchToProps = (dispatch) => {
     submitDeck: deck => dispatch(submitDeck(deck)),
     addQuestion: question => dispatch(addQuestion(question)),
     addAnswer: answer => dispatch(addAnswer(answer)),
-    updateAnswer: answer => dispatch(updateAnswer(answer))
+    updateAnswer: answer => dispatch(updateAnswer(answer)),
+    updateQuestion: question => dispatch(updateQuestion(question))
   }
 }
 

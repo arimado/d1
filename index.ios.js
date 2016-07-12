@@ -67,19 +67,35 @@ const decks = (state = {
             })
          case 'UPDATE_ANSWER':
 
-            let index = _.findIndex(state.answers, {id: action.answer.id})
-            let answerToUpdate = state.answers[index];
+            let answerIndex = _.findIndex(state.answers, {id: action.answer.id})
+            let answerToUpdate = state.answers[answerIndex];
             let updatedAnswer = Object.assign({}, answerToUpdate, {
                 content: action.answer.content
             })
 
             return Object.assign({}, state, {
                 answers: [
-                    ...state.answers.slice(0, index),
+                    ...state.answers.slice(0, answerIndex),
                     updatedAnswer,
-                    ...state.answers.slice(index + 1)
+                    ...state.answers.slice(answerIndex + 1)
                 ]
             })
+        case 'UPDATE_QUESTION':
+
+            let questionIndex = _.findIndex(state.questions, {id: action.question.id})
+            let questionToUpdate = state.questions[questionIndex];
+            let updatedQuestion = Object.assign({}, questionToUpdate, {
+                content: action.question.content
+            })
+
+            return Object.assign({}, state, {
+                questions: [
+                    ...state.questions.slice(0, questionIndex),
+                    updatedQuestion,
+                    ...state.questions.slice(questionIndex + 1)
+                ]
+            })
+
         default:
             return state;
     }

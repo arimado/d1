@@ -82,6 +82,19 @@ export const updateAnswer = ( answer ) => {
     }
 }
 
+export const UPDATE_QUESTION = 'UPDATE_QUESTION';
+
+export const updateQuestion = ( question ) => {
+    return { type: UPDATE_QUESTION,
+        question: {
+                id: question.id,
+           content: question.content
+        }
+    }
+}
+
+
+
 
 
 
