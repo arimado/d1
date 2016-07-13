@@ -5,7 +5,8 @@ import {
   TextInput,
   TouchableHighlight,
   TouchableOpacity,
-  View
+  View,
+  ScrollView
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -54,6 +55,8 @@ class Decks extends Component {
     render() {
 
         let state = this.props.decks
+        let selectedDeckID = this.props.session.selectedDeckID;
+
         let decksInState = _.map(state.decks, (deck) => {
             let currentQuesions = (
                 _.filter(state.questions, {deckID: deck.id})
@@ -71,19 +74,43 @@ class Decks extends Component {
                 userID: deck.userID,
                 questions: currentQuesions,
                 session: this.props.session,
-                selectDeck: this.props.selectDeck
+                selectDeck: this.props.selectDeck,
+                _handleNavigate: this.props._handleNavigate
             }
         })
 
-        console.log('decksInState')
-        console.log(decksInState);
+        let reOrderedDecks = null;
+        // console.log('selectedDeckID')
+        // console.log(selectedDeckID);
+        if(selectedDeckID !== null) {
+            let selectedDeckIndex = _.findIndex(decksInState, {id: selectedDeckID});
+            // console.log('selectedDeckIndex')
+            // console.log(selectedDeckIndex);
+            // console.log('selectedDeckState')
+            // console.log(decksInState[selectedDeckIndex]);
+            reOrderedDecks = [
+                decksInState[selectedDeckIndex],
+                ...decksInState.slice(selectedDeckIndex + 1),
+                ...decksInState.slice(0, selectedDeckIndex),
+            ]
+        } else {
+            reOrderedDecks = decksInState;
+        }
+
+        // console.log('decksInState')
+        // console.log(decksInState);
+        //
+        // console.log('reOrderedDecks')
+        // console.log(reOrderedDecks);
+
+
         return (
             <View style={Styles.container}>
                 <StatusBarBg />
                 <NavBarContainer _handleNavigate={this.props._handleNavigate}/>
                 <Text>Decks View</Text>
                 <SwipeCards
-                   cards={decksInState}
+                   cards={reOrderedDecks}
                    renderCard={(data) => <Deck {...data} />}
                    renderNoMoreCards={() => <Text> NO MORE CARDS LEFT</Text>}
                    showYup={false}
@@ -98,13 +125,3 @@ class Decks extends Component {
 }
 
 export default Decks
-
-const styles = StyleSheet.create({
-  card: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: 400,
-    width: 300,
-  }
-})

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
   Text,
   View,
+  ScrollView,
   TouchableHighlight,
   TouchableOpacity,
 } from 'react-native';
@@ -11,7 +12,7 @@ import _ from 'lodash';
 
 
 
-const Deck = ({id, userID, questions, session: {userID: sessionUserID, deckID, selectedDeckID}, selectDeck}) => {
+const Deck = ({id, userID, questions, session: {userID: sessionUserID, deckID, selectedDeckID}, selectDeck, _handleNavigate}) => {
 
 
     let currentQuestions = (
@@ -19,7 +20,9 @@ const Deck = ({id, userID, questions, session: {userID: sessionUserID, deckID, s
             let currentAnswers = (
                 _.map(question.answers, (answer) => {
                     return (
-                        <Text key={answer.id}>{answer.content}</Text>
+                        <View key={answer.id}>
+                            <Text>{answer.content}</Text>
+                        </View>
                     )
                 })
             )
@@ -42,7 +45,14 @@ const Deck = ({id, userID, questions, session: {userID: sessionUserID, deckID, s
             onPress={() => {
                 console.log('you pressed the deck brah')
                 selectDeck(id);
-
+                _handleNavigate({
+                  type: 'push',
+                  route: {
+                    key: 'show_deck',
+                    title: 'This is the show_deck title',
+                    direction: 'vertical'
+                  }
+                })
             }}>
             <View style={Styles.deck}>
                 {currentQuestions}

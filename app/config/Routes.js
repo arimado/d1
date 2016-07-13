@@ -20,6 +20,7 @@ import Signup from '../components/Signup';
 import DecksContainer from '../containers/DecksContainer';
 import CreateDeckContainer from '../containers/CreateDeckContainer';
 import LoginContainer from '../containers/LoginContainer';
+import ShowDeckContainer from '../containers/ShowDeckContainer';
 
 
 import Decks from '../components/Decks';
@@ -66,13 +67,21 @@ class Routes extends Component {
         if (scene.key === prefix + 'create_deck') {
             return <CreateDeckContainer _handleNavigate={this._handleNavigate.bind(this)} />
         }
+        if (scene.key === prefix + 'show_deck') {
+            return <ShowDeckContainer _handleNavigate={this._handleNavigate.bind(this)} />
+        }
     }
 
-
-
     render() {
+
+        let navDirection = null;
+        let routes = this.props.navigation.routes
+        let currentRoute = routes[routes.length - 1]
+        if (currentRoute.direction) navDirection = currentRoute.direction;
+
         return (
             <NavigationCardStack
+              direction={navDirection}
               navigationState={this.props.navigation}
               onNavigate={this._handleNavigate.bind(this)}
               renderScene={this._renderScene} />
