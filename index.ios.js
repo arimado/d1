@@ -104,7 +104,7 @@ const decks = (state = {
                         console.log('match found!')
                         return Object.assign({}, entity, value)
                     }
-                    return answer
+                    return entity
                 })
             }
 
