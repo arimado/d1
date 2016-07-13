@@ -137,13 +137,20 @@ const Styles = StyleSheet.create({
         marginBottom: 10
     },
     buttons: {
-        flexDirection: 'row'
     },
-    button: {
-        padding: 20,
+
+    buttonContainer: {
         backgroundColor: '#CCCCCC',
+        marginBottom: 10,
+        padding: 20,
+        flex: 1,
+    },
+
+    button: {
+
         justifyContent: 'center',
-        alignItems: 'center',
+
+        flex: 1
     },
 
 

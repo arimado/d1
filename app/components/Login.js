@@ -63,7 +63,7 @@ const Login = ({login_field, onDeckClick, onUserFieldChange, _handleNavigate, fe
                     secureTextEntry={true}
                 />
                 <View style={Styles.buttons}>
-                    <TouchableOpacity>
+                    <TouchableOpacity style={Styles.buttonContainer}>
                         <Text style={Styles.button}
                               onPress={
                                   ()=>{
@@ -73,7 +73,7 @@ const Login = ({login_field, onDeckClick, onUserFieldChange, _handleNavigate, fe
                                   }
                               }>Login</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity>
+                    <TouchableOpacity style={Styles.buttonContainer}>
                         <Text
                             style={Styles.button}
                             onPress={
