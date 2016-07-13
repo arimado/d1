@@ -12,6 +12,8 @@ import Thunk from 'redux-thunk';
 import Logger from 'redux-logger'
 import _ from 'lodash'
 
+import { setValueOnEntities } from './app/util/util'
+
 import RoutesContainer from './app/containers/RoutesContainer'
 
 const {
@@ -95,27 +97,34 @@ const decks = (state = {
             })
         case 'DESELECT_CORRECT':
 
-            const setValueOnEntities = (entities, filterProp, filter, value) => {
-
-                console.log('fired');
-
-                return entities.map((entity) => {
-                    if (entity[filterProp] === filter) {
-                        console.log('match found!')
-                        return Object.assign({}, entity, value)
-                    }
-                    return entity
-                })
-            }
-
-            let modifiedAnswers = setValueOnEntities( state.answers, 'questionID', action.id, { isCorrect: true })
-
-
+            let modifiedAnswers = setValueOnEntities( state.answers, 'questionID', action.id, { isCorrect: false })
 
             return Object.assign({}, state, {
                 answers: modifiedAnswers
             })
 
+        case 'SELECT_CORRECT':
+
+            const setValueOnEntity = (entities, idObj, returnObj ) => {
+                let i = _.findIndex(entities, idObj)
+                let entity = entities[i];
+                let updatedEntity = Object.assign({}, entity, returnObj(entity))
+                return [
+                    ...entities.slice(0, i),
+                    updatedEntity,
+                    ...entities.slice(i + 1)
+                ]
+            }
+
+            let updatedCorrectWithAnswers = setValueOnEntity(state.answers, {id: action.id}, (answer) => {
+                return {
+                    isCorrect: !answer.isCorrect
+                }
+            } )
+
+            return Object.assign({}, state, {
+                answers: updatedCorrectWithAnswers
+            })
 
         case 'ADD_DECK':
             return Object.assign({}, state, {

@@ -60,6 +60,7 @@ class CreateDeck extends Component {
                             style={answerStyles}
                             onPress={(event)=> {
                                 this.props.deselectCorrect(question.id);
+                                this.props.selectCorrect(answer.id);
                             }}>
                             <Icon
                                 name="check-circle-o"
