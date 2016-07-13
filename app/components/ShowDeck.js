@@ -66,8 +66,19 @@ class ShowDeck extends Component {
                     <View style={Styles.deckBG}>
                         {questionsAndAnwers}
                     </View>
+
+                    <TouchableOpacity style={Styles.finishDeckButtonContainer}>
+                        <Icon
+                            style={Styles.finishDeckButton}
+                            name="paper-plane"
+                            size={30}
+                            color="white"
+                         />
+                    </TouchableOpacity>
                 </ScrollView>
+
                 </View>
+
             </View>
         )
         // with the currently selectedDeckID

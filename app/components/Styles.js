@@ -75,11 +75,24 @@ const Styles = StyleSheet.create({
     },
 
     deckScrollView: {
-        padding: 25
+        padding: 25,
+        paddingBottom: 100
     },
 
     deckBG: {
          flex: 1,
+    },
+
+    finishDeckButtonContainer: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        backgroundColor: '#437545',
+        padding: 20,
+        marginBottom: 100,
+    },
+
+    finishDeckButton: {
+
     },
 
     // CREATE PAGE -----------------------------------
