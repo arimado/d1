@@ -70,7 +70,8 @@ class Decks extends Component {
                 id: deck.id,
                 userID: deck.userID,
                 questions: currentQuesions,
-                session: this.props.session
+                session: this.props.session,
+                selectDeck: this.props.selectDeck
             }
         })
 

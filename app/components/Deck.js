@@ -11,7 +11,7 @@ import _ from 'lodash';
 
 
 
-const Deck = ({id, userID, questions, session: {userID: sessionUserID, deckID, selectedDeckID}}) => {
+const Deck = ({id, userID, questions, session: {userID: sessionUserID, deckID, selectedDeckID}, selectDeck}) => {
 
 
     let currentQuestions = (
@@ -37,7 +37,7 @@ const Deck = ({id, userID, questions, session: {userID: sessionUserID, deckID, s
         <TouchableOpacity
             onPress={() => {
                 console.log('you pressed the deck brah')
-
+                selectDeck(id)
             }}>
             <View style={Styles.deck}>
                 {currentQuestions}
