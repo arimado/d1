@@ -12,6 +12,15 @@ export const selectDeck = (deckID) => {
     }
 }
 
+export const SELECT_ANSWER = 'SELECT_ANSWER';
+
+export const selectAnswer = (answerID) => {
+    return {
+        type: SELECT_ANSWER,
+        id: answerID
+    }
+}
+
 export const FINISH_DECK = 'FINISH_DECK';
 
 export const finishDeck = () => {
@@ -45,7 +54,28 @@ export const fetchDecks = (userID) => {
                         console.log('axios successfully made a request');
                         console.log(`here's the response:`);
                         console.dir(res);
-                        dispatch(getDecksSuccess(res.data))
+
+                        // add isCorrect, isSelected booleans to answer collection
+                        const addSelectedCorrectBoolsToAnswers = (data) => {
+
+                            let modifiedAnswers = data.answers.map((answer) => {
+                                return {
+                                    ...answer,
+                                    isCorrect: false,
+                                    isSelected: false
+                                }
+                            })
+
+                            return {
+                                decks: data.decks,
+                                questions: data.questions,
+                                answers: modifiedAnswers
+                            }
+                        }
+
+                        let modifiedData = addSelectedCorrectBoolsToAnswers(res.data)
+
+                        dispatch(getDecksSuccess(modifiedData))
                     })
                     .catch(error => console.log('error: ', error))
     }

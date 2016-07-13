@@ -65,6 +65,22 @@ const decks = (state = {
                     ...action.data.answers
                 ]
             })
+        case 'SELECT_ANSWER':
+
+            let i = _.findIndex(state.answers, {id: action.id})
+            let selectedAnswer = state.answers[i];
+            let updatedSelectedAnswer = Object.assign({}, selectedAnswer, {
+                isSelected: !selectedAnswer.isSelected
+            })
+
+            return Object.assign({}, state, {
+                answers: [
+                    ...state.answers.slice(0, i),
+                    updatedSelectedAnswer,
+                    ...state.answers.slice(i + 1)
+                ]
+            })
+
         case 'ADD_DECK':
             return Object.assign({}, state, {
                 decks: [
