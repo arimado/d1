@@ -39,6 +39,10 @@ class CreateDeck extends Component {
 
             let answers = _.filter(allAnswers, {questionID: question.id})
             let answersElement = answers.map((answer) => {
+
+                let answerStyles = Styles.answerCheck
+                if (answer.isCorrect) answerStyles = [Styles.answerCheck, Styles.answerCheckCorrect]
+
                 return (
                     <View key={answer.id} style={Styles.answerContainer}>
                         <TextInput
@@ -52,7 +56,17 @@ class CreateDeck extends Component {
                                 })
                             }}
                         />
-                        <Icon style={Styles.answerCheck} name="check-circle-o" size={30} color="white" />
+                        <TouchableOpacity
+                            style={answerStyles}
+                            onPress={(event)=> {
+                                this.props.deselectCorrect(question.id);
+                            }}>
+                            <Icon
+                                name="check-circle-o"
+                                size={30}
+                                color="white"
+                             />
+                        </TouchableOpacity>
                     </View>
                 )
             })

@@ -135,6 +135,25 @@ export const addDeck = ( deck ) => {
     }
 }
 
+export const DESELECT_CORRECT = 'DESELECT_CORRECT';
+
+export const deselectCorrect = ( questionID ) => {
+    return {
+        type: DESELECT_CORRECT,
+        id: questionID
+    }
+}
+
+export const SELECT_CORRECT = 'SELECT_CORRECT';
+
+export const selectCorrect = ( answerID ) => {
+    return {
+        type: SELECT_CORRECT,
+        id: answerID
+    }
+}
+
+
 export const ADD_ANSWER = 'ADD_ANSWER';
 
 export const addAnswer = ( answer ) => {
@@ -143,7 +162,9 @@ export const addAnswer = ( answer ) => {
         answer: {
                     id: answer.id,
             questionID: answer.questionID,
-               content: answer.content
+               content: answer.content,
+            isSelected: false,
+             isCorrect: false  
         }
     }
 }

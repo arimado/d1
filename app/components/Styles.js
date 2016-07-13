@@ -102,6 +102,10 @@ const Styles = StyleSheet.create({
         backgroundColor: 'grey'
     },
 
+    answerCheckCorrect: {
+        backgroundColor: 'green'
+    },
+
     // FORMS --------------------------------------
 
     label: {

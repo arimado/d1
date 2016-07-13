@@ -93,6 +93,30 @@ const decks = (state = {
                     ...state.answers.slice(i + 1)
                 ]
             })
+        case 'DESELECT_CORRECT':
+
+            const setValueOnEntities = (entities, filterProp, filter, value) => {
+
+                console.log('fired');
+
+                return entities.map((entity) => {
+                    if (entity[filterProp] === filter) {
+                        console.log('match found!')
+                        return Object.assign({}, entity, value)
+                    }
+                    return answer
+                })
+            }
+
+            let modifiedAnswers = setValueOnEntities( state.answers, 'questionID', action.id, { isCorrect: true })
+
+
+
+            return Object.assign({}, state, {
+                answers: modifiedAnswers
+            })
+
+
         case 'ADD_DECK':
             return Object.assign({}, state, {
                 decks: [
@@ -108,6 +132,9 @@ const decks = (state = {
                   ]
             })
         case 'ADD_ANSWER':
+
+
+
             return Object.assign({}, state, {
                 answers: [
                     ...state.answers,
