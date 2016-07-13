@@ -54,9 +54,7 @@ class Decks extends Component {
     render() {
 
         let state = this.props.decks
-
         let decksInState = _.map(state.decks, (deck) => {
-
             let currentQuesions = (
                 _.filter(state.questions, {deckID: deck.id})
                     .map((question) => {
@@ -71,15 +69,13 @@ class Decks extends Component {
             return {
                 id: deck.id,
                 userID: deck.userID,
-                questions: currentQuesions
+                questions: currentQuesions,
+                session: this.props.session
             }
         })
 
         console.log('decksInState')
-        console.dir(decksInState);
-
-
-
+        console.log(decksInState);
         return (
             <View style={Styles.container}>
                 <StatusBarBg />
@@ -87,8 +83,8 @@ class Decks extends Component {
                 <Text>Decks View</Text>
                 <SwipeCards
                    cards={decksInState}
-                   renderCard={(cardData) => <Deck {...cardData} />}
-                   renderNoMoreCards={() => <Text> NO MORE CARDS LEFT ß</Text>}
+                   renderCard={(data) => <Deck {...data} />}
+                   renderNoMoreCards={() => <Text> NO MORE CARDS LEFT</Text>}
                    showYup={false}
                    showNope={false}
                    handleYup={() => {}}

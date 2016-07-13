@@ -149,8 +149,9 @@ const requestsReducer = (state = {
 
 
 const sessionReducer = (state = {
-    userID: null,
-    deckID: null
+            userID: null,
+            deckID: null,
+    selectedDeckID: null,
 }, action) => {
     switch (action.type) {
         case 'ADD_DECK':
@@ -158,10 +159,13 @@ const sessionReducer = (state = {
                 deckID: action.deck.id,
                 userID: action.deck.userID
             })
+        case 'SELECT_DECK':
+            return Object.assign({}, state, {
+                selectedDeckID: action.deckID
+            })
         default:
             return state
     }
-
 }
 
 

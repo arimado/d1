@@ -1,5 +1,24 @@
 import axios from 'axios';
 
+// const server = 'http://localhost:3005/'
+const server = 'https://144c1b45.ngrok.io/'
+
+export const SELECT_DECK = 'SELECT_DECK';
+
+export const selectDeck = (deckID) => {
+    return {
+          type: SELECT_DECK,
+        deckID: deckID
+    }
+}
+
+export const FINISH_DECK = 'FINISH_DECK';
+
+export const finishDeck = () => {
+    return {
+        type: FINISH_DECK
+    }
+}
 
 export const GET_DECKS = 'GET_DECKS'
 
@@ -21,7 +40,7 @@ export const getDecksSuccess = (data) => {
 export const fetchDecks = (userID) => {
     return (dispatch) => {
         dispatch(getDecks(userID))
-        return axios.get('http://localhost:3005/api/decks')
+        return axios.get(server + 'api/decks')
                     .then(res => {
                         console.log('axios successfully made a request');
                         console.log(`here's the response:`);
@@ -53,7 +72,7 @@ export const submitDeck = (deck) => {
     return (dispatch) => {
         // activate spinner
         dispatch(postDeck(deck))
-        return axios.post('http://localhost:3005/api/decks', deck)
+        return axios.post(server + 'api/decks', deck)
                     .then(res => {
                         console.log('axios recieved something')
                         dispatch(postDeckSuccess(deck))

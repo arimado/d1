@@ -2,17 +2,19 @@
 
 import { connect } from 'react-redux'
 import Decks from '../components/Decks'
-import { fetchDecks } from '../actions/actions'
+import { fetchDecks, selectDeck } from '../actions/actions'
 
 function mapStateToProps (state) {
   return {
-    decks: state.decks
+    decks: state.decks,
+    session: state.session
   }
 }
 
 function mapDispatchToProps (dispatch) {
   return {
-    fetchDecks: (userID) => {  dispatch(fetchDecks(userID)) }
+    fetchDecks: (userID) => { dispatch(fetchDecks(userID)) },
+    selectDeck: (deckID) => { dispatch(selectDeck(deckID)) }
   }
 }
 
