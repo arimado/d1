@@ -14,6 +14,7 @@ import Styles from './Styles';
 import StatusBarBg from './StatusBarBg';
 import Deck from './Deck'
 import NavBarContainer from '../containers/NavBarContainer';
+import { getDeckData } from '../util/util'
 import _ from 'lodash';
 
 
@@ -21,16 +22,50 @@ class ShowDeck extends Component {
     constructor(props) {
         super(props)
     }
-    componentWillMount() {
-    }
     render() {
+
+        let selectedDeckID = this.props.session.selectedDeckID;
+
+        let decks = this.props.decks.decks;
+        let questions = this.props.decks.questions;
+        let answers = this.props.decks.answers;
+
+        let nestedDeckData = getDeckData(_, decks, questions, answers, selectedDeckID);
+
+        let questionsAndAnwers = nestedDeckData.questions.map((question, questionIndex) => {
+            let answerElements = question.answers.map((answer) => {
+                return (
+                    <Text key={answer.id}
+                        style={Styles.deckAnswer}> {answer.content} </Text>
+                )
+            })
+
+            return (
+                <View key={question.id}>
+                    <Text style={Styles.deckText}>{questionIndex + 1}. {question.content}</Text>
+                    {answerElements}
+                </View>
+            )
+        })
+
         return (
             <View style={Styles.container}>
                 <StatusBarBg />
                 <NavBarContainer _handleNavigate={this.props._handleNavigate}/>
-                <Text>Show Deck View</Text>
+                <View style={Styles.deckContainer}>
+                <ScrollView style={Styles.deckScrollView}>
+                    <View style={Styles.deckBG}>
+                        {questionsAndAnwers}
+                    </View>
+                </ScrollView>
+                </View>
             </View>
         )
+        // with the currently selectedDeckID
+        // getQuestionsAndAnswers
+        // then do a pass function
+        // user
+        // then chat
     }
 
 }

@@ -33,7 +33,7 @@ const Deck = ({id, userID, questions, session: {userID: sessionUserID, deckID, s
 
 
             return (
-                    <View   key={question.id}>
+                    <View key={question.id}>
                         <Text style={Styles.deckText}>{index + 1}. {question.content}</Text>
                         {showAnswers}
                     </View>

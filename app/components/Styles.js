@@ -50,9 +50,34 @@ const Styles = StyleSheet.create({
     },
 
     deckText: {
-        fontSize: 25,
+        fontSize: 26,
         marginBottom: 10
     },
+
+    deckAnswer: {
+        fontSize: 17,
+        backgroundColor: 'grey',
+        color: 'white',
+        padding: 20,
+        marginBottom: 10,
+        
+    },
+
+    // SHOW DECK --------------------------------------
+
+    deckContainer: {
+        flex: 1,
+         backgroundColor: '#CCCCCC'
+    },
+
+    deckScrollView: {
+        padding: 25
+    },
+
+    deckBG: {
+         flex: 1,
+    },
+
 
     // FORMS --------------------------------------
 
