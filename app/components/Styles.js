@@ -60,7 +60,11 @@ const Styles = StyleSheet.create({
         color: 'white',
         padding: 20,
         marginBottom: 10,
-        
+
+    },
+
+    deckAnswerSelected: {
+        backgroundColor: '#4d4d4d'
     },
 
     // SHOW DECK --------------------------------------
