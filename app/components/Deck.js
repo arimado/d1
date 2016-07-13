@@ -16,28 +16,33 @@ const Deck = ({id, userID, questions, session: {userID: sessionUserID, deckID, s
 
     let currentQuestions = (
         _.map(questions, (question, index) => {
-            // let currentAnswers = (
-            //     _.map(question.answers, (answer) => {
-            //         return (
-            //             <Text key={answer.id}>{answer.content}</Text>
-            //         )
-            //     })
-            // )
+            let currentAnswers = (
+                _.map(question.answers, (answer) => {
+                    return (
+                        <Text key={answer.id}>{answer.content}</Text>
+                    )
+                })
+            )
+
+            if (id === selectedDeckID) {
+                var showAnswers = currentAnswers
+            }
+
+
             return (
                     <View   key={question.id}>
                         <Text style={Styles.deckText}>{index + 1}. {question.content}</Text>
-                        {/*{currentAnswers}*/}
+                        {showAnswers}
                     </View>
             )
     }))
-
-    console.log(selectedDeckID);
 
     return (
         <TouchableOpacity
             onPress={() => {
                 console.log('you pressed the deck brah')
-                selectDeck(id)
+                selectDeck(id);
+
             }}>
             <View style={Styles.deck}>
                 {currentQuestions}
