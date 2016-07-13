@@ -29,8 +29,7 @@ class CreateDeck extends Component {
 
         let submitText = this.props.requests.isPosting ? "..." : "Submit";
 
-        let currentDeckID = this.props.session.deckID
-
+        let currentDeckID = this.props.session.deckID;
 
         let questions = _.filter(this.props.decks.questions, {deckID: currentDeckID})
 
@@ -41,18 +40,20 @@ class CreateDeck extends Component {
             let answers = _.filter(allAnswers, {questionID: question.id})
             let answersElement = answers.map((answer) => {
                 return (
-                    <TextInput
-                        key={answer.id}
-                        style={Styles.input}
-                        placeholder="Answer"
-                        value={answer.content}
-                        onChangeText={(value) => {
-                            this.props.updateAnswer({
-                                id: answer.id,
-                                content: value
-                            })
-                        }}
-                    />
+                    <View key={answer.id} style={Styles.answerContainer}>
+                        <TextInput
+                            style={[Styles.input, Styles.answerInput]}
+                            placeholder="Answer"
+                            value={answer.content}
+                            onChangeText={(value) => {
+                                this.props.updateAnswer({
+                                    id: answer.id,
+                                    content: value
+                                })
+                            }}
+                        />
+                        <Icon style={Styles.answerCheck} name="check-circle-o" size={30} color="white" />
+                    </View>
                 )
             })
 

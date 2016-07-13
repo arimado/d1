@@ -207,7 +207,7 @@ const initialState = {
         {
             // key: 'create_deck',
             // title: 'Create Deck'
-            key: 'login',
+            key: 'create_deck',
             title: 'Welcome',
         }
     ]

@@ -82,6 +82,25 @@ const Styles = StyleSheet.create({
          flex: 1,
     },
 
+    // CREATE PAGE -----------------------------------
+
+    answerContainer: {
+         flex: 1,
+         flexDirection: 'row'
+    },
+
+    answerInput: {
+        flex: 1,
+    },
+
+    answerCheck: {
+        paddingTop: 12,
+        paddingLeft: 30,
+        paddingRight: 30,
+        paddingBottom: 0,
+        height: 55,
+        backgroundColor: 'grey'
+    },
 
     // FORMS --------------------------------------
 
@@ -96,7 +115,7 @@ const Styles = StyleSheet.create({
     },
     input: {
         backgroundColor: "#dfdfdf",
-        height: 40,
+        height: 55,
         padding: 10,
         marginBottom: 10
     },
