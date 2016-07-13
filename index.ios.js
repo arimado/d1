@@ -65,9 +65,22 @@ const decks = (state = {
                     ...action.data.answers
                 ]
             })
+        case 'DESELECT_ANSWERS':
+            let deSelectedAnswers = state.answers.map((answer) => {
+                if (answer.questionID === action.questionID) {
+                    return Object.assign({}, answer, {
+                        isSelected: false
+                    })
+                }
+                return answer
+            })
+
+            return Object.assign({}, state, {
+                answers: deSelectedAnswers
+            })
         case 'SELECT_ANSWER':
 
-            let i = _.findIndex(state.answers, {id: action.id})
+            let i = _.findIndex(state.answers, {id: action.answerID})
             let selectedAnswer = state.answers[i];
             let updatedSelectedAnswer = Object.assign({}, selectedAnswer, {
                 isSelected: !selectedAnswer.isSelected
@@ -80,7 +93,6 @@ const decks = (state = {
                     ...state.answers.slice(i + 1)
                 ]
             })
-
         case 'ADD_DECK':
             return Object.assign({}, state, {
                 decks: [

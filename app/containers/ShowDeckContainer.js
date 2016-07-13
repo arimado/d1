@@ -2,7 +2,12 @@
 
 import { connect } from 'react-redux'
 import ShowDeck from '../components/ShowDeck'
-import { fetchDecks, selectDeck, selectAnswer } from '../actions/actions'
+import {
+    fetchDecks,
+    selectDeck,
+    selectAnswer,
+    deselectAnswers
+} from '../actions/actions'
 
 function mapStateToProps (state) {
   return {
@@ -15,7 +20,8 @@ function mapDispatchToProps (dispatch) {
   return {
     fetchDecks: (userID) => { dispatch(fetchDecks(userID)) },
     selectDeck: (deckID) => { dispatch(selectDeck(deckID)) },
-    selectAnswer: (answerID) => { dispatch(selectAnswer(answerID)) }
+    selectAnswer: (answerID, questionID) => { dispatch(selectAnswer(answerID, questionID)) },
+    deselectAnswers: (questionID) => { dispatch(deselectAnswers(questionID)) }
   }
 }
 

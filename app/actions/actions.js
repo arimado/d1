@@ -12,12 +12,22 @@ export const selectDeck = (deckID) => {
     }
 }
 
+export const DESELECT_ANSWERS = 'DESELECT_ANSWERS';
+
+export const deselectAnswers = (questionID) => {
+    return {
+        type: DESELECT_ANSWERS,
+        questionID: questionID
+    }
+}
+
 export const SELECT_ANSWER = 'SELECT_ANSWER';
 
-export const selectAnswer = (answerID) => {
+export const selectAnswer = (answerID, questionID) => {
     return {
         type: SELECT_ANSWER,
-        id: answerID
+        answerID: answerID,
+        questionID: questionID
     }
 }
 

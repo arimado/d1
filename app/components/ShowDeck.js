@@ -35,12 +35,13 @@ class ShowDeck extends Component {
         let questionsAndAnwers = nestedDeckData.questions.map((question, questionIndex) => {
             let answerElements = question.answers.map((answer) => {
                 let answerStyle = Styles.deckAnswer;
-                if (answer.isSelected) answerStyle = [Styles.deckAnswer,Styles.deckAnswerSelected];
+                if (answer.isSelected) answerStyle = [Styles.deckAnswer, Styles.deckAnswerSelected];
                 return (
                     <TouchableOpacity
                         key={answer.id}
                         onPress={()=>{
-                            this.props.selectAnswer(answer.id)
+                            this.props.deselectAnswers(question.id);
+                            this.props.selectAnswer(answer.id, question.id);
                         }}>
                         <Text
                             style={answerStyle}> {answer.content} </Text>
