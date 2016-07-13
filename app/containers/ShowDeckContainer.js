@@ -21,7 +21,8 @@ function mapDispatchToProps (dispatch) {
     fetchDecks: (userID) => { dispatch(fetchDecks(userID)) },
     selectDeck: (deckID) => { dispatch(selectDeck(deckID)) },
     selectAnswer: (answerID, questionID) => { dispatch(selectAnswer(answerID, questionID)) },
-    deselectAnswers: (questionID) => { dispatch(deselectAnswers(questionID)) }
+    deselectAnswers: (questionID) => { dispatch(deselectAnswers(questionID)) },
+    checkDeck: (deckID) => { dispatch(checkDeck(deckID)) }
   }
 }
 

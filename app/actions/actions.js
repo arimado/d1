@@ -31,11 +31,12 @@ export const selectAnswer = (answerID, questionID) => {
     }
 }
 
-export const FINISH_DECK = 'FINISH_DECK';
+export const CHECK_DECK = 'CHECK_DECK';
 
-export const finishDeck = () => {
+export const finishDeck = (deckID) => {
     return {
-        type: FINISH_DECK
+        type: CHECK_DECK,
+        id: deckID
     }
 }
 
@@ -66,26 +67,26 @@ export const fetchDecks = (userID) => {
                         console.dir(res);
 
                         // add isCorrect, isSelected booleans to answer collection
-                        const addSelectedCorrectBoolsToAnswers = (data) => {
+                        // const addSelectedCorrectBoolsToAnswers = (data) => {
+                        //
+                        //     let modifiedAnswers = data.answers.map((answer) => {
+                        //         return {
+                        //             ...answer,
+                        //             isCorrect: false,
+                        //             isSelected: false
+                        //         }
+                        //     })
+                        //
+                        //     return {
+                        //         decks: data.decks,
+                        //         questions: data.questions,
+                        //         answers: modifiedAnswers
+                        //     }
+                        // }
+                        //
+                        // let modifiedData = addSelectedCorrectBoolsToAnswers(res.data)
 
-                            let modifiedAnswers = data.answers.map((answer) => {
-                                return {
-                                    ...answer,
-                                    isCorrect: false,
-                                    isSelected: false
-                                }
-                            })
-
-                            return {
-                                decks: data.decks,
-                                questions: data.questions,
-                                answers: modifiedAnswers
-                            }
-                        }
-
-                        let modifiedData = addSelectedCorrectBoolsToAnswers(res.data)
-
-                        dispatch(getDecksSuccess(modifiedData))
+                        dispatch(getDecksSuccess(res.data))
                     })
                     .catch(error => console.log('error: ', error))
     }
@@ -164,7 +165,7 @@ export const addAnswer = ( answer ) => {
             questionID: answer.questionID,
                content: answer.content,
             isSelected: false,
-             isCorrect: false  
+             isCorrect: false
         }
     }
 }

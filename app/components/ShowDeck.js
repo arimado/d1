@@ -67,7 +67,26 @@ class ShowDeck extends Component {
                         {questionsAndAnwers}
                     </View>
 
-                    <TouchableOpacity style={Styles.finishDeckButtonContainer}>
+                    <TouchableOpacity
+                        style={Styles.finishDeckButtonContainer}
+                        onPress={() => {
+                            // this.props.checkDeck(deckID)
+
+                            const checkPass = (answers, questions, deckID) => {
+                                let currentQuestions = _.filter(questions, {deckID: deckID});
+                                let currentAnswers = _.map(currentQuestions, (question) => {
+                                    let correctAnswer = _.filter(answers, { questionID: question.id, isSelected: true, isCorrect: true})
+                                    return {
+                                        questionID: question.id,
+                                        answeredCorrectly: correctAnswer
+                                    }
+                                });
+
+                                return currentAnswers;
+                            }
+
+                            console.log(checkPass(answers, questions, selectedDeckID));
+                        }}>
                         <Icon
                             style={Styles.finishDeckButton}
                             name="paper-plane"

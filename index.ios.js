@@ -67,6 +67,8 @@ const decks = (state = {
                     ...action.data.answers
                 ]
             })
+        case 'CHECK_DECK':
+            return Object.assign({}, state, {})
         case 'DESELECT_ANSWERS':
             let deSelectedAnswers = state.answers.map((answer) => {
                 if (answer.questionID === action.questionID) {
@@ -141,9 +143,6 @@ const decks = (state = {
                   ]
             })
         case 'ADD_ANSWER':
-
-
-
             return Object.assign({}, state, {
                 answers: [
                     ...state.answers,
