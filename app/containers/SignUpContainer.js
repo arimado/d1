@@ -1,10 +1,18 @@
 import { connect } from 'react-redux'
 import Signup from '../components/Signup'
-import { addDeck, fetchDecks, updateSignUpName, updateSignUpAge, updateSignUpPassword, submitUser } from '../actions/actions'
+import {
+    addDeck,
+    fetchDecks,
+    updateSignUpName,
+    updateSignUpAge,
+    updateSignUpPassword,
+    submitUser,
+} from '../actions/actions'
 
 const mapStateToProps = (state) => {
   return {
-    session: state.session
+    session: state.session,
+    requests: state.requests
   }
 }
 

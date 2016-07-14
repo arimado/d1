@@ -13,7 +13,8 @@ const mapStateToProps = (state) => {
   return {
     ownDeck: state.ownDeck,
     decks: state.decks,
-    session: state.session
+    session: state.session,
+    navigation: state.navigation
   }
 }
 

@@ -26,9 +26,11 @@ const Styles = StyleSheet.create({
     createDeckButton: {
         flex: 1,
         backgroundColor: '#CCCCCC',
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginLeft: 20
+    },
+
+    createDeckText: {
+        flex: 1,
+        textAlign: 'center'
     },
 
     // MODAL -------------------------------------
@@ -49,7 +51,29 @@ const Styles = StyleSheet.create({
         margin: 10,
     },
 
+    loginButtonContainer: {
+        borderRadius: 10,
+        marginTop: 20,
+    },
+
+    loginButton: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        textAlign: 'center',
+    },
+
     // INDEX PAGE ----------------------------------------
+
+    indexContainer: {
+        padding: 0,
+    },
+
+    indexCreateDeckButton: {
+        paddingTop: 30,
+        paddingBottom: 15,
+        shadowRadius: 5,
+        shadowColor: 'grey',
+    },
 
     deck: {
       flex: 1,
@@ -95,7 +119,7 @@ const Styles = StyleSheet.create({
     },
 
     profileName: {
-        fontSize: 28,
+        fontSize: 32,
         flex: 1
     },
 
@@ -166,6 +190,10 @@ const Styles = StyleSheet.create({
 
     answerCheckCorrect: {
         backgroundColor: 'green'
+    },
+
+    createSubmitButton: {
+        backgroundColor: 'grey'
     },
 
     // FORMS --------------------------------------

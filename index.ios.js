@@ -206,7 +206,7 @@ const requestsReducer = (state = {
             })
         case 'POST_DECK_SUCCESS':
             return Object.assign({}, state, {
-                isPosting: false
+                isPostingUser: false
             })
         case 'POST_USER':
             return Object.assign({}, state, {

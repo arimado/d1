@@ -26,7 +26,7 @@ class CreateDeck extends Component {
     }
     render() {
 
-        let submitText = this.props.requests.isPosting ? "..." : "Submit";
+        let submitText = this.props.requests.isPosting ? "Broadcasting deck..." : "Broadcast deck";
 
         let currentDeckID = this.props.session.deckID;
 
@@ -112,9 +112,9 @@ class CreateDeck extends Component {
                         <Text style={Styles.profileName}>Lidia, 28</Text>
                         <Icon style={Styles.deckClose} name="times" size={30} color="#FFF"
                             onPress={()=>{
-                                // this.props._handleNavigate({
-                                //         type: 'pop',
-                                //         direction: 'vertical'})
+                                this.props._handleNavigate({
+                                        type: 'pop',
+                                        direction: 'vertical'})
                             }}/>
 
                     </View>
@@ -172,7 +172,7 @@ class CreateDeck extends Component {
 
                             // clear the sessions deckID
                         }}
-                        style={Styles.button}>
+                        style={[Styles.buttonContainer, Styles.createSubmitButton]}>
                         <Text> {submitText} </Text>
                     </TouchableOpacity>
                 </View>

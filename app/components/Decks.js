@@ -101,8 +101,7 @@ class Decks extends Component {
         }
 
         return (
-            <View style={Styles.container}>
-                <StatusBarBg />
+            <View style={[Styles.container, Styles.indexContainer]}>
                 <PopUpContainer />
                 <NavBarContainer _handleNavigate={this.props._handleNavigate}/>
                 <SwipeCards

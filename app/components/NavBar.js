@@ -32,11 +32,18 @@ class NavBar extends Component {
 
     let randomNumber = () => {  return Math.floor(Math.random() * 200 + (Date.now() / 2)) }
 
+
+    let navStyles = [Styles.createDeckButton]
+    let {routes} = this.props.navigation;
+    if (routes[routes.length - 1].key === 'decks') {
+        navStyles = [Styles.createDeckButton, Styles.indexCreateDeckButton]
+    }
+
     return (
         <View style={Styles.navBar}>
-            <TouchableOpacity onPress={()=>{this.props._handleNavigate(BACK_ROUTE)}}>
+            {/*<TouchableOpacity onPress={()=>{this.props._handleNavigate(BACK_ROUTE)}}>
                 <Icon name="chevron-left" size={30} color="#900" />
-            </TouchableOpacity>
+            </TouchableOpacity>*/}
             <TouchableOpacity
                 onPress={()=>{
 
@@ -62,8 +69,8 @@ class NavBar extends Component {
 
 
                 }}
-                style={Styles.createDeckButton}>
-                <Text >Create Deck</Text>
+                style={navStyles}>
+                <Text style={Styles.createDeckText}>Create Deck</Text>
             </TouchableOpacity>
         </View>
         )

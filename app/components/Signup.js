@@ -49,6 +49,16 @@ class Signup extends Component {
 
         let { name_field, age_field, password_field } = this.props.session.signUpPage;
         let { userID: user_id } = this.props.session;
+        let { isPostingUser } = this.props.requests;
+
+        let loginText = '';
+
+        if (isPostingUser) {
+            loginText = `Logging in as ${name_field}, ${age_field}...`
+        } else {
+            loginText = `Login as ${name_field}, ${age_field}`
+        }
+
 
         return (
             <View style={Styles.container}>
@@ -70,12 +80,12 @@ class Signup extends Component {
                         onChangeText={this._handleTextChange('age_field')}
                         placeholder="Age"
                     />
-                    <TextInput
+                    {/*<TextInput
                         style={Styles.input}
                         value={password_field}
                         onChangeText={this._handleTextChange('password_field')}
                         placeholder="Password"
-                    />
+                    />*/}
 
                     <View style={Styles.buttons}>
                         <TouchableOpacity
@@ -97,7 +107,7 @@ class Signup extends Component {
                                 })
 
                             }}>
-                        <Text style={Styles.button}>Login</Text>
+                        <Text style={Styles.button}>{loginText}</Text>
                         </TouchableOpacity>
                     </View>
                 </View>

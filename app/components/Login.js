@@ -44,13 +44,10 @@ const Login = ({login_field, onDeckClick, onUserFieldChange, _handleNavigate, fe
             <StatusBarBg />
             <View style={Styles.containerCenter}>
                 <Text style={Styles.welcome}>
-                Login
+                Heaps sick app
                 </Text>
                 <Icon name="rocket" size={30} color="#900" />
-                <Text style={Styles.instructions}>
-                    This page should be replaced with Facebook authentication
-                </Text>
-                <TextInput
+                {/*<TextInput
                     style={Styles.input}
                     placeholder="email"
                     onChangeText={(value) => {
@@ -74,10 +71,10 @@ const Login = ({login_field, onDeckClick, onUserFieldChange, _handleNavigate, fe
                         <Text style={Styles.button}>Login</Text>
 
                     </TouchableOpacity>
-                </View>
+                </View>*/}
                 <View style={Styles.buttons}>
                     <TouchableOpacity
-                        style={Styles.buttonContainer}
+                        style={[Styles.buttonContainer, Styles.loginButtonContainer]}
                         onPress={
                         ()=> {
                             fillRandomUser()
@@ -85,8 +82,8 @@ const Login = ({login_field, onDeckClick, onUserFieldChange, _handleNavigate, fe
 
                         }}>
                         <Text
-                            style={Styles.button}
-                            >Sign in as a random user</Text>
+                            style={[Styles.button, Styles.loginButton]}
+                            > Sign in as a test user </Text>
                     </TouchableOpacity>
                 </View>
             </View>
