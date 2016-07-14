@@ -42,7 +42,7 @@ class NavBar extends Component {
 
                     if (this.props.session.userID) {
                         let deckID = randomNumber();
-                        let userID = randomNumber();
+                        let userID = this.props.session.userID;
 
                         this.props.addDeck({
                             id: deckID,
@@ -55,7 +55,7 @@ class NavBar extends Component {
                            content: 'yolo city'
                        });
                        this.props._handleNavigate(CREATE_DECK)
-                       
+
                    } else {
                        this.props.showModal('You need to be logged in');
                    }
