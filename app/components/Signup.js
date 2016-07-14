@@ -94,7 +94,7 @@ class Signup extends Component {
 
                                 this.props.submitUser(user, () => {
                                     this.props.fetchDecks('placeholder_id');
-                                    this.props._handleNavigate(DECKS_ROUTE)
+                                    this.props._handleNavigate(DECKS_ROUTE);
                                 })
 
                             }}>

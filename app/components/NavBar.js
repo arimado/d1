@@ -4,7 +4,8 @@ import {
   TouchableOpacity,
   TouchableHighlight,
   Text,
-  View
+  View,
+  Modal,
 } from 'react-native';
 import Styles from './Styles'
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -39,23 +40,27 @@ class NavBar extends Component {
             <TouchableOpacity
                 onPress={()=>{
 
-                    let deckID = randomNumber();
-                    let userID = randomNumber();
+                    if (this.props.session.userID) {
+                        let deckID = randomNumber();
+                        let userID = randomNumber();
 
-                    this.props.addDeck({
-                        id: deckID,
-                    userID: userID
-                    });
+                        this.props.addDeck({
+                            id: deckID,
+                        userID: userID
+                        });
 
-                    this.props.addQuestion({
-                            id: randomNumber(),
-                        deckID: deckID,
-                       content: 'yolo city'
-                   });
+                        this.props.addQuestion({
+                                id: randomNumber(),
+                            deckID: deckID,
+                           content: 'yolo city'
+                       });
+                       this.props._handleNavigate(CREATE_DECK)
+                       
+                   } else {
+                       this.props.showModal('You need to be logged in');
+                   }
 
 
-
-                    this.props._handleNavigate(CREATE_DECK)
                 }}
                 style={Styles.createDeckButton}>
                 <Text >Create Deck</Text>

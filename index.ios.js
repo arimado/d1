@@ -227,10 +227,21 @@ const sessionReducer = (state = {
         signUpPage: {
             name_field: '',
             password_field: '',
-            age_field: ''
-        }
+            age_field: '',
+        },
+        modalShow: false,
+        modalMessage: 'default message'
 }, action) => {
     switch (action.type) {
+        case 'SHOW_MODAL':
+            return Object.assign({}, state, {
+                modalShow: true,
+                modalMessage: action.message
+            })
+        case 'HIDE_MODAL':
+            return Object.assign({}, state, {
+                modalShow: false
+            })
         case 'ADD_DECK':
             return Object.assign({}, state, {
                 deckID: action.deck.id,
@@ -283,7 +294,7 @@ const initialState = {
         {
             // key: 'create_deck',
             // title: 'Create Deck'
-            key: 'login',
+            key: 'decks',
             title: 'Welcome',
         }
     ]

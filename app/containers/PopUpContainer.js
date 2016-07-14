@@ -1,13 +1,8 @@
 
 
 import { connect } from 'react-redux'
-import NavBar from '../components/NavBar'
-import {
-    addDeck,
-    addQuestion,
-    addAnswer,
-    showModal
-} from '../actions/actions'
+import PopUp from '../components/PopUp'
+import { addDeck, addQuestion, addAnswer, hideModal, showModal } from '../actions/actions'
 
 const mapStateToProps = (state) => {
   return {
@@ -22,11 +17,12 @@ const mapDispatchToProps = (dispatch) => {
     addDeck: (deck) => dispatch(addDeck(deck)),
     addQuestion: (question) => dispatch(addQuestion(question)),
     addAnswer: (question) => dispatch(addAnswer(answer)),
-    showModal: message => dispatch(showModal(message))
+    hideModal: () => dispatch(hideModal()),
+    showModal: (message) => dispatch(showModal(message))
   }
 }
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(NavBar)
+)(PopUp)

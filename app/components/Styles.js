@@ -31,6 +31,16 @@ const Styles = StyleSheet.create({
         marginLeft: 20
     },
 
+    // MODAL -------------------------------------
+
+    // modalMessage: {
+    //
+    // },
+    //
+    // modalButton: {
+    //
+    // },
+
     // LOGIN PAGE ----------------------------------------
 
     welcome: {

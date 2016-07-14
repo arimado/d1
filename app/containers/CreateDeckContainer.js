@@ -10,7 +10,8 @@ import {
     updateAnswer,
     updateQuestion,
     deselectCorrect,
-    selectCorrect
+    selectCorrect,
+    showModal
 } from '../actions/actions'
 
 const mapStateToProps = (state) => {
@@ -29,7 +30,8 @@ const mapDispatchToProps = (dispatch) => {
     updateAnswer: answer => dispatch(updateAnswer(answer)),
     updateQuestion: question => dispatch(updateQuestion(question)),
     deselectCorrect: questionID => dispatch(deselectCorrect(questionID)),
-    selectCorrect: answerID => dispatch(selectCorrect(answerID))
+    selectCorrect: answerID => dispatch(selectCorrect(answerID)),
+    showModal: message => dispatch(showModal(message))
   }
 }
 

@@ -285,23 +285,18 @@ export const updateSignUpPassword = (value) => {
     }
 }
 
+// MODAL PAGE -----------------------------------------------------------------
 
-// export const REQUEST_DECKS = 'REQUEST_DECKS'
-//
-// export function requestPosts(decks) {
-//   return {
-//     type: REQUEST_DECKS,
-//     decks
-//   }
-// }
-//
-// export const RECEIVE_DECKS = 'RECEIVE_DECKS'
-//
-// export function receivePosts(decks, json) {
-//   return {
-//     type: RECEIVE_POSTS,
-//     decks,
-//     posts: json.data.children.map(child => child.data),
-//     receivedAt: Date.now()
-//   }
-// }
+export const showModal = (message) => {
+    return {
+        type: 'SHOW_MODAL',
+     message: message
+    }
+}
+
+export const hideModal = (message) => {
+    return {
+        type: 'HIDE_MODAL',
+     message: message
+    }
+}

@@ -6,7 +6,8 @@ import {
   TouchableHighlight,
   TouchableOpacity,
   View,
-  ScrollView
+  ScrollView,
+  Modal,
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -17,6 +18,7 @@ import StatusBarBg from './StatusBarBg';
 import Deck from './Deck'
 
 import NavBarContainer from '../containers/NavBarContainer';
+import PopUpContainer from '../containers/PopUpContainer';
 
 import _ from 'lodash';
 
@@ -107,6 +109,7 @@ class Decks extends Component {
         return (
             <View style={Styles.container}>
                 <StatusBarBg />
+                <PopUpContainer />
                 <NavBarContainer _handleNavigate={this.props._handleNavigate}/>
                 <Text>Decks View</Text>
                 <SwipeCards
