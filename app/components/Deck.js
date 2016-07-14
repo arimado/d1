@@ -35,7 +35,7 @@ const Deck = ({id, userID, questions, session: {userID: sessionUserID, deckID, s
             return (
                     <View key={question.id}>
                         <Text style={Styles.deckText}>{index + 1}. {question.content}</Text>
-                        {showAnswers}
+                        {/*{showAnswers}*/}
                     </View>
             )
     }))
@@ -54,10 +54,10 @@ const Deck = ({id, userID, questions, session: {userID: sessionUserID, deckID, s
                   }
                 })
             }}>
-            <View style={Styles.deck}>
-                <View style={Styles.deckProfile}>
+            <View style={Styles.deckProfile}>
                 <Text style={Styles.profileName}>{user.name}, {user.age}</Text>
-                </View> 
+            </View>
+            <View style={Styles.deck}>
                 {currentQuestions}
             </View>
         </TouchableOpacity>

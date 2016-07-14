@@ -65,9 +65,6 @@ export const fetchDecks = (userID) => {
         return axios.get(server + 'api/decks')
                     .then(res => {
                         console.log('axios successfully made a request');
-                        console.log(`here's the response:`);
-                        console.dir(res);
-
                         // add isCorrect, isSelected booleans to answer collection
                         // const addSelectedCorrectBoolsToAnswers = (data) => {
                         //
@@ -111,7 +108,7 @@ export const postDeckSuccess = (deck) => {
   }
 }
 
-export const submitDeck = (deck) => {
+export const submitDeck = (deck, done) => {
     return (dispatch) => {
         // activate spinner
         dispatch(postDeck(deck))
@@ -119,6 +116,7 @@ export const submitDeck = (deck) => {
                     .then(res => {
                         console.log('axios recieved something')
                         dispatch(postDeckSuccess(deck))
+                        if (done) { done(); }
                     })
                     .catch(error => console.log('error: ', error))
     }

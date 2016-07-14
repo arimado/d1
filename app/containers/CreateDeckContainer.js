@@ -25,7 +25,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    submitDeck: deck => dispatch(submitDeck(deck)),
+    submitDeck: (deck, done) => dispatch(submitDeck(deck, done)),
     addQuestion: question => dispatch(addQuestion(question)),
     addAnswer: answer => dispatch(addAnswer(answer)),
     updateAnswer: answer => dispatch(updateAnswer(answer)),

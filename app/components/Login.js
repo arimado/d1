@@ -44,7 +44,7 @@ const Login = ({login_field, onDeckClick, onUserFieldChange, _handleNavigate, fe
             <StatusBarBg />
             <View style={Styles.containerCenter}>
                 <Text style={Styles.welcome}>
-                Heaps sick app
+                I'm tinder for smart people.
                 </Text>
                 <Icon name="rocket" size={30} color="#900" />
                 {/*<TextInput

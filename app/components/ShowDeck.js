@@ -69,18 +69,18 @@ class ShowDeck extends Component {
                 {/*<NavBarContainer _handleNavigate={this.props._handleNavigate}/>*/}
 
                 <View style={Styles.deckContainer}>
+                <View style={Styles.deckProfile}>
 
+                    <Text style={Styles.profileName}>{currentUser.name}, {currentUser.age}</Text>
+                    <Icon style={Styles.deckClose} name="times" size={30} color="#FFF"
+                        onPress={()=>{
+                            this.props._handleNavigate({
+                                    type: 'pop',
+                                    direction: 'vertical'})
+                        }}/>
+                </View>
                 <View style={Styles.deckScrollView}>
-                    <View style={Styles.deckProfile}>
 
-                        <Text style={Styles.profileName}>{currentUser.name}, {currentUser.age}</Text>
-                        <Icon style={Styles.deckClose} name="times" size={30} color="#FFF"
-                            onPress={()=>{
-                                this.props._handleNavigate({
-                                        type: 'pop',
-                                        direction: 'vertical'})
-                            }}/>
-                    </View>
                     <View style={Styles.deckBG}>
                         {questionsAndAnwers}
                     </View>
@@ -97,10 +97,14 @@ class ShowDeck extends Component {
                                     answersCount += 1;
                                 }
                             });
-
+                            let matechedUser = _.find(users, {id: nestedDeckData.userID})
                             if(answersCount === answerCheck.length) {
-                                let matechedUser = _.find(users, {id: nestedDeckData.userID})
                                 this.props.showModal('You matched with ' + matechedUser.name)
+                            } else {
+                                this.props.showModal(`You failed ${matechedUser.name}'s test. I'm so sorry.`)
+                                this.props._handleNavigate({
+                                        type: 'pop',
+                                        direction: 'vertical'})
                             }
 
                         }}>

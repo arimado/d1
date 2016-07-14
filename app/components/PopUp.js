@@ -12,19 +12,19 @@ export default PopUp = ({hideModal, showModal , session: { modalShow, modalMessa
     return (
         <Modal
           animationType={"slide"}
-          transparent={true}
+          transparent={false}
           visible={modalShow}
           onRequestClose={() => {alert("Modal has been closed.")}}
           >
          <View style={Styles.containerCenter}>
           <View>
-            <Text>{modalMessage}</Text>
+            <Text style={Styles.modalMessage}>{modalMessage}</Text>
             <TouchableOpacity
-                style={Styles.buttonContainer}
+                style={[Styles.buttonContainer, Styles.buttonContainerModal]}
                 onPress={() => {
                     hideModal()
             }}>
-              <Text>Hide Modal</Text>
+              <Text style={Styles.modalButton}>k</Text>
             </TouchableOpacity>
           </View>
          </View>

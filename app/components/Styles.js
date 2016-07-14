@@ -36,11 +36,21 @@ const Styles = StyleSheet.create({
     // MODAL -------------------------------------
 
     modalMessage: {
-
+        textAlign: 'center'
     },
 
     modalButton: {
+        textAlign: 'center',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
 
+    buttonContainerModal: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 10,
+        marginTop: 30,
+        borderRadius: 30
     },
 
     // LOGIN PAGE ----------------------------------------
@@ -115,12 +125,17 @@ const Styles = StyleSheet.create({
 
     deckProfile: {
         flexDirection: 'row',
-        marginBottom: 25
+        backgroundColor: '#999999',
+        paddingTop: 10,
+        paddingLeft: 20,
+        paddingRight: 20,
+        paddingBottom: 10,
     },
 
     profileName: {
         fontSize: 32,
-        flex: 1
+        flex: 1,
+        color: 'white'
     },
 
     deckClose: {
@@ -146,7 +161,6 @@ const Styles = StyleSheet.create({
     // CREATE PAGE -----------------------------------
 
     deckProfileCreate: {
-        marginBottom: 5
     },
 
     createContainer: {
@@ -175,6 +189,10 @@ const Styles = StyleSheet.create({
          flexDirection: 'row'
     },
 
+    inputCreate: {
+        paddingTop: 26,
+    },
+
     answerInput: {
         flex: 1,
     },
@@ -194,6 +212,10 @@ const Styles = StyleSheet.create({
 
     createSubmitButton: {
         backgroundColor: 'grey'
+    },
+
+    submitDeckButton: {
+        color: 'white'
     },
 
     // FORMS --------------------------------------

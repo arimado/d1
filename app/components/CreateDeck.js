@@ -27,12 +27,14 @@ class CreateDeck extends Component {
     render() {
 
         let submitText = this.props.requests.isPosting ? "Broadcasting deck..." : "Broadcast deck";
-
         let currentDeckID = this.props.session.deckID;
-
         let questions = _.filter(this.props.decks.questions, {deckID: currentDeckID})
-
         let allAnswers = this.props.decks.answers;
+        let currentUserID = this.props.session.userID;
+        let currentUser = _.filter(this.props.decks.users, {id: currentUserID})[0]
+
+
+
 
         let questionsElement = questions.map((question) => {
 
@@ -95,7 +97,7 @@ class CreateDeck extends Component {
                             })
                         }}
                         >
-                        <Text style={Styles.input}> + Answer </Text>
+                        <Text style={[Styles.input, Styles.inputCreate]}> + Answer </Text>
                     </TouchableOpacity>
                 </View>
 
@@ -106,18 +108,19 @@ class CreateDeck extends Component {
         return (
             <ScrollView style={Styles.container}>
                 <StatusBarBg />
+                <View style={[Styles.deckProfile, Styles.deckProfileCreate]}>
+
+                    <Text style={Styles.profileName}>{currentUser.name}, {currentUser.age}</Text>
+                    <Icon style={Styles.deckClose} name="times" size={30} color="#FFF"
+                        onPress={()=>{
+                            this.props._handleNavigate({
+                                    type: 'pop',
+                                    direction: 'vertical'})
+                        }}/>
+
+                </View>
                 <View style={[Styles.deckContainer, Styles.createContainer]}>
-                    <View style={[Styles.deckProfile, Styles.deckProfileCreate]}>
 
-                        <Text style={Styles.profileName}>Lidia, 28</Text>
-                        <Icon style={Styles.deckClose} name="times" size={30} color="#FFF"
-                            onPress={()=>{
-                                this.props._handleNavigate({
-                                        type: 'pop',
-                                        direction: 'vertical'})
-                            }}/>
-
-                    </View>
 
                     <View>
                         <View style={Styles.colorsContainer}>
@@ -144,7 +147,7 @@ class CreateDeck extends Component {
                         deckID: currentDeckID
                         })}}
                         >
-                        <Text style={Styles.input}> + Question </Text>
+                        <Text style={[Styles.input, Styles.inputCreate]}> + Question </Text>
                     </TouchableOpacity>
 
 
@@ -168,12 +171,16 @@ class CreateDeck extends Component {
                                 decks: currentDeck,
                                 questions: currentQuestions,
                                 answers: currentAnswers
+                            }, () => {
+                                this.props._handleNavigate({
+                                type: 'pop',
+                                direction: 'vertical'})
                             })
 
                             // clear the sessions deckID
                         }}
                         style={[Styles.buttonContainer, Styles.createSubmitButton]}>
-                        <Text> {submitText} </Text>
+                        <Text style={Styles.submitDeckButton}> {submitText} </Text>
                     </TouchableOpacity>
                 </View>
             </ScrollView>
