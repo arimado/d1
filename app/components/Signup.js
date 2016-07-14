@@ -17,6 +17,21 @@ class Signup extends Component {
         }
     }
 
+    _handleTextChange(from) {
+        return (value) => {
+            switch (from) {
+                case 'name_field':
+                    this.props.updateSignUpName(value);
+                case 'age_field':
+                    this.props.updateSignUpAge(value);
+                case 'password_field':
+                    this.props.updateSignUpPassword(value);
+                default:
+                    return null
+            }
+        }
+    }
+
     render() {
         return (
             <View style={Styles.container}>
@@ -26,22 +41,21 @@ class Signup extends Component {
                     <Text style={Styles.welcome}>
                         Signup
                     </Text>
+
                     <TextInput
                         style={Styles.input}
-                        onChangeText={this._handleTextChange}
-                        value={this.state.text}
-                        placeholder="email"
+                        onChangeText={this._handleTextChange('name_field')}
+                        placeholder="Name"
                     />
                     <TextInput
                         style={Styles.input}
-                        onChangeText={this._handleTextChange}
-                        value={this.state.text}
-                        placeholder="email"
+                        onChangeText={this._handleTextChange('age_field')}
+                        placeholder="Age"
                     />
                     <TextInput
                         style={Styles.input}
-                        placeholder="password"
-                        secureTextEntry={true}
+                        onChangeText={this._handleTextChange('password_field')}
+                        placeholder="Password"
                     />
                     <View style={Styles.buttons}>
 

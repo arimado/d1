@@ -132,24 +132,25 @@ const Styles = StyleSheet.create({
     },
     input: {
         backgroundColor: "#dfdfdf",
-        height: 55,
+        height: 70,
         padding: 10,
         marginBottom: 10
     },
     buttons: {
+        flexDirection: 'row'
     },
 
     buttonContainer: {
         backgroundColor: '#CCCCCC',
-        marginBottom: 10,
-        padding: 20,
         flex: 1,
+        width: 300,
+        padding: 20,
+        alignItems: 'center',
+        marginBottom: 10,
+        flexDirection: 'row'
     },
 
     button: {
-
-        justifyContent: 'center',
-
         flex: 1
     },
 

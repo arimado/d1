@@ -21,6 +21,7 @@ import DecksContainer from '../containers/DecksContainer';
 import CreateDeckContainer from '../containers/CreateDeckContainer';
 import LoginContainer from '../containers/LoginContainer';
 import ShowDeckContainer from '../containers/ShowDeckContainer';
+import SignUpContainer from '../containers/SignUpContainer';
 
 
 import Decks from '../components/Decks';
@@ -59,7 +60,7 @@ class Routes extends Component {
             return  <LoginContainer _handleNavigate={this._handleNavigate.bind(this)} />
         }
         if (scene.key === prefix + 'sign_up') {
-            return <Signup _handleNavigate={this._handleNavigate.bind(this)} />
+            return <SignUpContainer _handleNavigate={this._handleNavigate.bind(this)} />
         }
         if (scene.key === prefix + 'decks') {
             return <DecksContainer _handleNavigate={this._handleNavigate.bind(this)} />

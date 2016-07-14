@@ -23,7 +23,6 @@ const SIGN_UP_ROUTE = {
   }
 }
 
-
 const DECKS_ROUTE = {
   type: 'push',
   route: {
@@ -63,25 +62,30 @@ const Login = ({login_field, onDeckClick, onUserFieldChange, _handleNavigate, fe
                     secureTextEntry={true}
                 />
                 <View style={Styles.buttons}>
-                    <TouchableOpacity style={Styles.buttonContainer}>
-                        <Text style={Styles.button}
-                              onPress={
-                                  ()=>{
-                                     _handleNavigate(DECKS_ROUTE);
-                                     console.log(fetchDecks);
-                                     fetchDecks('placeholder_id');
-                                  }
-                              }>Login</Text>
+                    <TouchableOpacity
+                        style={Styles.buttonContainer}
+                        onPress={
+                            ()=>{
+                               _handleNavigate(DECKS_ROUTE);
+                               console.log(fetchDecks);
+                               fetchDecks('placeholder_id');
+                            }
+                        }>
+                        <Text style={Styles.button}>Login</Text>
+
                     </TouchableOpacity>
-                    <TouchableOpacity style={Styles.buttonContainer}>
+                </View>
+                <View style={Styles.buttons}>
+                    <TouchableOpacity
+                        style={Styles.buttonContainer}
+                        onPress={
+                        ()=> {
+                            _handleNavigate(SIGN_UP_ROUTE);
+
+                        }}>
                         <Text
                             style={Styles.button}
-                            onPress={
-                            ()=> {
-                                _handleNavigate(SIGN_UP_ROUTE);
-
-                            }}
-                            >Sign up</Text>
+                            >Sign in as a random user</Text>
                     </TouchableOpacity>
                 </View>
             </View>

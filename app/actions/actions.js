@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // const server = 'http://localhost:3005/'
-const server = 'https://144c1b45.ngrok.io/'
+const server = 'https://a8a03658.ngrok.io/'
 
 export const SELECT_DECK = 'SELECT_DECK';
 
@@ -207,6 +207,46 @@ export const updateQuestion = ( question ) => {
 }
 
 
+// SIGNUP PAGE -----------------------------------------------------------------
+
+export const ADD_NEW_USER = 'ADD_USER'
+
+export const addNewUser = ( user ) => {
+    return {
+            type: ADD_NEW_USER,
+              id: user.id,
+            name: user.name,
+             age: user.age,
+        password: user.password
+    }
+}
+
+export const UPDATE_SIGNUP_NAME = 'UPDATE_SIGNUP_NAME';
+
+export const updateSignUpName = (value) => {
+    return {
+        type: UPDATE_SIGNUP_NAME,
+     content: value
+    }
+}
+
+export const UPDATE_SIGNUP_AGE = 'UPDATE_SIGNUP_AGE';
+
+export const updateSignUpAge = (value) => {
+    return {
+        type: UPDATE_SIGNUP_AGE,
+     content: value
+    }
+}
+
+export const UPDATE_SIGNUP_PASSWORD = 'UPDATE_SIGNUP_PASSWORD';
+
+export const updateSignUpPassword = (value) => {
+    return {
+        type: UPDATE_SIGNUP_PASSWORD,
+     content: value
+    }
+}
 
 
 

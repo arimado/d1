@@ -45,6 +45,9 @@ const decks = (state = {
         ],
         answers: [
         ],
+        users: [
+
+        ]
 }, action) => {
     switch (action.type) {
         case 'GET_DECKS':
@@ -208,13 +211,18 @@ const requestsReducer = (state = {
     }
 }
 
-// LOGIN REDUCER ---------------------------------------
+// SESSION REDUCER ---------------------------------------
 
 
 const sessionReducer = (state = {
             userID: null,
             deckID: null,
     selectedDeckID: null,
+        signUpPage: {
+            name_field: '',
+            password: '',
+            age: ''
+        }
 }, action) => {
     switch (action.type) {
         case 'ADD_DECK':
@@ -225,6 +233,24 @@ const sessionReducer = (state = {
         case 'SELECT_DECK':
             return Object.assign({}, state, {
                 selectedDeckID: action.deckID
+            })
+        case 'UPDATE_SIGNUP_NAME':
+            return Object.assign({}, state, {
+                signUpPage: Object.assign({}, state.signUpPage, {
+                    name_field: action.content
+                })
+            })
+        case 'UPDATE_SIGNUP_AGE':
+            return Object.assign({}, state, {
+                signUpPage: Object.assign({}, state.signUpPage, {
+                    age: action.content
+                })
+            })
+        case 'UPDATE_SIGNUP_PASSWORD':
+            return Object.assign({}, state, {
+                signUpPage: Object.assign({}, state.signUpPage, {
+                    password: action.content
+                })
             })
         default:
             return state
