@@ -6,7 +6,8 @@ import {
     fetchDecks,
     selectDeck,
     selectAnswer,
-    deselectAnswers
+    deselectAnswers,
+    showModal
 } from '../actions/actions'
 
 function mapStateToProps (state) {
@@ -22,7 +23,8 @@ function mapDispatchToProps (dispatch) {
     selectDeck: (deckID) => { dispatch(selectDeck(deckID)) },
     selectAnswer: (answerID, questionID) => { dispatch(selectAnswer(answerID, questionID)) },
     deselectAnswers: (questionID) => { dispatch(deselectAnswers(questionID)) },
-    checkDeck: (deckID) => { dispatch(checkDeck(deckID)) }
+    checkDeck: (deckID) => { dispatch(checkDeck(deckID)) },
+    showModal: message => {dispatch(showModal(message))}
   }
 }
 

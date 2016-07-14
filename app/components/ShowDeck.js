@@ -14,7 +14,8 @@ import Styles from './Styles';
 import StatusBarBg from './StatusBarBg';
 import Deck from './Deck'
 import NavBarContainer from '../containers/NavBarContainer';
-import { getDeckData } from '../util/util'
+import PopUpContainer from '../containers/PopUpContainer';
+import { getDeckData, checkPass } from '../util/util'
 import _ from 'lodash';
 
 
@@ -71,21 +72,21 @@ class ShowDeck extends Component {
                         style={Styles.finishDeckButtonContainer}
                         onPress={() => {
                             // this.props.checkDeck(deckID)
+                            let answerCheck = checkPass(answers, questions, selectedDeckID);
+                            let answerThreshold = answerCheck.length;
+                            let answersCount = 0;
+                            answerCheck.forEach((answer) => {
+                                if(answer.answeredCorrectly.length > 0) {
+                                    answersCount += 1;
+                                }
+                            });
 
-                            const checkPass = (answers, questions, deckID) => {
-                                let currentQuestions = _.filter(questions, {deckID: deckID});
-                                let currentAnswers = _.map(currentQuestions, (question) => {
-                                    let correctAnswer = _.filter(answers, { questionID: question.id, isSelected: true, isCorrect: true})
-                                    return {
-                                        questionID: question.id,
-                                        answeredCorrectly: correctAnswer
-                                    }
-                                });
-
-                                return currentAnswers;
+                            if(answersCount === answerCheck.length) {
+                                this.props.showModal('NICE!')
                             }
 
-                            console.log(checkPass(answers, questions, selectedDeckID));
+
+
                         }}>
                         <Icon
                             style={Styles.finishDeckButton}

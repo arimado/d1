@@ -47,6 +47,21 @@ export const randomAge = () => {
 export const randomName = () => {
     const names = ['Lyndon', 'Jestine', 'Maryam', 'Herlinda', 'Leda', 'Tera', 'Hyon', 'Lonny', 'Jeanie', 'Leeanne', 'Toshia', 'Lanell', 'Federico', 'Maryellen', 'Juliette', 'Brooks', 'Sima', 'Iesha', 'Li', 'Laura', 'Georgianna', 'Ana', 'Jeniffer', 'Classie', 'Jc', 'Tyrone', 'Hai', 'Mana', 'Madeleine', 'Marchelle', 'Irwin', 'Ophelia', 'Lavone', 'Jeanine', 'Edwardo', 'Noah', 'Dodie', 'Hsiu', 'Velia', 'Jamison', 'Latrina', 'Dagmar', 'Xavier', 'Alden', 'Beulah', 'Vania', 'Rickey', 'Joellen', 'Keitha', 'Debrah',  
     ]
-    
+
     return names[Math.floor(Math.random() * names.length)]
+}
+
+
+
+export const checkPass = (answers, questions, deckID) => {
+    let currentQuestions = _.filter(questions, {deckID: deckID});
+    let currentAnswers = _.map(currentQuestions, (question) => {
+        let correctAnswer = _.filter(answers, { questionID: question.id, isSelected: true, isCorrect: true})
+        return {
+            questionID: question.id,
+            answeredCorrectly: correctAnswer
+        }
+    });
+
+    return currentAnswers;
 }
