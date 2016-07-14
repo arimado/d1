@@ -100,15 +100,6 @@ class CreateDeck extends Component {
                         style={Styles.input}>
                         <Text> + Answer </Text>
                     </TouchableOpacity>
-                    <TouchableOpacity
-                        onPress={() => {this.props.addQuestion({
-                            id: randomNumber(),
-                        deckID: currentDeckID
-                        })}}
-                        style={Styles.input}>
-                        <Text> + Question </Text>
-                    </TouchableOpacity>
-
                 </View>
 
             )
@@ -141,11 +132,22 @@ class CreateDeck extends Component {
                     </View>
 
                     {questionsElement}
+                    
+                    <TouchableOpacity
+                        onPress={() => {this.props.addQuestion({
+                            id: randomNumber(),
+                        deckID: currentDeckID
+                        })}}
+                        style={Styles.input}>
+                        <Text> + Question </Text>
+                    </TouchableOpacity>
+
 
                     <TouchableOpacity
                         onPress={() => {
                             // submit the stuff to a database
                             // i'm going to send the whole thing as JSON text
+
 
                             let state = this.props.decks;
                             let allAnswers = state.answers;
