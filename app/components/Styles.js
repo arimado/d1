@@ -81,7 +81,7 @@ const Styles = StyleSheet.create({
 
     deckContainer: {
         flex: 1,
-         backgroundColor: '#CCCCCC'
+        backgroundColor: '#CCCCCC'
     },
 
     deckScrollView: {
@@ -120,6 +120,28 @@ const Styles = StyleSheet.create({
     },
 
     // CREATE PAGE -----------------------------------
+
+    deckProfileCreate: {
+        marginBottom: 5
+    },
+
+    createContainer: {
+        flex: 1,
+        paddingBottom: 500,
+        padding: 20
+    },
+
+    colorsContainer: {
+        flexDirection: 'row'
+
+    },
+
+    colorRadio: {
+        flex: 1,
+        textAlign: 'center',
+        paddingTop: 20,
+        paddingBottom: 20,
+    },
 
     answerContainer: {
          flex: 1,

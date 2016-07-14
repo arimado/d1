@@ -118,38 +118,57 @@ class CreateDeck extends Component {
         return (
             <ScrollView style={Styles.container}>
                 <StatusBarBg />
+                <View style={[Styles.deckContainer, Styles.createContainer]}>
+                    <View style={[Styles.deckProfile, Styles.deckProfileCreate]}>
 
-                <NavBarContainer _handleNavigate={this.props._handleNavigate}/>
+                        <Text style={Styles.profileName}>Lidia, 28</Text>
+                        <Icon style={Styles.deckClose} name="times" size={30} color="#FFF"
+                            onPress={()=>{
+                                // this.props._handleNavigate({
+                                //         type: 'pop',
+                                //         direction: 'vertical'})
+                            }}/>
 
-                {questionsElement}
+                    </View>
 
-                <TouchableOpacity
-                    onPress={() => {
-                        // submit the stuff to a database
-                        // i'm going to send the whole thing as JSON text
+                    <View>
+                        <View style={Styles.colorsContainer}>
+                            <Icon style={Styles.colorRadio} name="circle" size={30} color="white" />
+                            <Icon style={Styles.colorRadio} name="circle" size={30} color="white" />
+                            <Icon style={Styles.colorRadio} name="circle" size={30} color="white" />
+                            <Icon style={Styles.colorRadio} name="circle" size={30} color="white" />
+                         </View>
+                    </View>
 
-                        let state = this.props.decks;
-                        let allAnswers = state.answers;
+                    {questionsElement}
 
-                        let currentDeck = _.filter(state.decks, {id: currentDeckID})
-                        let currentQuestions = _.filter(state.questions, {deckID: currentDeckID})
-                        let currentAnswers = _.chain(currentQuestions)
-                                              .map(question => {
-                                                  return _.filter(allAnswers, {questionID: question.id})
-                                              }).flatten();
+                    <TouchableOpacity
+                        onPress={() => {
+                            // submit the stuff to a database
+                            // i'm going to send the whole thing as JSON text
 
-                        this.props.submitDeck({
-                            decks: currentDeck,
-                            questions: currentQuestions,
-                            answers: currentAnswers
-                        })
+                            let state = this.props.decks;
+                            let allAnswers = state.answers;
 
-                        // clear the sessions deckID
-                    }}
-                    style={Styles.button}>
-                    <Text> {submitText} </Text>
-                </TouchableOpacity>
+                            let currentDeck = _.filter(state.decks, {id: currentDeckID})
+                            let currentQuestions = _.filter(state.questions, {deckID: currentDeckID})
+                            let currentAnswers = _.chain(currentQuestions)
+                                                  .map(question => {
+                                                      return _.filter(allAnswers, {questionID: question.id})
+                                                  }).flatten();
 
+                            this.props.submitDeck({
+                                decks: currentDeck,
+                                questions: currentQuestions,
+                                answers: currentAnswers
+                            })
+
+                            // clear the sessions deckID
+                        }}
+                        style={Styles.button}>
+                        <Text> {submitText} </Text>
+                    </TouchableOpacity>
+                </View>
             </ScrollView>
         )
     }
