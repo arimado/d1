@@ -136,11 +136,14 @@ const Styles = StyleSheet.create({
 
     },
 
-    colorRadio: {
+    colorRadioContainer: {
         flex: 1,
-        textAlign: 'center',
         paddingTop: 20,
         paddingBottom: 20,
+    },
+
+    colorRadio: {
+        textAlign: 'center'
     },
 
     answerContainer: {
@@ -153,11 +156,11 @@ const Styles = StyleSheet.create({
     },
 
     answerCheck: {
-        paddingTop: 12,
+        paddingTop: 18,
         paddingLeft: 30,
         paddingRight: 30,
         paddingBottom: 0,
-        height: 55,
+        height: 70,
         backgroundColor: 'grey'
     },
 

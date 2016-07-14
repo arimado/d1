@@ -39,7 +39,7 @@ class CreateDeck extends Component {
             let answers = _.filter(allAnswers, {questionID: question.id})
             let answersElement = answers.map((answer) => {
 
-                let answerStyles = Styles.answerCheck
+                let answerStyles = [Styles.answerCheck]
                 if (answer.isCorrect) answerStyles = [Styles.answerCheck, Styles.answerCheckCorrect]
 
                 return (
@@ -73,8 +73,6 @@ class CreateDeck extends Component {
 
             return (
                 <View key={question.id}>
-                    <Text
-                        style={Styles.label}>Question</Text>
                     <TextInput
                         style={Styles.input}
                         placeholder="Question"
@@ -85,7 +83,6 @@ class CreateDeck extends Component {
                                 content: value
                             })
                         }}/>
-                    <Text style={Styles.label}>Answers</Text>
 
                     {answersElement}
 
@@ -124,15 +121,23 @@ class CreateDeck extends Component {
 
                     <View>
                         <View style={Styles.colorsContainer}>
-                            <Icon style={Styles.colorRadio} name="circle" size={30} color="white" />
-                            <Icon style={Styles.colorRadio} name="circle" size={30} color="white" />
-                            <Icon style={Styles.colorRadio} name="circle" size={30} color="white" />
-                            <Icon style={Styles.colorRadio} name="circle" size={30} color="white" />
+                            <TouchableOpacity style={Styles.colorRadioContainer}>
+                                <Icon style={Styles.colorRadio} name="circle" size={30} color="white" />
+                            </TouchableOpacity>
+                            <TouchableOpacity style={Styles.colorRadioContainer}>
+                                <Icon style={Styles.colorRadio} name="circle" size={30} color="white" />
+                            </TouchableOpacity>
+                            <TouchableOpacity style={Styles.colorRadioContainer}>
+                                <Icon style={Styles.colorRadio} name="circle" size={30} color="white" />
+                            </TouchableOpacity>
+                            <TouchableOpacity style={Styles.colorRadioContainer}>
+                                <Icon style={Styles.colorRadio} name="circle" size={30} color="white" />
+                            </TouchableOpacity>
                          </View>
                     </View>
 
                     {questionsElement}
-                    
+
                     <TouchableOpacity
                         onPress={() => {this.props.addQuestion({
                             id: randomNumber(),
