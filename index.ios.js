@@ -193,9 +193,7 @@ const decks = (state = {
 const requestsReducer = (state = {
     isFetching: false,
     isPosting: false,
-    deck: [
-        { question: '', answers: [] }
-    ]
+    isPostingUser: false
 }, action) => {
     switch (action.type) {
         case 'POST_DECK':
@@ -205,6 +203,14 @@ const requestsReducer = (state = {
         case 'POST_DECK_SUCCESS':
             return Object.assign({}, state, {
                 isPosting: false
+            })
+        case 'POST_USER':
+            return Object.assign({}, state, {
+                isPostingUser: true
+            })
+        case 'POST_USER_SUCCESS':
+            return Object.assign({}, state, {
+                isPostingUser: false
             })
         default:
             return state;

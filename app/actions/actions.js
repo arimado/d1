@@ -211,17 +211,37 @@ export const updateQuestion = ( question ) => {
 
 // SIGNUP PAGE -----------------------------------------------------------------
 
-export const ADD_NEW_USER = 'ADD_USER'
+export const POST_USER = 'POST_USER'
 
-export const addNewUser = ( user ) => {
-    return {
-            type: ADD_NEW_USER,
-              id: user.id,
-            name: user.name,
-             age: user.age,
-        password: user.password
-    }
+export const postUser = (users) => {
+  return {
+    type: POST_USER,
+  }
 }
+
+export const POST_USER_SUCCESS = 'POST_USER_SUCCESS'
+
+export const postUserSuccess = (users) => {
+  return {
+    type: POST_USER_SUCCESS,
+    users: users
+  }
+}
+
+export const submitUser = (users) => {
+    return (dispatch) => {
+        // activate spinner
+        dispatch(postUser(users))
+        return axios.post(server + 'api/users', users)
+                    .then(res => {
+                        console.log('axios recieved something')
+                        dispatch(postUserSuccess(users))
+                    })
+                    .catch(error => console.log('error: ', error))
+    }
+
+}
+
 
 export const FILL_RANDOM_USER = 'FILL_RANDOM_USER'
 
@@ -263,9 +283,6 @@ export const updateSignUpPassword = (value) => {
      content: value
     }
 }
-
-
-
 
 
 // export const REQUEST_DECKS = 'REQUEST_DECKS'

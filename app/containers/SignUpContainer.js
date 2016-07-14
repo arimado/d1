@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import Signup from '../components/Signup'
-import { addDeck, fetchDecks, updateSignUpName, updateSignUpAge, updateSignUpPassword } from '../actions/actions'
+import { addDeck, fetchDecks, updateSignUpName, updateSignUpAge, updateSignUpPassword, submitUser } from '../actions/actions'
 
 const mapStateToProps = (state) => {
   return {
@@ -13,6 +13,7 @@ const mapDispatchToProps = (dispatch) => {
     updateSignUpName: (value) => dispatch(updateSignUpName(value)),
     updateSignUpAge: (value) => dispatch(updateSignUpAge(value)),
     updateSignUpPassword: (value) => dispatch(updateSignUpPassword(value)),
+    submitUser: (user) => dispatch(submitUser(user))
   }
 }
 

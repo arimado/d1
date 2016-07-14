@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {
   Text,
   TextInput,
-  View
+  View,
+  TouchableOpacity
 } from 'react-native';
 import Styles from './Styles';
 import StatusBarBg from './StatusBarBg'
@@ -37,7 +38,8 @@ class Signup extends Component {
 
     render() {
 
-        let { name_field, age_field, password_field } = this.props.session.signUpPage
+        let { name_field, age_field, password_field } = this.props.session.signUpPage;
+        let { userID: user_id } = this.props.session;
 
         return (
             <View style={Styles.container}>
@@ -66,10 +68,25 @@ class Signup extends Component {
                         onChangeText={this._handleTextChange('password_field')}
                         placeholder="Password"
                     />
-                    <View style={Styles.buttons}>
 
+                    <View style={Styles.buttons}>
+                        <TouchableOpacity
+                            style={Styles.buttonContainer}
+                            onPress={()=>{
+
+                                let user = {
+                                    id: user_id,
+                                    name: name_field,
+                                    age: age_field,
+                                    password: password_field,
+                                }
+
+                                console.log('current User: ', user );
+                                
+                                this.props.submitUser(user)
+                            }}>
                         <Text style={Styles.button}>Login</Text>
-                        <Text style={Styles.button}>Sign up</Text>
+                        </TouchableOpacity>
                     </View>
                 </View>
             </View>
