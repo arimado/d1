@@ -22,10 +22,13 @@ class Signup extends Component {
             switch (from) {
                 case 'name_field':
                     this.props.updateSignUpName(value);
+                    break;
                 case 'age_field':
                     this.props.updateSignUpAge(value);
+                    break;
                 case 'password_field':
                     this.props.updateSignUpPassword(value);
+                    break;
                 default:
                     return null
             }
@@ -33,6 +36,9 @@ class Signup extends Component {
     }
 
     render() {
+
+        let { name_field, age_field, password_field } = this.props.session.signUpPage
+
         return (
             <View style={Styles.container}>
                 <StatusBarBg />
@@ -44,16 +50,19 @@ class Signup extends Component {
 
                     <TextInput
                         style={Styles.input}
+                        value={name_field}
                         onChangeText={this._handleTextChange('name_field')}
                         placeholder="Name"
                     />
                     <TextInput
                         style={Styles.input}
+                        value={age_field}
                         onChangeText={this._handleTextChange('age_field')}
                         placeholder="Age"
                     />
                     <TextInput
                         style={Styles.input}
+                        value={password_field}
                         onChangeText={this._handleTextChange('password_field')}
                         placeholder="Password"
                     />

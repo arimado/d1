@@ -1,4 +1,6 @@
 import axios from 'axios';
+import {randomNumber, randomAge, randomName} from '../util/util'
+
 
 // const server = 'http://localhost:3005/'
 const server = 'https://a8a03658.ngrok.io/'
@@ -218,6 +220,20 @@ export const addNewUser = ( user ) => {
             name: user.name,
              age: user.age,
         password: user.password
+    }
+}
+
+export const FILL_RANDOM_USER = 'FILL_RANDOM_USER'
+
+export const fillRandomUser = () => {
+    return {
+        type: FILL_RANDOM_USER,
+        user: {
+            id: randomNumber(),
+            name: randomName(),
+            age: randomAge() + '',
+            password: 'chicken'
+        }
     }
 }
 

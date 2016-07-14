@@ -34,3 +34,19 @@ export const setValueOnEntities = (entities, filterProp, filter, value) => {
         return entity
     })
 }
+
+
+export const randomNumber = () => {
+    return Math.floor(Math.random() * 200 + (Date.now() / 2))
+}
+
+export const randomAge = () => {
+    return Math.floor(18 + Math.random() * 30)
+}
+
+export const randomName = () => {
+    const names = ['Lyndon', 'Jestine', 'Maryam', 'Herlinda', 'Leda', 'Tera', 'Hyon', 'Lonny', 'Jeanie', 'Leeanne', 'Toshia', 'Lanell', 'Federico', 'Maryellen', 'Juliette', 'Brooks', 'Sima', 'Iesha', 'Li', 'Laura', 'Georgianna', 'Ana', 'Jeniffer', 'Classie', 'Jc', 'Tyrone', 'Hai', 'Mana', 'Madeleine', 'Marchelle', 'Irwin', 'Ophelia', 'Lavone', 'Jeanine', 'Edwardo', 'Noah', 'Dodie', 'Hsiu', 'Velia', 'Jamison', 'Latrina', 'Dagmar', 'Xavier', 'Alden', 'Beulah', 'Vania', 'Rickey', 'Joellen', 'Keitha', 'Debrah',  
+    ]
+    
+    return names[Math.floor(Math.random() * names.length)]
+}

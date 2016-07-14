@@ -8,6 +8,8 @@
   "dependencies": {
     "axios": "^0.12.0",
     "lodash": "^4.13.1",
+    "node-random-name": "^1.0.1",
+    "random-name": "^0.1.1",
     "react": "15.2.0",
     "react-native": "0.29.0",
     "react-native-swipe-cards": "git://github.com/meteor-factory/react-native-tinder-swipe-cards.git#master",

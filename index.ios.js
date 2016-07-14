@@ -220,8 +220,8 @@ const sessionReducer = (state = {
     selectedDeckID: null,
         signUpPage: {
             name_field: '',
-            password: '',
-            age: ''
+            password_field: '',
+            age_field: ''
         }
 }, action) => {
     switch (action.type) {
@@ -234,6 +234,15 @@ const sessionReducer = (state = {
             return Object.assign({}, state, {
                 selectedDeckID: action.deckID
             })
+        case 'FILL_RANDOM_USER':
+            return Object.assign({}, state, {
+                userID: action.user.id,
+                signUpPage: {
+                    name_field: action.user.name,
+                    password_field: action.user.password,
+                    age_field: action.user.age
+                }
+            })
         case 'UPDATE_SIGNUP_NAME':
             return Object.assign({}, state, {
                 signUpPage: Object.assign({}, state.signUpPage, {
@@ -243,13 +252,13 @@ const sessionReducer = (state = {
         case 'UPDATE_SIGNUP_AGE':
             return Object.assign({}, state, {
                 signUpPage: Object.assign({}, state.signUpPage, {
-                    age: action.content
+                    age_field: action.content
                 })
             })
         case 'UPDATE_SIGNUP_PASSWORD':
             return Object.assign({}, state, {
                 signUpPage: Object.assign({}, state.signUpPage, {
-                    password: action.content
+                    password_field: action.content
                 })
             })
         default:

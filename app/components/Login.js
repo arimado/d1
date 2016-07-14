@@ -32,7 +32,7 @@ const DECKS_ROUTE = {
 }
 
 
-const Login = ({login_field, onDeckClick, onUserFieldChange, _handleNavigate, fetchDecks}) => {
+const Login = ({login_field, onDeckClick, onUserFieldChange, _handleNavigate, fetchDecks, fillRandomUser}) => {
 
     let args = arguments;
 
@@ -80,6 +80,7 @@ const Login = ({login_field, onDeckClick, onUserFieldChange, _handleNavigate, fe
                         style={Styles.buttonContainer}
                         onPress={
                         ()=> {
+                            fillRandomUser()
                             _handleNavigate(SIGN_UP_ROUTE);
 
                         }}>
@@ -93,33 +94,5 @@ const Login = ({login_field, onDeckClick, onUserFieldChange, _handleNavigate, fe
     )
 }
 
-const mapStateToProps = ( state ) => {
-  return {
-    login_field: state.login_field
-  };
-};
 
-const mapDispatchToProps = ( dispatch ) => {
-  return {
-    onDeckClick: (id, done) => {
-      dispatch({
-        type: 'ADD_DECK',
-        id: id,
-        text: 'this is a test'
-      });
-      done();
-    },
-    onUserFieldChange: (value) => {
-        dispatch({
-            type: 'CHANGE_LOGIN_FIELD_USERNAME',
-            text: value
-        })
-    }
-  };
-};
-
-const LoginContainer = connect(mapStateToProps,mapDispatchToProps)(Login);
-
-
-
-export default LoginContainer;
+export default Login;

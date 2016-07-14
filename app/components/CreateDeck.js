@@ -16,6 +16,7 @@ import StatusBarBg from './StatusBarBg';
 import NavBar from './NavBar';
 import NavBarContainer from '../containers/NavBarContainer'
 import _ from 'lodash';
+import { randomNumber } from '../util/util'
 
 class CreateDeck extends Component {
     constructor(props) {
@@ -24,8 +25,6 @@ class CreateDeck extends Component {
     componentWillMount() {
     }
     render() {
-
-        let randomNumber = () => {  return Math.floor(Math.random() * 200 + (Date.now() / 2)) }
 
         let submitText = this.props.requests.isPosting ? "..." : "Submit";
 

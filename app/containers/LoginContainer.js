@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import Login from '../components/Login'
-import { addDeck, fetchDecks } from '../actions/actions'
+import { addDeck, fetchDecks, fillRandomUser } from '../actions/actions'
 
 const mapStateToProps = (state) => {
   return {
@@ -11,7 +11,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     addDeck: (deck) => dispatch(addDeck(deck)),
-    fetchDecks: (userID) => dispatch(fetchDecks(userID))
+    fetchDecks: (userID) => dispatch(fetchDecks(userID)),
+    fillRandomUser: () => dispatch(fillRandomUser())
   }
 }
 
