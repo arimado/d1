@@ -33,13 +33,13 @@ const Styles = StyleSheet.create({
 
     // MODAL -------------------------------------
 
-    // modalMessage: {
-    //
-    // },
-    //
-    // modalButton: {
-    //
-    // },
+    modalMessage: {
+
+    },
+
+    modalButton: {
+
+    },
 
     // LOGIN PAGE ----------------------------------------
 
@@ -87,6 +87,20 @@ const Styles = StyleSheet.create({
     deckScrollView: {
         padding: 25,
         paddingBottom: 100
+    },
+
+    deckProfile: {
+        flexDirection: 'row',
+        marginBottom: 25
+    },
+
+    profileName: {
+        fontSize: 28,
+        flex: 1
+    },
+
+    deckClose: {
+
     },
 
     deckBG: {

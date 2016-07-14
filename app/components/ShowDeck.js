@@ -59,12 +59,28 @@ class ShowDeck extends Component {
             )
         })
 
+
+        let currentUser = _.find(users, {id: nestedDeckData.userID})
+
+
         return (
-            <View style={Styles.container}>
+            <ScrollView style={Styles.container}>
                 <StatusBarBg />
-                <NavBarContainer _handleNavigate={this.props._handleNavigate}/>
+                {/*<NavBarContainer _handleNavigate={this.props._handleNavigate}/>*/}
+
                 <View style={Styles.deckContainer}>
-                <ScrollView style={Styles.deckScrollView}>
+
+                <View style={Styles.deckScrollView}>
+                    <View style={Styles.deckProfile}>
+
+                        <Text style={Styles.profileName}>{currentUser.name}, {currentUser.age}</Text>
+                        <Icon style={Styles.deckClose} name="times" size={30} color="#FFF"
+                            onPress={()=>{
+                                this.props._handleNavigate({
+                                        type: 'pop',
+                                        direction: 'vertical'})
+                            }}/>
+                    </View>
                     <View style={Styles.deckBG}>
                         {questionsAndAnwers}
                     </View>
@@ -95,11 +111,11 @@ class ShowDeck extends Component {
                             color="white"
                          />
                     </TouchableOpacity>
-                </ScrollView>
+                </View>
 
                 </View>
 
-            </View>
+            </ScrollView>
         )
         // with the currently selectedDeckID
         // getQuestionsAndAnswers

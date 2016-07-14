@@ -54,7 +54,7 @@ const Login = ({login_field, onDeckClick, onUserFieldChange, _handleNavigate, fe
                     style={Styles.input}
                     placeholder="email"
                     onChangeText={(value) => {
-                        onUserFieldChange(value)
+
                     }}
                 />
                 <TextInput
@@ -69,7 +69,6 @@ const Login = ({login_field, onDeckClick, onUserFieldChange, _handleNavigate, fe
                             ()=>{
                                _handleNavigate(DECKS_ROUTE);
                                console.log(fetchDecks);
-                               fetchDecks('placeholder_id');
                             }
                         }>
                         <Text style={Styles.button}>Login</Text>

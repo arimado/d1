@@ -2,10 +2,16 @@
 
 import { connect } from 'react-redux'
 import Routes from '../config/Routes'
+import {
+    fetchDecks,
+    addDeck,
+    addQuestion
+} from '../actions/actions'
 
 function mapStateToProps (state) {
   return {
-    navigation: state.navigation
+    navigation: state.navigation,
+    state: state.decks
   }
 }
 
@@ -17,7 +23,10 @@ function mapDispatchToProps (dispatch) {
     }),
     popRoute: () => dispatch({
         type: 'POP_ROUTE'
-    })
+    }),
+    fetchDecks: (userID) => {dispatch(fetchDecks(userID))},
+    addDeck: deck => dispatch(addDeck(deck)),
+    addQuestion: question => dispatch(addQuestion(question)),
   }
 }
 

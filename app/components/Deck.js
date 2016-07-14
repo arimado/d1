@@ -12,7 +12,7 @@ import _ from 'lodash';
 
 
 
-const Deck = ({id, userID, questions, session: {userID: sessionUserID, deckID, selectedDeckID}, selectDeck, _handleNavigate}) => {
+const Deck = ({id, userID, questions, session: {userID: sessionUserID, deckID, selectedDeckID}, selectDeck, _handleNavigate, user}) => {
 
 
     let currentQuestions = (
@@ -55,6 +55,9 @@ const Deck = ({id, userID, questions, session: {userID: sessionUserID, deckID, s
                 })
             }}>
             <View style={Styles.deck}>
+                <View style={Styles.deckProfile}>
+                <Text style={Styles.profileName}>{user.name}, {user.age}</Text>
+                </View> 
                 {currentQuestions}
             </View>
         </TouchableOpacity>

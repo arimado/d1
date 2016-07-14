@@ -63,6 +63,7 @@ class Routes extends Component {
             return <SignUpContainer _handleNavigate={this._handleNavigate.bind(this)} />
         }
         if (scene.key === prefix + 'decks') {
+            this.props.fetchDecks('placeholder_id')
             return <DecksContainer _handleNavigate={this._handleNavigate.bind(this)} />
         }
         if (scene.key === prefix + 'create_deck') {

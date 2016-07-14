@@ -58,6 +58,7 @@ class Decks extends Component {
 
         let state = this.props.decks
         let selectedDeckID = this.props.session.selectedDeckID;
+        let users = state.users
 
         let decksInState = _.map(state.decks, (deck) => {
             let currentQuesions = (
@@ -70,6 +71,7 @@ class Decks extends Component {
                         }
                     })
              )
+             let currentUser = _.find(users, {id: deck.userID})
 
             return {
                 id: deck.id,
@@ -77,19 +79,18 @@ class Decks extends Component {
                 questions: currentQuesions,
                 session: this.props.session,
                 selectDeck: this.props.selectDeck,
-                _handleNavigate: this.props._handleNavigate
+                _handleNavigate: this.props._handleNavigate,
+                user: {
+                    name: currentUser.name,
+                    age: currentUser.age
+                }
             }
         })
 
+
         let reOrderedDecks = null;
-        // console.log('selectedDeckID')
-        // console.log(selectedDeckID);
         if(selectedDeckID !== null) {
             let selectedDeckIndex = _.findIndex(decksInState, {id: selectedDeckID});
-            // console.log('selectedDeckIndex')
-            // console.log(selectedDeckIndex);
-            // console.log('selectedDeckState')
-            // console.log(decksInState[selectedDeckIndex]);
             reOrderedDecks = [
                 decksInState[selectedDeckIndex],
                 ...decksInState.slice(selectedDeckIndex + 1),
@@ -99,19 +100,11 @@ class Decks extends Component {
             reOrderedDecks = decksInState;
         }
 
-        // console.log('decksInState')
-        // console.log(decksInState);
-        //
-        // console.log('reOrderedDecks')
-        // console.log(reOrderedDecks);
-
-
         return (
             <View style={Styles.container}>
                 <StatusBarBg />
                 <PopUpContainer />
                 <NavBarContainer _handleNavigate={this.props._handleNavigate}/>
-                <Text>Decks View</Text>
                 <SwipeCards
                    cards={reOrderedDecks}
                    renderCard={(data) => <Deck {...data} />}
