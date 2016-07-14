@@ -228,7 +228,7 @@ export const postUserSuccess = (users) => {
   }
 }
 
-export const submitUser = (users) => {
+export const submitUser = (users, done) => {
     return (dispatch) => {
         // activate spinner
         dispatch(postUser(users))
@@ -236,6 +236,7 @@ export const submitUser = (users) => {
                     .then(res => {
                         console.log('axios recieved something')
                         dispatch(postUserSuccess(users))
+                        done();
                     })
                     .catch(error => console.log('error: ', error))
     }

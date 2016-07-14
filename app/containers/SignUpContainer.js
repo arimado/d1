@@ -13,7 +13,8 @@ const mapDispatchToProps = (dispatch) => {
     updateSignUpName: (value) => dispatch(updateSignUpName(value)),
     updateSignUpAge: (value) => dispatch(updateSignUpAge(value)),
     updateSignUpPassword: (value) => dispatch(updateSignUpPassword(value)),
-    submitUser: (user) => dispatch(submitUser(user))
+    fetchDecks: (value) => dispatch(fetchDecks(value)),
+    submitUser: (user, done) => dispatch(submitUser(user, done))
   }
 }
 

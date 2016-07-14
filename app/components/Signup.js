@@ -9,6 +9,15 @@ import Styles from './Styles';
 import StatusBarBg from './StatusBarBg'
 import NavBar from './NavBar'
 
+const DECKS_ROUTE = {
+  type: 'push',
+  route: {
+    key: 'decks',
+    title: 'Decks'
+  }
+}
+
+
 class Signup extends Component {
     constructor(props) {
         super(props)
@@ -82,8 +91,12 @@ class Signup extends Component {
                                 }
 
                                 console.log('current User: ', user );
-                                
-                                this.props.submitUser(user)
+
+                                this.props.submitUser(user, () => {
+                                    this.props.fetchDecks('placeholder_id');
+                                    this.props._handleNavigate(DECKS_ROUTE)
+                                })
+
                             }}>
                         <Text style={Styles.button}>Login</Text>
                         </TouchableOpacity>
