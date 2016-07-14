@@ -68,6 +68,10 @@ const decks = (state = {
                 answers: [
                     ...state.answers,
                     ...action.data.answers
+                ],
+                users: [
+                    ...state.users,
+                    ...action.data.users
                 ]
             })
         case 'CHECK_DECK':

@@ -30,6 +30,7 @@ class ShowDeck extends Component {
         let decks = this.props.decks.decks;
         let questions = this.props.decks.questions;
         let answers = this.props.decks.answers;
+        let users = this.props.decks.users;
 
         let nestedDeckData = getDeckData(_, decks, questions, answers, selectedDeckID);
 
@@ -82,10 +83,9 @@ class ShowDeck extends Component {
                             });
 
                             if(answersCount === answerCheck.length) {
-                                this.props.showModal('NICE!')
+                                let matechedUser = _.find(users, {id: nestedDeckData.userID})
+                                this.props.showModal('You matched with ' + matechedUser.name)
                             }
-
-
 
                         }}>
                         <Icon
