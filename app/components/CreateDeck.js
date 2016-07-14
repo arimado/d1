@@ -94,8 +94,8 @@ class CreateDeck extends Component {
                                 content: ''
                             })
                         }}
-                        style={Styles.input}>
-                        <Text> + Answer </Text>
+                        >
+                        <Text style={Styles.input}> + Answer </Text>
                     </TouchableOpacity>
                 </View>
 
@@ -143,8 +143,8 @@ class CreateDeck extends Component {
                             id: randomNumber(),
                         deckID: currentDeckID
                         })}}
-                        style={Styles.input}>
-                        <Text> + Question </Text>
+                        >
+                        <Text style={Styles.input}> + Question </Text>
                     </TouchableOpacity>
 
 
