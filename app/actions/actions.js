@@ -3,7 +3,7 @@ import {randomNumber, randomAge, randomName} from '../util/util'
 
 
 // const server = 'http://localhost:3005/'
-const server = 'https://a8a03658.ngrok.io/'
+const server = 'https://cba51c10.ngrok.io/'
 
 export const SELECT_DECK = 'SELECT_DECK';
 
