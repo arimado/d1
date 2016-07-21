@@ -89,7 +89,6 @@ class CreateDeck extends Component {
         let submitButtonStyles = [Styles.buttonContainer, Styles.createSubmitButton]
 
 
-
         if (Number.isInteger(deck.color)) {
             profileContainerStyle.push(shadeMediumBG)
             deckContainerStyle.push(shadeLightBG);
@@ -230,6 +229,8 @@ class CreateDeck extends Component {
 
                     <TouchableOpacity
                         onPress={() => {
+
+
                             // submit the stuff to a database
                             // i'm going to send the whole thing as JSON text
                             let state = this.props.decks;
@@ -237,11 +238,16 @@ class CreateDeck extends Component {
 
                             let currentDeck = _.filter(state.decks, {id: currentDeckID})
                             let currentQuestions = _.filter(state.questions, {deckID: currentDeckID})
-                            let currentAnswers = _.chain(currentQuestions)
-                                                  .map(question => {
-                                                      return _.filter(allAnswers, {questionID: question.id})
-                                                  }).flatten();
+                            // let currentAnswers = _.chain(currentQuestions)
+                            //                       .map(question => {
+                            //                           return _.filter(allAnswers, {questionID: question.id})
+                            //                       }).flatten();
 
+                            let currentAnswers2D = _.map(currentQuestions, (question) => {
+                                return _.filter(allAnswers, {questionID: question.id})
+                            });
+                            let currentAnswers = _.flatten(currentAnswers2D);
+                            
                             this.props.submitDeck({
                                 decks: currentDeck,
                                 questions: currentQuestions,
