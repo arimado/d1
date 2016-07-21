@@ -84,7 +84,7 @@ const Deck = ({id, userID, color, questions, session: {userID: sessionUserID, de
                 })
             }}>
             <View style={profileContainerStyle}>
-                <Text style={Styles.text}>{user.name}, {user.age}</Text>
+                <Text style={Styles.profileName}>{user.name}, {user.age}</Text>
             </View>
             <View style={deckContainerStyle}>
                 {currentQuestions}
