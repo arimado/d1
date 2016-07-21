@@ -29,6 +29,8 @@ const Deck = ({id, userID, color, questions, session: {userID: sessionUserID, de
             shadeLightTXT = Styles.orangeShadeLightTXT;
             shadeVeryLightTXT = Styles.orangeShadeVeryLightTXT;
             break;
+        case 1:
+
         default:
 
             break;

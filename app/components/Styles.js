@@ -4,6 +4,8 @@ const Styles = StyleSheet.create({
 
     // COLOR ------------------------------------------------
 
+    // ORANGE
+
     orangeShadeVeryDarkTXT: {
         color: '#7F6026'
     },
@@ -32,6 +34,38 @@ const Styles = StyleSheet.create({
         backgroundColor: '#FFC14C'
     },
     orangeShadeVeryLightBG: {
+    },
+
+    // BLUE
+
+    blueShadeVeryDarkTXT: {
+        color: '#0A4B7F'
+    },
+    blueShadeDarkTXT: {
+        color: '#1077CC'
+    },
+    blueShadeMediumTXT: {
+        color: '#1395FF'
+    },
+    blueShadeLightTXT: {
+        color: '#FFC14C'
+    },
+    blueShadeVeryLightTXT: {
+    },
+
+    blueShadeVeryDarkBG: {
+        backgroundColor: '#7F6026'
+    },
+    blueShadeDarkBG: {
+        backgroundColor: '#CC8500'
+    },
+    blueShadeMediumBG: {
+        backgroundColor: '#FFA600'
+    },
+    blueShadeLightBG: {
+        backgroundColor: '#FFC14C'
+    },
+    blueShadeVeryLightBG: {
     },
 
     // CONTAINERS -------------------------------------------
@@ -216,7 +250,12 @@ const Styles = StyleSheet.create({
     },
 
     colorRadio: {
-        textAlign: 'center'
+        textAlign: 'center',
+        color: 'white'
+    },
+
+    colorRadioActive: {
+        color: 'grey'
     },
 
     answerContainer: {

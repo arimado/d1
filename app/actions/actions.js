@@ -185,6 +185,14 @@ export const addQuestion = ( question ) => {
     }
 }
 
+export const updateColor = ( colorNum, deckID ) => {
+    return {
+        type: UPDATE_COLOR,
+        deckID: deckID,
+        color: colorNum
+    }
+}
+
 
 export const UPDATE_ANSWER = 'UPDATE_ANSWER';
 

@@ -28,6 +28,7 @@ class CreateDeck extends Component {
 
         let submitText = this.props.requests.isPosting ? "Broadcasting deck..." : "Broadcast deck";
         let currentDeckID = this.props.session.deckID;
+        let deck = _.filter( this.props.decks.decks, {id: currentDeckID} )[0];
         let questions = _.filter(this.props.decks.questions, {deckID: currentDeckID})
         let allAnswers = this.props.decks.answers;
         let currentUserID = this.props.session.userID;
@@ -101,6 +102,25 @@ class CreateDeck extends Component {
             )
         })
 
+        let colorRadios = [];
+
+        for (let i = 0; i < 4; i += 1) {
+            let radioStyles = [Styles.colorRadio]
+
+            if (i === deck.color) {
+                radioStyles.push(Styles.colorRadioActive);
+            }
+            colorRadios.push(
+                <TouchableOpacity
+                    key={i}
+                    style={Styles.colorRadioContainer}
+                    onPress={() => {
+                        console.log(i)
+                    }}>
+                    <Icon style={radioStyles} name="circle" size={30}/>
+                </TouchableOpacity>
+            )
+        }
 
         return (
             <ScrollView style={Styles.container}>
@@ -116,22 +136,12 @@ class CreateDeck extends Component {
                         }}/>
 
                 </View>
+
                 <View style={[Styles.deckContainer, Styles.createContainer]}>
 
                     <View>
                         <View style={Styles.colorsContainer}>
-                            <TouchableOpacity style={Styles.colorRadioContainer}>
-                                <Icon style={Styles.colorRadio} name="circle" size={30} color="white" />
-                            </TouchableOpacity>
-                            <TouchableOpacity style={Styles.colorRadioContainer}>
-                                <Icon style={Styles.colorRadio} name="circle" size={30} color="white" />
-                            </TouchableOpacity>
-                            <TouchableOpacity style={Styles.colorRadioContainer}>
-                                <Icon style={Styles.colorRadio} name="circle" size={30} color="white" />
-                            </TouchableOpacity>
-                            <TouchableOpacity style={Styles.colorRadioContainer}>
-                                <Icon style={Styles.colorRadio} name="circle" size={30} color="white" />
-                            </TouchableOpacity>
+                            {colorRadios}
                          </View>
                     </View>
 
