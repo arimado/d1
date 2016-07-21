@@ -34,6 +34,19 @@ class CreateDeck extends Component {
         let currentUserID = this.props.session.userID;
         let currentUser = _.filter(this.props.decks.users, {id: currentUserID})[0]
 
+        switch (deck.color) {
+            case 0:
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break
+            default:
+        }
+
+
         let questionsElement = questions.map((question) => {
 
             let answers = _.filter(allAnswers, {questionID: question.id})

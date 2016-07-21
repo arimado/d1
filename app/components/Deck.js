@@ -30,19 +30,29 @@ const Deck = ({id, userID, color, questions, session: {userID: sessionUserID, de
             shadeVeryLightTXT = Styles.orangeShadeVeryLightTXT;
             break;
         case 1:
-
+            shadeVeryDarkBG = Styles.blueShadeVeryDarkBG;
+            shadeDarkBG = Styles.blueShadeDarkBG;
+            shadeMediumBG = Styles.blueShadeMediumBG;
+            shadeLightBG = Styles.blueShadeLightBG;
+            shadeVeryLightBG = Styles.blueShadeVeryLightBG;
+            shadeVeryDarkTXT = Styles.blueShadeVeryDarkTXT;
+            shadeDarkTXT = Styles.blueShadeDarkTXT;
+            shadeMediumTXT = Styles.blueShadeMediumTXT;
+            shadeLightTXT = Styles.blueShadeLightTXT;
+            shadeVeryLightTXT = Styles.blueShadeVeryLightTXT;
         default:
-
             break;
     }
 
 
     let deckContainerStyle = [Styles.deck];
     let profileContainerStyle = [Styles.deckProfile];
+    let deckTextStyle = [Styles.deckText]
 
     if (Number.isInteger(color)) {
         profileContainerStyle.push(shadeMediumBG)
         deckContainerStyle.push(shadeLightBG);
+        // deckTextStyle.push(shadeVeryDarkTXT)
     }
 
 
@@ -65,7 +75,7 @@ const Deck = ({id, userID, color, questions, session: {userID: sessionUserID, de
 
             return (
                     <View key={question.id}>
-                        <Text style={Styles.deckText}>{index + 1}. {question.content}</Text>
+                        <Text style={deckTextStyle}>{index + 1}. {question.content}</Text>
                         {/*{showAnswers}*/}
                     </View>
             )

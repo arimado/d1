@@ -48,22 +48,22 @@ const Styles = StyleSheet.create({
         color: '#1395FF'
     },
     blueShadeLightTXT: {
-        color: '#FFC14C'
+        color: '#60B8FF'
     },
     blueShadeVeryLightTXT: {
     },
 
     blueShadeVeryDarkBG: {
-        backgroundColor: '#7F6026'
+        backgroundColor: '#0A4B7F'
     },
     blueShadeDarkBG: {
-        backgroundColor: '#CC8500'
+        backgroundColor: '#1077CC'
     },
     blueShadeMediumBG: {
-        backgroundColor: '#FFA600'
+        backgroundColor: '#1395FF'
     },
     blueShadeLightBG: {
-        backgroundColor: '#FFC14C'
+        backgroundColor: '#60B8FF'
     },
     blueShadeVeryLightBG: {
     },
@@ -255,10 +255,10 @@ const Styles = StyleSheet.create({
     },
 
     colorRadioActive0: {
-        color: 'grey'
+        color: '#FFA600'
     },
     colorRadioActive1: {
-        color: 'red'
+        color: '#1395FF'
     },
 
     colorRadioActive2: {
