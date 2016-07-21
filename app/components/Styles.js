@@ -1,6 +1,41 @@
 import { StyleSheet } from 'react-native';
 
 const Styles = StyleSheet.create({
+
+    // COLOR ------------------------------------------------
+
+    orangeShadeVeryDarkTXT: {
+        color: '#7F6026'
+    },
+    orangeShadeDarkTXT: {
+        color: '#CC8500'
+    },
+    orangeShadeMediumTXT: {
+        color: '#FFA600'
+    },
+    orangeShadeLightTXT: {
+        color: '#FFC14C'
+    },
+    orangeShadeVeryLightTXT: {
+    },
+
+    orangeShadeVeryDarkBG: {
+        backgroundColor: '#7F6026'
+    },
+    orangeShadeDarkBG: {
+        backgroundColor: '#CC8500'
+    },
+    orangeShadeMediumBG: {
+        backgroundColor: '#FFA600'
+    },
+    orangeShadeLightBG: {
+        backgroundColor: '#FFC14C'
+    },
+    orangeShadeVeryLightBG: {
+    },
+
+    // CONTAINERS -------------------------------------------
+
     container: {
         flex: 1,
         padding: 15,

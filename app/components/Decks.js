@@ -80,6 +80,7 @@ class Decks extends Component {
                 session: this.props.session,
                 selectDeck: this.props.selectDeck,
                 _handleNavigate: this.props._handleNavigate,
+                color: deck.color,
                 user: {
                     name: currentUser.name,
                     age: currentUser.age
