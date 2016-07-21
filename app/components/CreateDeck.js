@@ -108,8 +108,10 @@ class CreateDeck extends Component {
             let radioStyles = [Styles.colorRadio]
 
             if (i === deck.color) {
-                radioStyles.push(Styles.colorRadioActive);
+                radioStyles.push(Styles['colorRadioActive' + i]);
             }
+
+
             colorRadios.push(
                 <TouchableOpacity
                     key={i}

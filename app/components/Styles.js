@@ -254,8 +254,19 @@ const Styles = StyleSheet.create({
         color: 'white'
     },
 
-    colorRadioActive: {
+    colorRadioActive0: {
         color: 'grey'
+    },
+    colorRadioActive1: {
+        color: 'red'
+    },
+
+    colorRadioActive2: {
+        color: 'orange'
+    },
+
+    colorRadioActive3: {
+        color: 'blue'
     },
 
     answerContainer: {
