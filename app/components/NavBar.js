@@ -53,7 +53,8 @@ class NavBar extends Component {
 
                         this.props.addDeck({
                             id: deckID,
-                        userID: userID
+                        userID: userID,
+                        color: 0
                         });
 
                         this.props.addQuestion({

@@ -33,9 +33,6 @@ class CreateDeck extends Component {
         let currentUserID = this.props.session.userID;
         let currentUser = _.filter(this.props.decks.users, {id: currentUserID})[0]
 
-
-
-
         let questionsElement = questions.map((question) => {
 
             let answers = _.filter(allAnswers, {questionID: question.id})
@@ -120,7 +117,6 @@ class CreateDeck extends Component {
 
                 </View>
                 <View style={[Styles.deckContainer, Styles.createContainer]}>
-
 
                     <View>
                         <View style={Styles.colorsContainer}>

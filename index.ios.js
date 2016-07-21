@@ -24,18 +24,18 @@ const {
 
 // DECKS REDUCER ---------------------------------------
 
-const deck = (state, action) => {
-  switch (action.type) {
-    case 'ADD_DECK':
-      return {
-        id: action.id,
-        text: action.text,
-        completed: false
-      };
-    default:
-      return state;
-  }
-};
+// const deck = (state, action) => {
+//   switch (action.type) {
+//     case 'ADD_DECK':
+//       return {
+//         id: action.id,
+//         text: action.text,
+//         completed: false
+//       };
+//     default:
+//       return state;
+//   }
+// };
 
 const decks = (state = {
         isFetching: false,

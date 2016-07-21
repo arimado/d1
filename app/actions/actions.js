@@ -127,11 +127,13 @@ export const submitDeck = (deck, done) => {
 export const ADD_DECK = 'ADD_DECK';
 
 export const addDeck = ( deck ) => {
+
     return {
         type: ADD_DECK,
         deck: {
             id: deck.id,
-            userID: deck.userID
+            userID: deck.userID,
+            color: deck.color
         }
     }
 }
