@@ -157,15 +157,13 @@ const decks = (state = {
                 ]
             })
          case 'UPDATE_COLOR':
-
             let deckIndex = _.findIndex(state.decks, {id: action.deckID})
-            let deckToUpdate = state.deck[deckIndex];
+            let deckToUpdate = state.decks[deckIndex];
             let updatedDeck = Object.assign({}, deckToUpdate, {
                 color: action.color
             })
-
             return Object.assign({}, state, {
-                answers: [
+                decks: [
                     ...state.decks.slice(0, deckIndex),
                     updatedDeck,
                     ...state.decks.slice(deckIndex + 1)

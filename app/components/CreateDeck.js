@@ -115,7 +115,8 @@ class CreateDeck extends Component {
                     key={i}
                     style={Styles.colorRadioContainer}
                     onPress={() => {
-                        console.log(i)
+                        console.log(i);
+                        this.props.updateColor(i, currentDeckID);
                     }}>
                     <Icon style={radioStyles} name="circle" size={30}/>
                 </TouchableOpacity>
