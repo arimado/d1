@@ -238,25 +238,29 @@ class CreateDeck extends Component {
 
                             let currentDeck = _.filter(state.decks, {id: currentDeckID})
                             let currentQuestions = _.filter(state.questions, {deckID: currentDeckID})
-                            // let currentAnswers = _.chain(currentQuestions)
-                            //                       .map(question => {
-                            //                           return _.filter(allAnswers, {questionID: question.id})
-                            //                       }).flatten();
+
 
                             let currentAnswers2D = _.map(currentQuestions, (question) => {
                                 return _.filter(allAnswers, {questionID: question.id})
                             });
                             let currentAnswers = _.flatten(currentAnswers2D);
-                            
-                            this.props.submitDeck({
-                                decks: currentDeck,
-                                questions: currentQuestions,
-                                answers: currentAnswers
-                            }, () => {
-                                this.props._handleNavigate({
-                                type: 'pop',
-                                direction: 'vertical'})
-                            })
+
+                            // If there are answers then push to database
+                            if( currentAnswers.length > 0) {
+                                this.props.submitDeck({
+                                    decks: currentDeck,
+                                    questions: currentQuestions,
+                                    answers: currentAnswers
+                                }, () => {
+                                    this.props._handleNavigate({
+                                    type: 'pop',
+                                    direction: 'vertical'})
+                                })
+                            } else {
+                                this.props.showModal('Have at least one question and an answer.')
+                            }
+
+
 
                             // clear the sessions deckID
                         }}
