@@ -68,6 +68,53 @@ const Styles = StyleSheet.create({
     blueShadeVeryLightBG: {
     },
 
+    // PURPLE
+
+    purpleShadeVeryDarkTXT: {
+        color: '#560095'
+    },
+    purpleShadeDarkTXT: {
+        color: '#7600CC'
+    },
+    purpleShadeMediumTXT: {
+        color: '#9300FF'
+    },
+    purpleShadeLightTXT: {
+        color: '#B34CFF'
+    },
+    purpleShadeVeryLightTXT: {
+    },
+    purpleShadeVeryDarkBG: {
+        backgroundColor: '#560095'
+    },
+    purpleShadeDarkBG: {
+        backgroundColor: '#7600CC'
+    },
+    purpleShadeMediumBG: {
+        backgroundColor: '#9300FF'
+    },
+    purpleShadeLightBG: {
+        backgroundColor: '#B34CFF'
+    },
+    purpleShadeVeryLightBG: {
+    },
+
+
+    colorRadioActive0: {
+        color: '#FFA600'
+    },
+    colorRadioActive1: {
+        color: '#1395FF'
+    },
+
+    colorRadioActive2: {
+        color: '#9300FF'
+    },
+
+    colorRadioActive3: {
+        color: 'grey'
+    },
+
     // CONTAINERS -------------------------------------------
 
     container: {
@@ -252,21 +299,6 @@ const Styles = StyleSheet.create({
     colorRadio: {
         textAlign: 'center',
         color: 'white'
-    },
-
-    colorRadioActive0: {
-        color: '#FFA600'
-    },
-    colorRadioActive1: {
-        color: '#1395FF'
-    },
-
-    colorRadioActive2: {
-        color: 'orange'
-    },
-
-    colorRadioActive3: {
-        color: 'blue'
     },
 
     answerContainer: {

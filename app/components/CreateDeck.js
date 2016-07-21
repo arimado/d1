@@ -34,31 +34,87 @@ class CreateDeck extends Component {
         let currentUserID = this.props.session.userID;
         let currentUser = _.filter(this.props.decks.users, {id: currentUserID})[0]
 
+        // STYLES --------------------------------------------------------------
+
+        let shadeVeryDarkBG, shadeDarkBG, shadeMediumBG, shadeLightBG, shadeVeryLightBG, shadeVeryDarkTXT, shadeDarkTXT, shadeMediumTXT, shadeLightTXT, shadeVeryLightTXT
+
         switch (deck.color) {
             case 0:
+                shadeVeryDarkBG = Styles.orangeShadeVeryDarkBG;
+                shadeDarkBG = Styles.orangeShadeDarkBG;
+                shadeMediumBG = Styles.orangeShadeMediumBG;
+                shadeLightBG = Styles.orangeShadeLightBG;
+                shadeVeryLightBG = Styles.orangeShadeVeryLightBG;
+                shadeVeryDarkTXT = Styles.orangeShadeVeryDarkTXT;
+                shadeDarkTXT = Styles.orangeShadeDarkTXT;
+                shadeMediumTXT = Styles.orangeShadeMediumTXT;
+                shadeLightTXT = Styles.orangeShadeLightTXT;
+                shadeVeryLightTXT = Styles.orangeShadeVeryLightTXT;
                 break;
             case 1:
+                shadeVeryDarkBG = Styles.blueShadeVeryDarkBG;
+                shadeDarkBG = Styles.blueShadeDarkBG;
+                shadeMediumBG = Styles.blueShadeMediumBG;
+                shadeLightBG = Styles.blueShadeLightBG;
+                shadeVeryLightBG = Styles.blueShadeVeryLightBG;
+                shadeVeryDarkTXT = Styles.blueShadeVeryDarkTXT;
+                shadeDarkTXT = Styles.blueShadeDarkTXT;
+                shadeMediumTXT = Styles.blueShadeMediumTXT;
+                shadeLightTXT = Styles.blueShadeLightTXT;
+                shadeVeryLightTXT = Styles.blueShadeVeryLightTXT;
                 break;
             case 2:
+                shadeVeryDarkBG = Styles.purpleShadeVeryDarkBG;
+                shadeDarkBG = Styles.purpleShadeDarkBG;
+                shadeMediumBG = Styles.purpleShadeMediumBG;
+                shadeLightBG = Styles.purpleShadeLightBG;
+                shadeVeryLightBG = Styles.purpleShadeVeryLightBG;
+                shadeVeryDarkTXT = Styles.purpleShadeVeryDarkTXT;
+                shadeDarkTXT = Styles.purpleShadeDarkTXT;
+                shadeMediumTXT = Styles.purpleShadeMediumTXT;
+                shadeLightTXT = Styles.purpleShadeLightTXT;
+                shadeVeryLightTXT = Styles.purpleShadeVeryLightTXT;
                 break;
-            case 3:
-                break
             default:
+                break;
         }
 
+
+        let deckContainerStyle = [Styles.deckContainer, Styles.createContainer];
+        let profileContainerStyle = [Styles.deckProfile, Styles.deckProfileCreate];
+        let deckTextStyle = [Styles.deckText];
+        let inputStyles = [Styles.input];
+        let answerInput = [Styles.input, Styles.answerInput];
+        let buttonStyles = [Styles.input, Styles.inputCreate];
+        let submitButtonStyles = [Styles.buttonContainer, Styles.createSubmitButton]
+
+
+
+        if (Number.isInteger(deck.color)) {
+            profileContainerStyle.push(shadeMediumBG)
+            deckContainerStyle.push(shadeLightBG);
+            inputStyles.push(shadeMediumBG);
+            answerInput.push(shadeMediumBG);
+            buttonStyles.push(shadeMediumBG);
+            submitButtonStyles.push(shadeVeryDarkBG);
+            // deckTextStyle.push(shadeVeryDarkTXT)
+        }
+
+        // ---------------------------------------------------------------------
 
         let questionsElement = questions.map((question) => {
 
             let answers = _.filter(allAnswers, {questionID: question.id})
             let answersElement = answers.map((answer) => {
 
-                let answerStyles = [Styles.answerCheck]
-                if (answer.isCorrect) answerStyles = [Styles.answerCheck, Styles.answerCheckCorrect]
+                let answerCheckBox = [Styles.answerCheck];
+                if (Number.isInteger(deck.color)) answerCheckBox.push(shadeVeryDarkBG);
+                if (answer.isCorrect) answerCheckBox.push(Styles.answerCheckCorrect);
 
                 return (
                     <View key={answer.id} style={Styles.answerContainer}>
                         <TextInput
-                            style={[Styles.input, Styles.answerInput]}
+                            style={answerInput}
                             placeholder="Answer"
                             value={answer.content}
                             onChangeText={(value) => {
@@ -69,7 +125,7 @@ class CreateDeck extends Component {
                             }}
                         />
                         <TouchableOpacity
-                            style={answerStyles}
+                            style={answerCheckBox}
                             onPress={(event)=> {
                                 this.props.deselectCorrect(question.id);
                                 this.props.selectCorrect(answer.id);
@@ -87,7 +143,7 @@ class CreateDeck extends Component {
             return (
                 <View key={question.id}>
                     <TextInput
-                        style={Styles.input}
+                        style={inputStyles}
                         placeholder="Question"
                         value={question.content}
                         onChangeText={(value) => {
@@ -108,7 +164,7 @@ class CreateDeck extends Component {
                             })
                         }}
                         >
-                        <Text style={[Styles.input, Styles.inputCreate]}> + Answer </Text>
+                        <Text style={buttonStyles}> + Answer </Text>
                     </TouchableOpacity>
                 </View>
 
@@ -141,8 +197,7 @@ class CreateDeck extends Component {
         return (
             <ScrollView style={Styles.container}>
                 <StatusBarBg />
-                <View style={[Styles.deckProfile, Styles.deckProfileCreate]}>
-
+                <View style={profileContainerStyle}>
                     <Text style={Styles.profileName}>{currentUser.name}, {currentUser.age}</Text>
                     <Icon style={Styles.deckClose} name="times" size={30} color="#FFF"
                         onPress={()=>{
@@ -153,7 +208,7 @@ class CreateDeck extends Component {
 
                 </View>
 
-                <View style={[Styles.deckContainer, Styles.createContainer]}>
+                <View style={deckContainerStyle}>
 
                     <View>
                         <View style={Styles.colorsContainer}>
@@ -169,7 +224,7 @@ class CreateDeck extends Component {
                         deckID: currentDeckID
                         })}}
                         >
-                        <Text style={[Styles.input, Styles.inputCreate]}> + Question </Text>
+                        <Text style={buttonStyles}> + Question </Text>
                     </TouchableOpacity>
 
 
@@ -177,8 +232,6 @@ class CreateDeck extends Component {
                         onPress={() => {
                             // submit the stuff to a database
                             // i'm going to send the whole thing as JSON text
-
-
                             let state = this.props.decks;
                             let allAnswers = state.answers;
 
@@ -201,8 +254,9 @@ class CreateDeck extends Component {
 
                             // clear the sessions deckID
                         }}
-                        style={[Styles.buttonContainer, Styles.createSubmitButton]}>
+                        style={submitButtonStyles}>
                         <Text style={Styles.submitDeckButton}> {submitText} </Text>
+
                     </TouchableOpacity>
                 </View>
             </ScrollView>

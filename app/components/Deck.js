@@ -40,6 +40,18 @@ const Deck = ({id, userID, color, questions, session: {userID: sessionUserID, de
             shadeMediumTXT = Styles.blueShadeMediumTXT;
             shadeLightTXT = Styles.blueShadeLightTXT;
             shadeVeryLightTXT = Styles.blueShadeVeryLightTXT;
+            break;
+        case 2:
+            shadeVeryDarkBG = Styles.purpleShadeVeryDarkBG;
+            shadeDarkBG = Styles.purpleShadeDarkBG;
+            shadeMediumBG = Styles.purpleShadeMediumBG;
+            shadeLightBG = Styles.purpleShadeLightBG;
+            shadeVeryLightBG = Styles.purpleShadeVeryLightBG;
+            shadeVeryDarkTXT = Styles.purpleShadeVeryDarkTXT;
+            shadeDarkTXT = Styles.purpleShadeDarkTXT;
+            shadeMediumTXT = Styles.purpleShadeMediumTXT;
+            shadeLightTXT = Styles.purpleShadeLightTXT;
+            shadeVeryLightTXT = Styles.purpleShadeVeryLightTXT;
         default:
             break;
     }
@@ -54,8 +66,6 @@ const Deck = ({id, userID, color, questions, session: {userID: sessionUserID, de
         deckContainerStyle.push(shadeLightBG);
         // deckTextStyle.push(shadeVeryDarkTXT)
     }
-
-
 
     let currentQuestions = (
         _.map(questions, (question, index) => {
