@@ -6,6 +6,7 @@ import {
   TouchableHighlight,
   TouchableOpacity,
   View,
+  ScrollView,
   Modal
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -40,54 +41,54 @@ const Login = ({login_field, onDeckClick, onUserFieldChange, _handleNavigate, fe
     console.log(_handleNavigate);
 
     return (
-        <View style={Styles.container}>
-            <StatusBarBg />
-            <View style={Styles.containerCenter}>
-                <Text style={Styles.welcome}>
-                I'm tinder for smart people.
-                </Text>
-                <Icon name="rocket" size={30} color="#900" />
-                {/*<TextInput
-                    style={Styles.input}
-                    placeholder="email"
-                    onChangeText={(value) => {
+            <ScrollView style={Styles.container}>
+                <StatusBarBg />
+                <View style={[Styles.containerCenter, Styles.deckScrollView]}>
+                    <Text style={Styles.welcome}>
+                    I'm tinder for smart people.
+                    </Text>
+                    <Icon name="rocket" size={30} color="#900" />
+                    {/*<TextInput
+                        style={Styles.input}
+                        placeholder="email"
+                        onChangeText={(value) => {
 
-                    }}
-                />
-                <TextInput
-                    style={Styles.input}
-                    placeholder="password"
-                    secureTextEntry={true}
-                />
-                <View style={Styles.buttons}>
-                    <TouchableOpacity
-                        style={Styles.buttonContainer}
-                        onPress={
-                            ()=>{
-                               _handleNavigate(DECKS_ROUTE);
-                               console.log(fetchDecks);
-                            }
-                        }>
-                        <Text style={Styles.button}>Login</Text>
+                        }}
+                    />
+                    <TextInput
+                        style={Styles.input}
+                        placeholder="password"
+                        secureTextEntry={true}
+                    />
+                    <View style={Styles.buttons}>
+                        <TouchableOpacity
+                            style={Styles.buttonContainer}
+                            onPress={
+                                ()=>{
+                                   _handleNavigate(DECKS_ROUTE);
+                                   console.log(fetchDecks);
+                                }
+                            }>
+                            <Text style={Styles.button}>Login</Text>
 
-                    </TouchableOpacity>
-                </View>*/}
-                <View style={Styles.buttons}>
-                    <TouchableOpacity
-                        style={[Styles.buttonContainer, Styles.loginButtonContainer]}
-                        onPress={
-                        ()=> {
-                            fillRandomUser()
-                            _handleNavigate(SIGN_UP_ROUTE);
+                        </TouchableOpacity>
+                    </View>*/}
+                    <View style={Styles.buttons}>
+                        <TouchableOpacity
+                            style={[Styles.buttonContainer, Styles.loginButtonContainer]}
+                            onPress={
+                            ()=> {
+                                fillRandomUser()
+                                _handleNavigate(SIGN_UP_ROUTE);
 
-                        }}>
-                        <Text
-                            style={[Styles.button, Styles.loginButton]}
-                            > Sign in as a test user </Text>
-                    </TouchableOpacity>
+                            }}>
+                            <Text
+                                style={[Styles.button, Styles.loginButton]}
+                                > Sign in as a test user </Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
-            </View>
-        </View>
+            </ScrollView>
     )
 }
 

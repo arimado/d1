@@ -3,7 +3,8 @@ import {
   Text,
   TextInput,
   View,
-  TouchableOpacity
+  TouchableOpacity,
+  ScrollView
 } from 'react-native';
 import Styles from './Styles';
 import StatusBarBg from './StatusBarBg'
@@ -61,7 +62,7 @@ class Signup extends Component {
 
 
         return (
-            <View style={Styles.container}>
+            <ScrollView style={Styles.container}>
                 <StatusBarBg />
                 <View style={Styles.containerCenter}>
                     <Text style={Styles.welcome}>
@@ -111,7 +112,7 @@ class Signup extends Component {
                         </TouchableOpacity>
                     </View>
                 </View>
-            </View>
+            </ScrollView>
         )
     }
 

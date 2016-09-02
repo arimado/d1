@@ -2,8 +2,9 @@ import axios from 'axios';
 import {randomNumber, randomAge, randomName} from '../util/util'
 
 
-// const server = 'http://localhost:3005/'
-const server = 'https://cba51c10.ngrok.io/'
+const server = 'http://localhost:3005/'
+// const server = 'http://d1s.herokuapp.com/'
+// const server ='https://31127563.ngrok.io/'
 
 export const SELECT_DECK = 'SELECT_DECK';
 
